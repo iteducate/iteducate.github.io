@@ -3,14 +3,17 @@ layout: single
 title:  "Welcome to Jekyll!"
 date:   2021-05-11 21:21:07 +0300
 categories: jekyll update
+tags: jekyll
 comments: true
 toc: true
 toc_label: "Содержание"
 toc_sticky: true
+
 ---
 
 # First Section
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+
 
 # Second Section
 Jekyll requires blog post files to be named according to the following format:

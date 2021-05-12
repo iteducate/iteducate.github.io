@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-05-12T20:39:03+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Welcome to Jekyll!</title><link href="https://iteducate.github.io/jekyll/update/welcome-to-jekyll/" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2021-05-11T21:21:07+03:00</published><updated>2021-05-11T21:21:07+03:00</updated><id>https://iteducate.github.io/jekyll/update/welcome-to-jekyll</id><content type="html" xml:base="https://iteducate.github.io/jekyll/update/welcome-to-jekyll/">&lt;h1 id=&quot;first-section&quot;&gt;First Section&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-05-12T23:39:30+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Welcome to Jekyll!</title><link href="https://iteducate.github.io/jekyll/update/welcome-to-jekyll/" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2021-05-11T21:21:07+03:00</published><updated>2021-05-11T21:21:07+03:00</updated><id>https://iteducate.github.io/jekyll/update/welcome-to-jekyll</id><content type="html" xml:base="https://iteducate.github.io/jekyll/update/welcome-to-jekyll/">&lt;h1 id=&quot;first-section&quot;&gt;First Section&lt;/h1&gt;
 &lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
 &lt;h1 id=&quot;second-section&quot;&gt;Second Section&lt;/h1&gt;
@@ -17,4 +17,88 @@
 &lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Tom&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &apos;Hi, Tom&apos; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>Ivan Denisenko</name></author><category term="jekyll" /><category term="update" /><summary type="html">First Section You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>Ivan Denisenko</name></author><category term="jekyll" /><category term="update" /><category term="jekyll" /><summary type="html">First Section You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry><entry><title type="html">Необычный взгляд на редактирование текста. Часть I.</title><link href="https://iteducate.github.io/vim_1/" rel="alternate" type="text/html" title="Необычный взгляд на редактирование текста. Часть I." /><published>2019-11-11T09:00:00+03:00</published><updated>2019-11-11T09:00:00+03:00</updated><id>https://iteducate.github.io/vim_1</id><content type="html" xml:base="https://iteducate.github.io/vim_1/">&lt;p&gt;Каждому из нас хоть раз в жизни приходилось иметь дело с обработкой текстовых документов. Дело казалось бы обыденное, открыл &lt;em&gt;“офис”&lt;/em&gt; и вперёд, но некоторые до сих пор его не любят за то, что в нём куча ненужных для них вещей, а кто-то просто откровенно ими не умеет пользоваться. :)&lt;/p&gt;
+
+&lt;p&gt;Данный набор советов не претендует на то, чтобы полностью заменить вам ваш привычный текстовый редактор. Однако здесь я покажу вам как с помощью бесплатной и самое главное мощной утилиты сделать редактирование текста максимально быстро и эффективно.&lt;/p&gt;
+
+&lt;p&gt;Первое, что необходимо вам понимать, это то, что данная утилита довольно-таки сложна для начального уровня и требует некоторого понимая работы в &lt;strong&gt;командной строке&lt;/strong&gt; (&lt;em&gt;да, исходная программа, которая называется &lt;strong&gt;*vi&lt;/strong&gt;&lt;/em&gt;, не имеет графического интерфейса&lt;em&gt;). И хотя я буду показывать все примеры в командной строке, эти же примеры можно повторить в программе *Vim&lt;/em&gt;, которая как раз имеет данный графический интерфейс и немногим облегчит вам работу.&lt;/p&gt;
+
+&lt;p&gt;Вторым пунктом я хотел бы выделить именно тот факт, что я не хочу чтобы вы уходили от того же MS Office, (&lt;em&gt;да и функционал в данной программе несколько иной&lt;/em&gt;), я лишь хочу показать то, как не имея лицензии на крупные программные продукты, а также надобности в &lt;em&gt;тяжелом&lt;/em&gt; редактировании текста, использовать действительно полезный и главное очень эффективный продукт.&lt;/p&gt;
+
+&lt;p&gt;Итак, пустимся же в “весёлое приключение” по небольшой Вселенной Vi и Vim!&lt;/p&gt;
+
+&lt;h1 id=&quot;1-это-необходимо-знать&quot;&gt;1. Это необходимо знать&lt;/h1&gt;
+
+&lt;p&gt;Прежде чем приступить к написанию советов, хотелось бы остановиться на паре моментов, которые необходимо помнить.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Установка.&lt;/strong&gt; Скачать и установить ПО вы можете по &lt;a href=&quot;https://www.vim.org/download.php&quot; title=&quot;Download VIM&quot;&gt;&lt;strong&gt;данной ссылке&lt;/strong&gt;&lt;/a&gt;. Сложного в установке нет ничего, поэтому я верю в то, что вы справитесь. Я же буду использовать версию vi, которая есть в моем текстовом редакторе VS Code. Не пугайтесь! Всё, что я буду делать, вы сможете сделать и в Vim, установленный лично вами.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Примеры.&lt;/strong&gt; Всё, что я буду выполнять, будет сопровождаться gif-анимационным файлом, в котором будут показаны все клавиши, задействованные в данном примере. Это очень удобно, как мне кажется, и вы сможете всегда вернуться и разобрать непонятный вам материал (&lt;em&gt;хотя я очень верю, что такового не будет!&lt;/em&gt;). К сожалению, исходники самих примеров я выкладывать никуда не буду, поэтому вам придется на личных примерах разбираться как использовать ту или иную команду. Это поможет вам более тщательнее изучить весь материал и более подробно разобраться в интерфейсе и командах программы.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Слепая печать.&lt;/strong&gt; Пожалуй, это единственное условие, которое необходимо выполнить прежде чем приступить к изучению Vim. Вам действительно будет тяжело разобраться в некоторых моментах без данного навыка, так как эфффективность работы в данной программе достигается за счёт ловкости рук!&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;2-совет--1-повторение---мать-учения&quot;&gt;2. Совет № 1. Повторение - мать учения&lt;/h1&gt;
+
+&lt;p&gt;В повседной работе мы не замечаем как часто выполняем одни и те же операции: &lt;em&gt;“скопировал - вставил”&lt;/em&gt;, &lt;em&gt;“скопировал - вставил”&lt;/em&gt; и так десятки, а то и сотни раз всеразличных комбинаций клавиш. Если мы сможем как-то упростить выполнение одних и тех же операций, то сэкономим большое количество времени.&lt;/p&gt;
+
+&lt;p&gt;Редактор Vim позволяет отслеживать последние выполняемые операции и затем повторять их снова и снова, пока нам это будет необходимо. Однако, прежде чем приступить к редактированию какого-либо текста, необходимо упомянуть о двух основных режимах работы редактора Vim:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;командный режим&lt;/strong&gt; - обыкновенное состояние редактора, в котором выполняются все команды, за исключение главной функции редактора - &lt;strong&gt;&lt;em&gt;редактирование текста&lt;/em&gt;&lt;/strong&gt;. И это следует понимать, потому что очень часто возникают казусы, по которым люди не понимают различия в режимах и тем самым не могут найти решение в той или иной проблеме.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;режим вставки&lt;/strong&gt; - как понятно из названия, в данном режиме происходит набор необходимого нам текста.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;При входе в программу вы попадаете в &lt;strong&gt;командный режим&lt;/strong&gt;, а при нажатии клавиши &lt;code&gt;i&lt;/code&gt; в &lt;strong&gt;режим вставки&lt;/strong&gt;. Для того чтобы вернуться обратно в командный режим необходимо нажать клавишу &lt;code&gt;Esc&lt;/code&gt;. Как видим ничего сложного нет!&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Примечание.&lt;/strong&gt; Как узнать в каком режиме вы сейчас находитесь? Очень просто, в режиме вставки в левом нижнем углу будет надпись &lt;code&gt;--ВСТАВКА--&lt;/code&gt; или &lt;code&gt;--INSERT--&lt;/code&gt; (если у вас установлена англоязычная версия). При выходе в командный режим данная надпись исчезает.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Итак, для того чтобы повторить последнее изменение, в редакторе Vim существует команда &lt;strong&gt;&lt;em&gt;“точка”&lt;/em&gt;&lt;/strong&gt;. Данная команда одна из самых мощных и гибких в редакторе. При этом, под &lt;em&gt;“последними изменениями”&lt;/em&gt; понимается изменение как над отдельными символами, целыми строками или даже файлами!&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Краткая справка по командам.&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;p&gt;Все команды выполняются в &lt;strong&gt;командном режиме&lt;/strong&gt;!&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;&lt;code&gt;h&lt;/code&gt; - шаг влево&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;j&lt;/code&gt; - шаг вниз&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;k&lt;/code&gt; - шаг вверх&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;l&lt;/code&gt; - шаг вправо&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;x&lt;/code&gt; - удаление символа под курсором&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;u&lt;/code&gt; - отменить последнее изменение&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;dd&lt;/code&gt; - удаление целой строки&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Текущие команды будут использоваться в нашем первом примере. Вы увидите каким образом происходит перемещение по файлу, удаление символа, строки, а также повторение этих же действий с использованием магической команды &lt;em&gt;“точка”&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;В качестве примера я возьму небольшую программу и в ней проведу все наши эксперименты.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/vim/dd.gif&quot;&gt;
+          &lt;img src=&quot;/assets/images/vim/dd.gif&quot; alt=&quot;splash layout example&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;Пример 1. Демонстрация применения команды &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;точка&lt;/code&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Обратите внимание на то, где расположен курсор и какие изменения происходят после выполнения определенной команды. А еще лучше, возьмите произвольный текст и поиграйтесь сами, выполняя различные команды.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Замечание!!!&lt;/strong&gt; Для того чтобы выйти из данного редактора, особенно если вы выполняете упражнения в командной строке, необходимо выполнить одну из комбинаций клавиш:&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;code&gt;:q!&lt;/code&gt; - выход из программы без сохранения&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;:wq&lt;/code&gt; - выход из программы c сохранением&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;p&gt;Не забывайте, что команды выполняются в &lt;strong&gt;командном режиме&lt;/strong&gt;!!!&lt;/p&gt;
+
+  &lt;p&gt;Данная проблема очень популярна в интернете, так как начинающие пользователи не имеют представления как выйти из данного редактора. По этому поводу есть даже небольшая заметка в &lt;a href=&quot;https://stackoverflow.blog/2017/05/23/stack-overflow-helping-one-million-developers-exit-vim/&quot;&gt;блоге stackoverflow&lt;/a&gt;. Там отмечено, что помощью по вопросу выхода из Vim воспользовалось более 1 млн. человек!!!&lt;/p&gt;
+&lt;/blockquote&gt;</content><author><name>Ivan Denisenko</name></author><category term="vim" /><summary type="html">Каждому из нас хоть раз в жизни приходилось иметь дело с обработкой текстовых документов. Дело казалось бы обыденное, открыл “офис” и вперёд, но некоторые до сих пор его не любят за то, что в нём куча ненужных для них вещей, а кто-то просто откровенно ими не умеет пользоваться. :)</summary></entry></feed>

@@ -1,0 +1,640 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.22.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Необычный взгляд на редактирование текста. Часть I. - Blog Notes</title>
+<meta name="description" content="Каждому из нас хоть раз в жизни приходилось иметь дело с обработкой текстовых документов. Дело казалось бы обыденное, открыл “офис” и вперёд, но некоторые до сих пор его не любят за то, что в нём куча ненужных для них вещей, а кто-то просто откровенно ими не умеет пользоваться. :)">
+
+
+  <meta name="author" content="Ivan Denisenko">
+  
+  <meta property="article:author" content="Ivan Denisenko">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Blog Notes">
+<meta property="og:title" content="Необычный взгляд на редактирование текста. Часть I.">
+<meta property="og:url" content="https://iteducate.github.io/vim_1/">
+
+
+  <meta property="og:description" content="Каждому из нас хоть раз в жизни приходилось иметь дело с обработкой текстовых документов. Дело казалось бы обыденное, открыл “офис” и вперёд, но некоторые до сих пор его не любят за то, что в нём куча ненужных для них вещей, а кто-то просто откровенно ими не умеет пользоваться. :)">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2019-11-11T09:00:00+03:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://iteducate.github.io/vim_1/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Ivan Denisenko",
+      "url": "https://iteducate.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Blog Notes Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/default.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Blog Notes
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/year-archive/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/bio-photo.jpg" alt="Ivan Denisenko" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Ivan Denisenko</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Crazy man</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Moscow</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:ghostmorgan13@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://neteducate.github.io" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+            <li><a href="https://www.facebook.com/DenIvanTea" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook-square" aria-hidden="true"></i><span class="label">Facebook</span></a></li>
+          
+        
+          
+            <li><a href="https://www.instagram.com/denisenko__ivan/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/ivan-denisenko-357250b8" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">Linkedin</span></a></li>
+          
+        
+          
+            <li><a href="https://www.vk.com/denisenko_ivan" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-vk" aria-hidden="true"></i><span class="label">VK</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Необычный взгляд на редактирование текста. Часть I.">
+    <meta itemprop="description" content="Каждому из нас хоть раз в жизни приходилось иметь дело с обработкой текстовых документов. Дело казалось бы обыденное, открыл “офис” и вперёд, но некоторые до сих пор его не любят за то, что в нём куча ненужных для них вещей, а кто-то просто откровенно ими не умеет пользоваться. :)">
+    <meta itemprop="datePublished" content="2019-11-11T09:00:00+03:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Необычный взгляд на редактирование текста. Часть I.
+</h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2019-11-11T09:00:00+03:00">November 11, 2019</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Содержание</h4></header>
+              <ul class="toc__menu"><li><a href="#1-это-необходимо-знать">1. Это необходимо знать</a></li><li><a href="#2-совет--1-повторение---мать-учения">2. Совет № 1. Повторение - мать учения</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p>Каждому из нас хоть раз в жизни приходилось иметь дело с обработкой текстовых документов. Дело казалось бы обыденное, открыл <em>“офис”</em> и вперёд, но некоторые до сих пор его не любят за то, что в нём куча ненужных для них вещей, а кто-то просто откровенно ими не умеет пользоваться. :)</p>
+
+<p>Данный набор советов не претендует на то, чтобы полностью заменить вам ваш привычный текстовый редактор. Однако здесь я покажу вам как с помощью бесплатной и самое главное мощной утилиты сделать редактирование текста максимально быстро и эффективно.</p>
+
+<p>Первое, что необходимо вам понимать, это то, что данная утилита довольно-таки сложна для начального уровня и требует некоторого понимая работы в <strong>командной строке</strong> (<em>да, исходная программа, которая называется <strong>*vi</strong></em>, не имеет графического интерфейса<em>). И хотя я буду показывать все примеры в командной строке, эти же примеры можно повторить в программе *Vim</em>, которая как раз имеет данный графический интерфейс и немногим облегчит вам работу.</p>
+
+<p>Вторым пунктом я хотел бы выделить именно тот факт, что я не хочу чтобы вы уходили от того же MS Office, (<em>да и функционал в данной программе несколько иной</em>), я лишь хочу показать то, как не имея лицензии на крупные программные продукты, а также надобности в <em>тяжелом</em> редактировании текста, использовать действительно полезный и главное очень эффективный продукт.</p>
+
+<p>Итак, пустимся же в “весёлое приключение” по небольшой Вселенной Vi и Vim!</p>
+
+<h1 id="1-это-необходимо-знать">1. Это необходимо знать</h1>
+
+<p>Прежде чем приступить к написанию советов, хотелось бы остановиться на паре моментов, которые необходимо помнить.</p>
+
+<ol>
+  <li><strong>Установка.</strong> Скачать и установить ПО вы можете по <a href="https://www.vim.org/download.php" title="Download VIM"><strong>данной ссылке</strong></a>. Сложного в установке нет ничего, поэтому я верю в то, что вы справитесь. Я же буду использовать версию vi, которая есть в моем текстовом редакторе VS Code. Не пугайтесь! Всё, что я буду делать, вы сможете сделать и в Vim, установленный лично вами.</li>
+  <li><strong>Примеры.</strong> Всё, что я буду выполнять, будет сопровождаться gif-анимационным файлом, в котором будут показаны все клавиши, задействованные в данном примере. Это очень удобно, как мне кажется, и вы сможете всегда вернуться и разобрать непонятный вам материал (<em>хотя я очень верю, что такового не будет!</em>). К сожалению, исходники самих примеров я выкладывать никуда не буду, поэтому вам придется на личных примерах разбираться как использовать ту или иную команду. Это поможет вам более тщательнее изучить весь материал и более подробно разобраться в интерфейсе и командах программы.</li>
+  <li><strong>Слепая печать.</strong> Пожалуй, это единственное условие, которое необходимо выполнить прежде чем приступить к изучению Vim. Вам действительно будет тяжело разобраться в некоторых моментах без данного навыка, так как эфффективность работы в данной программе достигается за счёт ловкости рук!</li>
+</ol>
+
+<h1 id="2-совет--1-повторение---мать-учения">2. Совет № 1. Повторение - мать учения</h1>
+
+<p>В повседной работе мы не замечаем как часто выполняем одни и те же операции: <em>“скопировал - вставил”</em>, <em>“скопировал - вставил”</em> и так десятки, а то и сотни раз всеразличных комбинаций клавиш. Если мы сможем как-то упростить выполнение одних и тех же операций, то сэкономим большое количество времени.</p>
+
+<p>Редактор Vim позволяет отслеживать последние выполняемые операции и затем повторять их снова и снова, пока нам это будет необходимо. Однако, прежде чем приступить к редактированию какого-либо текста, необходимо упомянуть о двух основных режимах работы редактора Vim:</p>
+<ul>
+  <li><strong>командный режим</strong> - обыкновенное состояние редактора, в котором выполняются все команды, за исключение главной функции редактора - <strong><em>редактирование текста</em></strong>. И это следует понимать, потому что очень часто возникают казусы, по которым люди не понимают различия в режимах и тем самым не могут найти решение в той или иной проблеме.</li>
+  <li><strong>режим вставки</strong> - как понятно из названия, в данном режиме происходит набор необходимого нам текста.</li>
+</ul>
+
+<p>При входе в программу вы попадаете в <strong>командный режим</strong>, а при нажатии клавиши <code>i</code> в <strong>режим вставки</strong>. Для того чтобы вернуться обратно в командный режим необходимо нажать клавишу <code>Esc</code>. Как видим ничего сложного нет!</p>
+
+<blockquote>
+  <p><strong>Примечание.</strong> Как узнать в каком режиме вы сейчас находитесь? Очень просто, в режиме вставки в левом нижнем углу будет надпись <code>--ВСТАВКА--</code> или <code>--INSERT--</code> (если у вас установлена англоязычная версия). При выходе в командный режим данная надпись исчезает.</p>
+</blockquote>
+
+<p>Итак, для того чтобы повторить последнее изменение, в редакторе Vim существует команда <strong><em>“точка”</em></strong>. Данная команда одна из самых мощных и гибких в редакторе. При этом, под <em>“последними изменениями”</em> понимается изменение как над отдельными символами, целыми строками или даже файлами!</p>
+
+<blockquote>
+  <p><strong>Краткая справка по командам.</strong></p>
+
+  <p>Все команды выполняются в <strong>командном режиме</strong>!</p>
+
+  <ul>
+    <li><code>h</code> - шаг влево</li>
+    <li><code>j</code> - шаг вниз</li>
+    <li><code>k</code> - шаг вверх</li>
+    <li><code>l</code> - шаг вправо</li>
+    <li><code>x</code> - удаление символа под курсором</li>
+    <li><code>u</code> - отменить последнее изменение</li>
+    <li><code>dd</code> - удаление целой строки</li>
+  </ul>
+</blockquote>
+
+<p>Текущие команды будут использоваться в нашем первом примере. Вы увидите каким образом происходит перемещение по файлу, удаление символа, строки, а также повторение этих же действий с использованием магической команды <em>“точка”</em>.</p>
+
+<p>В качестве примера я возьму небольшую программу и в ней проведу все наши эксперименты.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/vim/dd.gif">
+          <img src="/assets/images/vim/dd.gif" alt="splash layout example" />
+      </a>
+    
+  
+  
+    <figcaption>Пример 1. Демонстрация применения команды <code class="language-plaintext highlighter-rouge">точка</code>
+</figcaption>
+  
+</figure>
+
+<p>Обратите внимание на то, где расположен курсор и какие изменения происходят после выполнения определенной команды. А еще лучше, возьмите произвольный текст и поиграйтесь сами, выполняя различные команды.</p>
+
+<blockquote>
+  <p><strong>Замечание!!!</strong> Для того чтобы выйти из данного редактора, особенно если вы выполняете упражнения в командной строке, необходимо выполнить одну из комбинаций клавиш:</p>
+  <ul>
+    <li><code>:q!</code> - выход из программы без сохранения</li>
+    <li><code>:wq</code> - выход из программы c сохранением</li>
+  </ul>
+
+  <p>Не забывайте, что команды выполняются в <strong>командном режиме</strong>!!!</p>
+
+  <p>Данная проблема очень популярна в интернете, так как начинающие пользователи не имеют представления как выйти из данного редактора. По этому поводу есть даже небольшая заметка в <a href="https://stackoverflow.blog/2017/05/23/stack-overflow-helping-one-million-developers-exit-vim/">блоге stackoverflow</a>. Там отмечено, что помощью по вопросу выхода из Vim воспользовалось более 1 млн. человек!!!</p>
+</blockquote>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#vim" class="page__taxonomy-item" rel="tag">vim</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-11-11T09:00:00+03:00">November 11, 2019</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%D0%9D%D0%B5%D0%BE%D0%B1%D1%8B%D1%87%D0%BD%D1%8B%D0%B9+%D0%B2%D0%B7%D0%B3%D0%BB%D1%8F%D0%B4+%D0%BD%D0%B0+%D1%80%D0%B5%D0%B4%D0%B0%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5+%D1%82%D0%B5%D0%BA%D1%81%D1%82%D0%B0.+%D0%A7%D0%B0%D1%81%D1%82%D1%8C+I.%20https%3A%2F%2Fiteducate.github.io%2Fvim_1%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fiteducate.github.io%2Fvim_1%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fiteducate.github.io%2Fvim_1%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="#" class="pagination--pager disabled">Previous</a>
+    
+    
+      <a href="/jekyll/update/welcome-to-jekyll/" class="pagination--pager" title="Welcome to Jekyll!
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/jekyll/update/welcome-to-jekyll/" rel="permalink">Welcome to Jekyll!
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2021-05-11T21:21:07+03:00">May 11, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">First Section
+You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in man...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Ivan Denisenko. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://iteducate.github.io/vim_1/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/vim_1"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://iteducate-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>
