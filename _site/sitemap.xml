@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>https://iteducate.github.io/phrasel_verbs/phras_take/</loc>
+<lastmod>2017-10-22T16:50:00+03:00</lastmod>
+</url>
+<url>
 <loc>https://iteducate.github.io/vim_1/</loc>
 <lastmod>2019-11-11T09:00:00+03:00</lastmod>
 </url>
@@ -10,6 +14,9 @@
 </url>
 <url>
 <loc>https://iteducate.github.io/about/</loc>
+</url>
+<url>
+<loc>https://iteducate.github.io/categories/</loc>
 </url>
 <url>
 <loc>https://iteducate.github.io/</loc>

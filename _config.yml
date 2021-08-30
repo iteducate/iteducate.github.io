@@ -140,6 +140,8 @@ footer:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url:
+    - label: "VK"
+      icon: "fab fa-fw fa-vk"
 
 
 # Reading Files
