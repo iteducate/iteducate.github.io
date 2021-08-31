@@ -75,9 +75,11 @@ bob:tmp $ gzip -l access_log.gz
 <p>Here, you can see that the compression ratio is given as 93%, which is the inverse of the 14:1 ratio, i.e. 13/14.  Additionally, when the file is decompressed it will be called <code class="console">access_log</code>. </p>
 
 {% highlight console %}
+
 bob:tmp $ gunzip access_log.gz
 bob:tmp $ ls -l access_log*
 -rw-r--r-- 1 sean sean 372063 Oct 11 21:24 access_log
+
 {% endhighlight %}
 
 <p>The opposite of the <code>gzip</code> command is <code>gunzip</code>.  Alternatively, <code>gzip –d</code> does the same thing (<code>gunzip</code> is just a script that calls <code>gzip</code> with the right parameters). After <code>gunzip</code> does its work you can see that the <code class="console">access_log</code> file is back to its original size.</p>
