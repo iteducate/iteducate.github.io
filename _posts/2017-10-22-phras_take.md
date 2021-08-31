@@ -2,8 +2,8 @@
 layout: single
 title:  "Основные значения фразового глагола take"
 date:   2017-10-22 16:50:00 +0300
-tags: english
-categories: phrasel_verbs
+tags: phrasel_verbs
+categories: english
 comments: true
 
 ---
