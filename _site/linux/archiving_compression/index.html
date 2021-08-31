@@ -520,12 +520,12 @@ drwxrwxr-x 2 sean sean  4096 Oct 14 13:26 logs
 <p>Add the <code>–v</code> flag and you will get verbose output of the files processed. This is helpful so you can see what’s happening:</p>
 
 <figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">bob:tmp $</span><span class="w"> </span><span class="nb">tar</span> <span class="nt">-xjvf</span> access_logs.tbz
-<span class="go">logs/
-logs/access_log.3
-logs/access_log.1
-logs/access_log.4
-logs/access_log
-logs/access_log.2</span></code></pre></figure>
+<span class="go">  logs/
+  logs/access_log.3
+  logs/access_log.1
+  logs/access_log.4
+  logs/access_log
+  logs/access_log.2</span></code></pre></figure>
 
 <p>It is important to keep the <code>–f</code> flag at the end, as <code>tar</code> assumes whatever follows it is a filename.  In the next example, the <code>f</code> and <code>v</code> flags were transposed, leading to <code>tar</code> interpreting the command as an operation on a file called "<code class="console">v</code>" (the relevant message is in italics.)</p>
 
@@ -638,9 +638,19 @@ caution: filename not matched:  access_log
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#archiving" class="page__taxonomy-item" rel="tag">archiving</a><span class="sep">, </span>
+      <a href="/tags/#bunzip" class="page__taxonomy-item" rel="tag">bunzip</a><span class="sep">, </span>
     
-      <a href="/tags/#compression" class="page__taxonomy-item" rel="tag">compression</a>
+      <a href="/tags/#bzip" class="page__taxonomy-item" rel="tag">bzip</a><span class="sep">, </span>
+    
+      <a href="/tags/#gunzip" class="page__taxonomy-item" rel="tag">gunzip</a><span class="sep">, </span>
+    
+      <a href="/tags/#gzip" class="page__taxonomy-item" rel="tag">gzip</a><span class="sep">, </span>
+    
+      <a href="/tags/#tar" class="page__taxonomy-item" rel="tag">tar</a><span class="sep">, </span>
+    
+      <a href="/tags/#unzip" class="page__taxonomy-item" rel="tag">unzip</a><span class="sep">, </span>
+    
+      <a href="/tags/#zip" class="page__taxonomy-item" rel="tag">zip</a>
     
     </span>
   </p>

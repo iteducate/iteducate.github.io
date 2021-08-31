@@ -3,7 +3,7 @@
 layout: single
 title:  "Archiving and Compression"
 date:   2017-10-23 12:20:00 +0300
-tags: archiving compression
+tags: gzip gunzip bzip bunzip tar zip unzip
 categories: linux
 comments: true
 toc: true
@@ -202,12 +202,12 @@ total 536
 
 {% highlight console %}
 bob:tmp $ tar -xjvf access_logs.tbz
-logs/
-logs/access_log.3
-logs/access_log.1
-logs/access_log.4
-logs/access_log
-logs/access_log.2
+  logs/
+  logs/access_log.3
+  logs/access_log.1
+  logs/access_log.4
+  logs/access_log
+  logs/access_log.2
 {% endhighlight %}
 
 <p>It is important to keep the <code>–f</code> flag at the end, as <code>tar</code> assumes whatever follows it is a filename.  In the next example, the <code>f</code> and <code>v</code> flags were transposed, leading to <code>tar</code> interpreting the command as an operation on a file called "<code class="console">v</code>" (the relevant message is in italics.)</p>
