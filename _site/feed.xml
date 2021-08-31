@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-08-31T16:59:54+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Необычный взгляд на редактирование текста. Часть I.</title><link href="https://iteducate.github.io/editors/vim_1/" rel="alternate" type="text/html" title="Необычный взгляд на редактирование текста. Часть I." /><published>2019-11-11T09:00:00+03:00</published><updated>2019-11-11T09:00:00+03:00</updated><id>https://iteducate.github.io/editors/vim_1</id><content type="html" xml:base="https://iteducate.github.io/editors/vim_1/">&lt;p&gt;Каждому из нас хоть раз в жизни приходилось иметь дело с обработкой текстовых документов. Дело казалось бы обыденное, открыл &lt;em&gt;“офис”&lt;/em&gt; и вперёд, но некоторые до сих пор его не любят за то, что в нём куча ненужных для них вещей, а кто-то просто откровенно ими не умеет пользоваться. :)&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-08-31T19:38:09+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Необычный взгляд на редактирование текста. Часть I.</title><link href="https://iteducate.github.io/editors/vim_1/" rel="alternate" type="text/html" title="Необычный взгляд на редактирование текста. Часть I." /><published>2019-11-11T09:00:00+03:00</published><updated>2019-11-11T09:00:00+03:00</updated><id>https://iteducate.github.io/editors/vim_1</id><content type="html" xml:base="https://iteducate.github.io/editors/vim_1/">&lt;p&gt;Каждому из нас хоть раз в жизни приходилось иметь дело с обработкой текстовых документов. Дело казалось бы обыденное, открыл &lt;em&gt;“офис”&lt;/em&gt; и вперёд, но некоторые до сих пор его не любят за то, что в нём куча ненужных для них вещей, а кто-то просто откровенно ими не умеет пользоваться. :)&lt;/p&gt;
 
 &lt;p&gt;Данный набор советов не претендует на то, чтобы полностью заменить вам ваш привычный текстовый редактор. Однако здесь я покажу вам как с помощью бесплатной и самое главное мощной утилиты сделать редактирование текста максимально быстро и эффективно.&lt;/p&gt;
 
@@ -477,7 +477,274 @@
 
 &lt;p&gt;Почему же должны судить мы с вами?&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;P.S. Таковой вышла первая статья. Многие выдержки взяты из книги Дейла Карнеги вперемешку с личными мыслями. Статья использована в ознакомительно-познавательно-образовательных целях и не преследуют цели получить из этого выгоду. Спасибо, что прочитали статью! Свои отзывы можете оставлять в комментариях снизу&lt;/em&gt;&lt;/p&gt;</content><author><name>Ivan Denisenko</name></author><category term="психология" /><category term="psychology" /><summary type="html">Данная статья является началом анализа и выявления ключевых моментов (для самого себя) в книге популярного американского писателя Дейла Карнеги “Как приобретать друзей и оказывать влияние на людей”. Дейл Карнеги основал собственную концепцию бесконфликтного общения, которая очень популярна в настоящее время.</summary></entry><entry><title type="html">Основные значения фразового глагола take</title><link href="https://iteducate.github.io/english/phras_take/" rel="alternate" type="text/html" title="Основные значения фразового глагола take" /><published>2017-10-22T16:50:00+03:00</published><updated>2017-10-22T16:50:00+03:00</updated><id>https://iteducate.github.io/english/phras_take</id><content type="html" xml:base="https://iteducate.github.io/english/phras_take/">&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Take after&lt;/code&gt;&lt;/strong&gt; – быть похожим, походить на (родителей, родственников) – когда говорят о характере, склонностях и т.п.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;P.S. Таковой вышла первая статья. Многие выдержки взяты из книги Дейла Карнеги вперемешку с личными мыслями. Статья использована в ознакомительно-познавательно-образовательных целях и не преследуют цели получить из этого выгоду. Спасибо, что прочитали статью! Свои отзывы можете оставлять в комментариях снизу&lt;/em&gt;&lt;/p&gt;</content><author><name>Ivan Denisenko</name></author><category term="психология" /><category term="psychology" /><summary type="html">Данная статья является началом анализа и выявления ключевых моментов (для самого себя) в книге популярного американского писателя Дейла Карнеги “Как приобретать друзей и оказывать влияние на людей”. Дейл Карнеги основал собственную концепцию бесконфликтного общения, которая очень популярна в настоящее время.</summary></entry><entry><title type="html">Archiving and Compression</title><link href="https://iteducate.github.io/linux/archiving_compression/" rel="alternate" type="text/html" title="Archiving and Compression" /><published>2017-10-23T12:20:00+03:00</published><updated>2017-10-23T12:20:00+03:00</updated><id>https://iteducate.github.io/linux/archiving_compression</id><content type="html" xml:base="https://iteducate.github.io/linux/archiving_compression/">&lt;p&gt;&lt;strong&gt;File archiving&lt;/strong&gt; is used when one or more files need to be transmitted or stored as efficiently as possible.  There are two aspects to this:&lt;/p&gt;
+&lt;ul type=&quot;disc&quot; class=&quot;&quot;&gt;
+&lt;li&gt;
+&lt;strong&gt;Archiving&lt;/strong&gt; – Combining multiple files into one, which eliminates the overhead in individual files and makes it easier to transmit&lt;/li&gt;
+&lt;li&gt;
+&lt;strong&gt;Compressing&lt;/strong&gt; – Making the files smaller by removing redundant information&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;11-introduction&quot;&gt;1.1 Introduction&lt;/h1&gt;
+
+&lt;p&gt;You can archive multiple files into a single archive and then compress it, or you can compress an individual file.  The former is still referred to as archiving, while the latter is just called compression.  When you take an archive, decompress it and extract one or more files, you are &lt;var&gt;un-archiving&lt;/var&gt; it.&lt;/p&gt;
+
+&lt;p&gt;Even though disk space is relatively cheap, archiving and compression still has value:&lt;/p&gt;
+&lt;ul type=&quot;disc&quot; class=&quot;&quot;&gt;
+&lt;li&gt;If you want to make a large number of files available, such as the source code to an application or a collection of documents, it is easier for people to download a compressed archive than it is to download individual files.&lt;/li&gt;
+&lt;li&gt;Log files have a habit of filling disks so it is helpful to split them by date and compress older versions.&lt;/li&gt;
+&lt;li&gt;When you back up directories, it is easier to keep them all in one archive than it is to version each file.&lt;/li&gt;
+&lt;li&gt;Some streaming devices such as tapes perform better if you’re sending a stream of data rather than individual files.&lt;/li&gt;
+&lt;li&gt;It can often be faster to compress a file before you send it to a tape drive or over a slower network and decompress it on the other end than it would be to send it uncompressed.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As a Linux administrator, you should become familiar with the tools for archiving and compressing files.&lt;/p&gt;
+
+&lt;h1 id=&quot;12-compressing-files&quot;&gt;1.2 Compressing files&lt;/h1&gt;
+&lt;p&gt;&lt;var&gt;Compressing&lt;/var&gt; files makes them smaller by removing duplication from a file and storing it such that the file can be restored.  A file with human readable text might have frequently used words replaced by something smaller, or an image with a solid background might represent patches of that color by a code.  You generally don’t use the compressed version of the file, instead you decompress it before use.  The &lt;var&gt;compression algorithm&lt;/var&gt; is a procedure the computer does to encode the original file, and as a result make it smaller.  Computer scientists research these algorithms and come up with better ones that can work faster or make the input file smaller.&lt;/p&gt;
+
+&lt;p&gt;When talking about compression, there are two types:&lt;/p&gt;
+&lt;ul type=&quot;disc&quot; class=&quot;&quot;&gt;
+&lt;li&gt;
+&lt;strong&gt;Lossless&lt;/strong&gt;:  No information is removed from the file.  Compressing a file and decompressing it leaves something identical to the original.&lt;/li&gt;
+&lt;li&gt;
+&lt;strong&gt;Lossy&lt;/strong&gt;:  Information might be removed from the file as it is compressed so that uncompressing a file will result in a file that is slightly different than the original.  For instance, an image with two subtly different shades of green might be made smaller by treating those two shades as the same.  Often, the eye can’t pick out the difference anyway.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Generally human eyes and ears don’t notice slight imperfections in pictures and audio, especially as they are displayed on a monitor or played over speakers.  Lossy compression often benefits media because it results in smaller file sizes and people can’t tell the difference between the original and the version with the changed data.  For things that must remain intact, such as documents, logs, and software, you need lossless compression.&lt;/p&gt;
+
+&lt;p&gt;Most image formats, such as GIF, PNG, and JPEG, implement some kind of lossy compression.  You can generally decide how much quality you want to preserve.  A lower quality results in a smaller file, but after decompression you may notice artifacts such as rough edges or discolorations.  High quality will look much like the original image, but the file size will be closer to the original.&lt;/p&gt;
+
+&lt;p&gt;Compressing an already compressed file will not make it smaller.  This is often forgotten when it comes to images, since they are already stored in a compressed format.  With lossless compression, this multiple compression is not a problem, but if you compress and decompress a file several times using a lossy algorithm you will eventually have something that is unrecognizable.&lt;/p&gt;
+
+&lt;p&gt;Linux provides several tools to compress files, the most common is &lt;code&gt;gzip&lt;/code&gt;.  Here we show a log file before and after compression.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;bob:tmp $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; access_log&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;-rw-r--r-- 1 sean sean 372063 Oct 11 21:24 access_log
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;bob:tmp $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;gzip &lt;/span&gt;access_log
+&lt;span class=&quot;gp&quot;&gt;bob:tmp $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; access_log&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;-rw-r--r-- 1 sean sean 26080 Oct 11 21:24 access_log.gz&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;In the example above, there is a file called &lt;code class=&quot;console&quot;&gt;access_log&lt;/code&gt; that is 372,063 bytes.  The file is compressed by invoking the &lt;code&gt;gzip&lt;/code&gt; command with the name of the file as the only argument.  After that command completes, the original file is gone and a compressed version with a file extension of &lt;code class=&quot;console&quot;&gt;.gz&lt;/code&gt; is left in its place.  The file size is now 26,080 bytes, giving a compression ratio of about 14:1, which is common with log files.&lt;/p&gt;
+
+&lt;p&gt;Gzip will give you this information if you ask, by using the &lt;code&gt;–l&lt;/code&gt; parameter, as shown here:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;bob:tmp $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;gzip&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; access_log.gz
+&lt;span class=&quot;go&quot;&gt;      compressed     uncompressed  ratio uncompressed_name
+           26080           372063  93.0% access_log&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Here, you can see that the compression ratio is given as 93%, which is the inverse of the 14:1 ratio, i.e. 13/14.  Additionally, when the file is decompressed it will be called &lt;code class=&quot;console&quot;&gt;access_log&lt;/code&gt;. &lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;bob:tmp $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;gunzip &lt;/span&gt;access_log.gz
+&lt;span class=&quot;gp&quot;&gt;bob:tmp $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; access_log&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;-rw-r--r-- 1 sean sean 372063 Oct 11 21:24 access_log&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The opposite of the &lt;code&gt;gzip&lt;/code&gt; command is &lt;code&gt;gunzip&lt;/code&gt;.  Alternatively, &lt;code&gt;gzip –d&lt;/code&gt; does the same thing (&lt;code&gt;gunzip&lt;/code&gt; is just a script that calls &lt;code&gt;gzip&lt;/code&gt; with the right parameters). After &lt;code&gt;gunzip&lt;/code&gt; does its work you can see that the &lt;code class=&quot;console&quot;&gt;access_log&lt;/code&gt; file is back to its original size.&lt;/p&gt;
+
+&lt;p&gt;Gzip can also act as a filter which means it doesn’t read or write anything to disk but instead receives data through an input channel and writes it out to an output channel.  You’ll learn more about how this works in the next chapter, so the next example just gives you an idea of what you can do by being able to compress a stream.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;bob:tmp $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;mysqldump &lt;span class=&quot;nt&quot;&gt;-A&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;gzip&lt;/span&gt; &amp;amp;gt&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; database_backup.gz
+&lt;span class=&quot;gp&quot;&gt;bob:tmp $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;gzip&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; database_backup.gz
+&lt;span class=&quot;go&quot;&gt;         compressed        uncompressed  ratio uncompressed_name
+              76866             1028003  92.5% database_backup&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The &lt;code&gt;mysqldump –A&lt;/code&gt; command outputs the contents of the local MySQL databases to the console. The &lt;code class=&quot;console&quot;&gt;|&lt;/code&gt; character (pipe) says “redirect the output of the previous command into the input of the next one”. The program to receive the output is &lt;code&gt;gzip&lt;/code&gt;, which recognizes that no filenames were given so it should operate in pipe mode. Finally, the &lt;code&gt;&amp;gt; database_backup.gz&lt;/code&gt; means “redirect the output of the previous command into a file called &lt;code class=&quot;console&quot;&gt;database_backup.gz&lt;/code&gt;. Inspecting this file with &lt;code&gt;gzip –l&lt;/code&gt; shows that the compressed version is 7.5% of the size of the original, with the added benefit that the larger file never had to be written to disk.&lt;/p&gt;
+
+&lt;p&gt;There is another pair of commands that operate virtually identically to &lt;code&gt;gzip&lt;/code&gt; and &lt;code&gt;gunzip&lt;/code&gt;. These are &lt;code&gt;bzip2&lt;/code&gt; and &lt;code&gt;bunzip2&lt;/code&gt;. The &lt;code&gt;bzip&lt;/code&gt; utilities use a different compression algorithm (called Burrows-Wheeler block sorting, versus Lempel-Ziv coding used by &lt;code&gt;gzip&lt;/code&gt;) that can compress files smaller than &lt;code&gt;gzip&lt;/code&gt; at the expense of more CPU time. You can recognize these files because they have a &lt;code class=&quot;console&quot;&gt;.bz&lt;/code&gt; or &lt;code class=&quot;console&quot;&gt;bz2&lt;/code&gt; extension instead of &lt;code class=&quot;console&quot;&gt;.gz&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;13-archiving-files&quot;&gt;1.3 Archiving Files&lt;/h1&gt;
+&lt;p&gt;If you had several files to send to someone, you could compress each one individually.  You would have a smaller amount of data in total than if you sent uncompressed files, but you would still have to deal with many files at one time.&lt;/p&gt;
+
+&lt;p&gt;&lt;var&gt;Archiving&lt;/var&gt; is the solution to this problem.  The traditional UNIX utility to archive files is called &lt;code&gt;tar&lt;/code&gt;, which is a short form of TApe aRchive.  &lt;var&gt;Tar&lt;/var&gt; was used to stream many files to a tape for backups or file transfer.  Tar takes in several files and creates a single output file that can be split up again into the original files on the other end of the transmission.&lt;/p&gt;
+
+&lt;p&gt;Tar has 3 modes you will want to be familiar with:&lt;/p&gt;
+&lt;ul type=&quot;disc&quot; class=&quot;&quot;&gt;
+&lt;li&gt;
+&lt;strong&gt;Create&lt;/strong&gt;:  make a new archive out of a series of files&lt;/li&gt;
+&lt;li&gt;
+&lt;strong&gt;Extract&lt;/strong&gt;:  pull one or more files out of an archive&lt;/li&gt;
+&lt;li&gt;
+&lt;strong&gt;List&lt;/strong&gt;:  show the contents of the archive without extracting&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Remembering the modes is key to figuring out the command line options necessary to do what you want.  In addition to the mode, you will also want to make sure you remember where to specify the name of the archive, as you may be entering multiple file names on a command line.&lt;/p&gt;
+
+&lt;p&gt;Here, we show a &lt;var&gt;tar file&lt;/var&gt;, also called a tarball, being created from multiple access logs.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;bob:tmp $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-cf&lt;/span&gt; access_logs.tar access_log&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;bob:tmp $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; access_logs.tar
+&lt;span class=&quot;go&quot;&gt;-rw-rw-r-- 1 sean sean 542720 Oct 12 21:42 access_logs.tar&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Creating an archive requires two named options.  The first, &lt;code&gt;c&lt;/code&gt;, specifies the mode. The second, &lt;code&gt;f&lt;/code&gt;, tells tar to expect a file name as the next argument. The first argument in the example above creates an archive called &lt;code class=&quot;console&quot;&gt;access_logs.tar&lt;/code&gt;.  The remaining arguments are all taken to be input file names, either as a wildcard, a list of files, or both.  In this example, we use the wildcard option to include all files that begin with &lt;code class=&quot;console&quot;&gt;access_log&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The example above does a long directory listing of the created file.  The final size is 542,720 bytes which is slightly larger than the input files. Tarballs can be compressed for easier transport, either by gzipping the archive or by having &lt;code&gt;tar&lt;/code&gt; do it with the &lt;code&gt;z&lt;/code&gt; flag as follows:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;bob:tmp $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-czf&lt;/span&gt; access_logs.tar.gz  access_log&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;bob:tmp $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; access_logs.tar.gz
+&lt;span class=&quot;go&quot;&gt;-rw-rw-r-- 1 sean sean 46229 Oct 12 21:50 access_logs.tar.gz
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;bob:tmp $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;gzip&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; access_logs.tar.gz
+&lt;span class=&quot;go&quot;&gt;         compressed        uncompressed  ratio uncompressed_name
+              46229              542720  91.5% access_logs.tar&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The example above shows the same command as the prior example, but with the addition of the &lt;code&gt;z&lt;/code&gt; parameter.  The output is much smaller than the tarball itself, and the resulting file is compatible with &lt;code&gt;gzip&lt;/code&gt;. You can see from the last command that the uncompressed file is the same size as it would be if you tarred it in a separate step.&lt;/p&gt;
+
+&lt;p&gt;While UNIX doesn’t treat file extensions specially, the convention is to use &lt;code class=&quot;console&quot;&gt;.tar&lt;/code&gt; for &lt;code&gt;tar&lt;/code&gt; files, and &lt;code class=&quot;console&quot;&gt;.tar.gz&lt;/code&gt; or &lt;code class=&quot;console&quot;&gt;.tgz&lt;/code&gt; for compressed &lt;code&gt;tar&lt;/code&gt; files. You can use &lt;code&gt;bzip2&lt;/code&gt; instead of &lt;code&gt;gzip&lt;/code&gt; by substituting the letter &lt;code&gt;z&lt;/code&gt; for &lt;code&gt;j&lt;/code&gt; and using &lt;code class=&quot;console&quot;&gt;.tar.bz2&lt;/code&gt;, &lt;code class=&quot;console&quot;&gt;.tbz&lt;/code&gt;, or &lt;code class=&quot;console&quot;&gt;.tbz2&lt;/code&gt; for a file extension (e.g. &lt;code&gt;tar –cjf file.tbz access_log*&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;Given a &lt;code&gt;tar&lt;/code&gt; file, compressed or not, you can see what’s in it by using the &lt;code&gt;t&lt;/code&gt; command:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;bob:tmp $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-tjf&lt;/span&gt; access_logs.tbz
+&lt;span class=&quot;go&quot;&gt;logs/
+logs/access_log.3
+logs/access_log.1
+logs/access_log.4
+logs/access_log
+logs/access_log.2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This example uses 3 options:&lt;/p&gt;
+&lt;ul type=&quot;disc&quot; class=&quot;&quot;&gt;
+&lt;li&gt;
+&lt;code&gt;t&lt;/code&gt;: list files in the archive&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;j&lt;/code&gt;:  decompress with &lt;code&gt;bzip2&lt;/code&gt; before reading&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;f&lt;/code&gt;:  operate on the given filename &lt;code class=&quot;console&quot;&gt;access_logs.tbz&lt;/code&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The contents of the compressed archive are then displayed.  You can see that a directory was prefixed to the files.  Tar will recurse into subdirectories automatically when compressing and will store the path info inside the archive.&lt;/p&gt;
+
+&lt;p&gt;Just to show that this file is still nothing special, we will list the contents of the file in two steps using a pipeline.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;bob:tmp $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;bunzip2 &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; access_logs.tbz | &lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;logs/
+logs/access_log.3
+logs/access_log.1
+logs/access_log.4
+logs/access_log
+logs/access_log.2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The left side of the pipeline is &lt;code&gt;bunzip –c access_logs.tbz&lt;/code&gt;, which decompresses the file, but the &lt;code&gt;-c&lt;/code&gt; option sends the output to the screen. The output is redirected to &lt;code&gt;tar –t&lt;/code&gt;. If you don’t specify a file with &lt;code&gt;–f&lt;/code&gt; then &lt;code&gt;tar&lt;/code&gt; will read from the standard input, which in this case is the uncompressed file.&lt;/p&gt;
+
+&lt;p&gt;Finally you can extract the archive with the &lt;code&gt;–x&lt;/code&gt; flag:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;bob:tmp $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xjf&lt;/span&gt; access_logs.tbz
+&lt;span class=&quot;gp&quot;&gt;bob:tmp $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;total 36
+-rw-rw-r-- 1 sean sean 30043 Oct 14 13:27 access_logs.tbz
+drwxrwxr-x 2 sean sean  4096 Oct 14 13:26 logs
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;bob:tmp $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; logs
+&lt;span class=&quot;go&quot;&gt;total 536
+-rw-r--r-- 1 sean sean 372063 Oct 11 21:24 access_log
+-rw-r--r-- 1 sean sean    362 Oct 12 21:41 access_log.1
+-rw-r--r-- 1 sean sean 153813 Oct 12 21:41 access_log.2
+-rw-r--r-- 1 sean sean   1136 Oct 12 21:41 access_log.3
+-rw-r--r-- 1 sean sean    784 Oct 12 21:41 access_log.4&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The example above uses the similar pattern as before, specifying the operation (eXtract), the compression (the &lt;code&gt;j&lt;/code&gt; flag, meaning &lt;code&gt;bzip2&lt;/code&gt;), and a file name (&lt;code&gt;-f&lt;/code&gt; &lt;code class=&quot;console&quot;&gt;access_logs.tbz&lt;/code&gt;).  The original file is untouched and the new &lt;strong&gt;logs&lt;/strong&gt; directory is created. Inside the directory are the files.&lt;/p&gt;
+
+&lt;p&gt;Add the &lt;code&gt;–v&lt;/code&gt; flag and you will get verbose output of the files processed. This is helpful so you can see what’s happening:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;bob:tmp $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xjvf&lt;/span&gt; access_logs.tbz
+&lt;span class=&quot;go&quot;&gt;logs/
+logs/access_log.3
+logs/access_log.1
+logs/access_log.4
+logs/access_log
+logs/access_log.2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;It is important to keep the &lt;code&gt;–f&lt;/code&gt; flag at the end, as &lt;code&gt;tar&lt;/code&gt; assumes whatever follows it is a filename.  In the next example, the &lt;code&gt;f&lt;/code&gt; and &lt;code&gt;v&lt;/code&gt; flags were transposed, leading to &lt;code&gt;tar&lt;/code&gt; interpreting the command as an operation on a file called &quot;&lt;code class=&quot;console&quot;&gt;v&lt;/code&gt;&quot; (the relevant message is in italics.)&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;bob:tmp $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xjfv&lt;/span&gt; access_logs.tbz
+&lt;span class=&quot;go&quot;&gt;tar (child): v: Cannot open: No such file or directory
+tar (child): Error is not recoverable: exiting now
+tar: Child returned status 2
+tar: Error is not recoverable: exiting now&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;If you only want some files out of the archive you can add their names to the end of the command, but by default they must match the name in the archive exactly or use a pattern:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;bob:tmp $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xjvf&lt;/span&gt; access_logs.tbz logs/access_log
+&lt;span class=&quot;go&quot;&gt;logs/access_log&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The example above shows the same archive as before, but extracting only the &lt;code class=&quot;console&quot;&gt;logs/access_log&lt;/code&gt; file. The output of the command (as verbose mode was requested with the &lt;code&gt;v&lt;/code&gt; flag) shows only the one file has been extracted.&lt;/p&gt;
+
+&lt;p&gt;Tar has many more features, such as the ability to use patterns when extracting files, excluding certain files, or outputting the extracted files to the screen instead of disk. The documentation for &lt;code&gt;tar&lt;/code&gt; has in depth information.&lt;/p&gt;
+
+&lt;h1 id=&quot;14-zip-files&quot;&gt;1.4 ZIP files&lt;/h1&gt;
+&lt;p&gt;The de facto archiving utility in the Microsoft world is the ZIP file.  It is not as prevalent in Linux but is well supported by the &lt;code&gt;zip&lt;/code&gt; and &lt;code&gt;unzip&lt;/code&gt; commands.  With &lt;code&gt;tar&lt;/code&gt; and &lt;code&gt;gzip&lt;/code&gt;/&lt;code&gt;gunzip&lt;/code&gt; the same commands and options can be used to do the creation and extraction, but this is not the case with &lt;code&gt;zip&lt;/code&gt;.  The same option has different meanings for the two different commands.&lt;/p&gt;
+
+&lt;p&gt;The default mode of &lt;code&gt;zip&lt;/code&gt; is to add files to an archive and compress it.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;bob:tmp $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;zip logs.zip logs/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  adding: logs/access_log (deflated 93%)
+  adding: logs/access_log.1 (deflated 62%)
+  adding: logs/access_log.2 (deflated 88%)
+  adding: logs/access_log.3 (deflated 73%)
+  adding: logs/access_log.4 (deflated 72%)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The first argument in the example above is the name of the archive to be operated on, in this case it is &lt;code class=&quot;console&quot;&gt;logs.zip&lt;/code&gt;.  After that, is a list of files to be added. The output shows the files and the compression ratio. It should be noted that &lt;code&gt;tar&lt;/code&gt; requires the &lt;code&gt;–f&lt;/code&gt; option to indicate a filename is being passed, while &lt;code&gt;zip&lt;/code&gt; and &lt;code&gt;unzip&lt;/code&gt; require a filename and therefore don’t need you to explicitly say a filename is being passed.&lt;/p&gt;
+
+&lt;p&gt;Zip will not recurse into subdirectories by default, which is different behavior than &lt;code&gt;tar&lt;/code&gt;. That is, merely adding &lt;code class=&quot;console&quot;&gt;logs&lt;/code&gt; instead of &lt;code class=&quot;console&quot;&gt;logs/*&lt;/code&gt; will only add the empty directory and not the files under it. If you want &lt;code&gt;tar&lt;/code&gt; like behavior, you must use the &lt;code&gt;–r&lt;/code&gt; command to indicate recursion is to be used:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;bob:tmp $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;zip &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; logs.zip logs
+&lt;span class=&quot;go&quot;&gt;  adding: logs/ (stored 0%)
+  adding: logs/access_log.3 (deflated 73%)
+  adding: logs/access_log.1 (deflated 62%)
+  adding: logs/access_log.4 (deflated 72%)
+  adding: logs/access_log (deflated 93%)
+  adding: logs/access_log.2 (deflated 88%)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;In the example above, all files under the logs directory are added because it uses the &lt;code&gt;–r&lt;/code&gt; option.  The first line of output indicates that a directory was added to the archive, but otherwise the output is similar to the previous example.&lt;/p&gt;
+
+&lt;p&gt;Listing files in the &lt;code&gt;zip&lt;/code&gt; is done by the &lt;code&gt;unzip&lt;/code&gt; command and the &lt;code&gt;–l&lt;/code&gt; option (list):&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;bob:tmp $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;unzip &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; logs.zip
+&lt;span class=&quot;go&quot;&gt;Archive:  logs.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+        0  10-14-2013 14:07   logs/
+     1136  10-14-2013 14:07   logs/access_log.3
+      362  10-14-2013 14:07   logs/access_log.1
+      784  10-14-2013 14:07   logs/access_log.4
+    90703  10-14-2013 14:07   logs/access_log
+   153813  10-14-2013 14:07   logs/access_log.2
+---------                     -------
+   246798                     6 files&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Extracting the files is just like creating the archive, as the default operation is to extract:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;bob:tmp $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;unzip logs.zip
+&lt;span class=&quot;go&quot;&gt;Archive:  logs.zip
+   creating: logs/
+  inflating: logs/access_log.3
+  inflating: logs/access_log.1
+  inflating: logs/access_log.4
+  inflating: logs/access_log
+  inflating: logs/access_log.2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Here, we extract all the files in the archive to the current directory.  Just like &lt;code&gt;tar&lt;/code&gt;, you can pass filenames on the command line:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;bob:tmp $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;unzip logs.zip access_log
+&lt;span class=&quot;go&quot;&gt;Archive:  logs.zip
+caution: filename not matched:  access_log
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;bob:tmp $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;unzip logs.zip logs/access_log
+&lt;span class=&quot;go&quot;&gt;Archive:  logs.zip
+  inflating: logs/access_log
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;bob:tmp $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;unzip logs.zip logs/access_log.&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Archive:  logs.zip
+  inflating: logs/access_log.3
+  inflating: logs/access_log.1
+  inflating: logs/access_log.4
+  inflating: logs/access_log.2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The example above shows three different attempts to extract a file.  First, just the name of the file is passed without the directory component.  Like &lt;code&gt;tar&lt;/code&gt;, the file is not matched.&lt;/p&gt;
+
+&lt;p&gt;The second attempt passes the directory component along with the filename, which extracts just that file.&lt;/p&gt;
+
+&lt;p&gt;The third version uses a wildcard, which extracts the 4 files matching the pattern, just like &lt;code&gt;tar&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;zip&lt;/code&gt; and &lt;code&gt;unzip&lt;/code&gt; man pages describe the other things you can do with these tools, such as replace files within the archive, use different compression levels, and even use encryption.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Все материалы взяты с официального курса &lt;i class=&quot;fa fa-link&quot;&gt;&lt;/i&gt; &lt;a href=&quot;https://www.netacad.com/ru/courses/ndg-linux-essentials/&quot;&gt;NDG Linux Essential&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Ivan Denisenko</name></author><category term="linux" /><category term="archiving" /><category term="compression" /><summary type="html">File archiving is used when one or more files need to be transmitted or stored as efficiently as possible. There are two aspects to this: Archiving – Combining multiple files into one, which eliminates the overhead in individual files and makes it easier to transmit Compressing – Making the files smaller by removing redundant information</summary></entry><entry><title type="html">Основные значения фразового глагола take</title><link href="https://iteducate.github.io/english/phras_take/" rel="alternate" type="text/html" title="Основные значения фразового глагола take" /><published>2017-10-22T16:50:00+03:00</published><updated>2017-10-22T16:50:00+03:00</updated><id>https://iteducate.github.io/english/phras_take</id><content type="html" xml:base="https://iteducate.github.io/english/phras_take/">&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Take after&lt;/code&gt;&lt;/strong&gt; – быть похожим, походить на (родителей, родственников) – когда говорят о характере, склонностях и т.п.&lt;/p&gt;
 &lt;blockquote&gt;
   &lt;p&gt;— &lt;strong&gt;Mary is very clever – she takes after her mother.&lt;/strong&gt; – Мэри очень умная – она пошла в свою мать&lt;/p&gt;
 &lt;/blockquote&gt;
