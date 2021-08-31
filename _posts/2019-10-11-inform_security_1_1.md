@@ -2,7 +2,7 @@
 layout: single
 title:  "Проблемы обеспечения безопасности автоматизированных систем"
 date:   2019-10-11 21:00:00 +0300
-tags: ИБ
+tags: security theory
 categories: ИБ
 comments: true
 toc: true

@@ -2,7 +2,7 @@
 layout: single
 title:  "Основные понятия в области безопасности автоматизированных систем"
 date:   2019-10-28 11:00:00 +0300
-tags: ИБ
+tags: security theory
 categories: ИБ
 comments: true
 toc: true
