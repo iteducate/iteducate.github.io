@@ -1,4 +1,47 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-08-31T20:07:58+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Необычный взгляд на редактирование текста. Часть I.</title><link href="https://iteducate.github.io/editors/vim_1/" rel="alternate" type="text/html" title="Необычный взгляд на редактирование текста. Часть I." /><published>2019-11-11T09:00:00+03:00</published><updated>2019-11-11T09:00:00+03:00</updated><id>https://iteducate.github.io/editors/vim_1</id><content type="html" xml:base="https://iteducate.github.io/editors/vim_1/">&lt;p&gt;Каждому из нас хоть раз в жизни приходилось иметь дело с обработкой текстовых документов. Дело казалось бы обыденное, открыл &lt;em&gt;“офис”&lt;/em&gt; и вперёд, но некоторые до сих пор его не любят за то, что в нём куча ненужных для них вещей, а кто-то просто откровенно ими не умеет пользоваться. :)&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-09-27T23:07:46+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Структура протокола IP</title><link href="https://iteducate.github.io/protocols/intro/" rel="alternate" type="text/html" title="Структура протокола IP" /><published>2021-09-25T09:00:00+03:00</published><updated>2021-09-25T09:00:00+03:00</updated><id>https://iteducate.github.io/protocols/intro</id><content type="html" xml:base="https://iteducate.github.io/protocols/intro/">&lt;p&gt;Формат заголовка протокола IP состоит из определённого набора полей, которые описаны в &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc791.html&quot;&gt;RFC 791&lt;/a&gt;. Понимание данных полей важно для понимания процесса маршрутизации. Ниже я опишу данные поля и постараюсь показать их в реальности, используя Wireshark.&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/images/ip/structure_ip.png&quot; alt=&quot;IP Header&quot; style=&quot;width:100%&quot; /&gt;
+  &lt;figcaption align=&quot;center&quot;&gt;&lt;b&gt;Структура протокола IP&lt;/b&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Version&lt;/strong&gt; - 4-битное поле, определяющее версию используемого протокола. В настоящее время используется две версии протокола - 4 (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0100&lt;/code&gt;) версия и 6 (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0110&lt;/code&gt;) версия.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ip/version.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ip/version.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;Version
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Header Length&lt;/strong&gt; - 4-битное поле, которое показывает какова длина IP-заголовка &lt;em&gt;в 32-битных словах&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p class=&quot;notice--info&quot;&gt;&lt;i class=&quot;fa fa-info-circle&quot;&gt;&lt;/i&gt;&lt;strong&gt; Заметка:&lt;/strong&gt; Минимальный размер IP-заголовка - 20 байт (&lt;i&gt;сумма всех полей заголовка при пустом поле Options&lt;/i&gt;). Так как максимально в поле из 4 бит можно записать значение 15 (&lt;code&gt;1111&lt;/code&gt;), то максимальный размер IP-заголовка составляет &lt;code&gt;15 * 4 байта = 60 байт&lt;/code&gt;&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ip/header_length.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ip/header_length.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;Header Length
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Type of Service&lt;/strong&gt; - 8-битное поле, может быть использовано для определения обработки пакета. В настоящее время данное поле переопределено как часть фреймворка &lt;em&gt;Differentiated Services&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Данный фреймворк позволяет более гибко обрабатывать IP-пакеты. Фреймворк DiffServe определяет классы обслуживания (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;service classes&lt;/code&gt;) на маршрутизаторах, а затем уже производить сортировку согласно данным классам. Затем маршрутизатор может ставить в очередь и производить пересылку пакетов с различными уровнями приоритета в зависимости от их классификации. Каждая процедура постановки в очередь и пересылки называется PHB - &lt;a href=&quot;https://en.wikipedia.org/wiki/Per-hop_behaviour&quot;&gt;&lt;strong&gt;Per-Hop Behaviour&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>Ivan Denisenko</name></author><category term="protocols" /><category term="ip" /><summary type="html">Формат заголовка протокола IP состоит из определённого набора полей, которые описаны в RFC 791. Понимание данных полей важно для понимания процесса маршрутизации. Ниже я опишу данные поля и постараюсь показать их в реальности, используя Wireshark.</summary></entry><entry><title type="html">Необычный взгляд на редактирование текста. Часть I.</title><link href="https://iteducate.github.io/editors/vim_1/" rel="alternate" type="text/html" title="Необычный взгляд на редактирование текста. Часть I." /><published>2019-11-11T09:00:00+03:00</published><updated>2019-11-11T09:00:00+03:00</updated><id>https://iteducate.github.io/editors/vim_1</id><content type="html" xml:base="https://iteducate.github.io/editors/vim_1/">&lt;p&gt;Каждому из нас хоть раз в жизни приходилось иметь дело с обработкой текстовых документов. Дело казалось бы обыденное, открыл &lt;em&gt;“офис”&lt;/em&gt; и вперёд, но некоторые до сих пор его не любят за то, что в нём куча ненужных для них вещей, а кто-то просто откровенно ими не умеет пользоваться. :)&lt;/p&gt;
 
 &lt;p&gt;Данный набор советов не претендует на то, чтобы полностью заменить вам ваш привычный текстовый редактор. Однако здесь я покажу вам как с помощью бесплатной и самое главное мощной утилиты сделать редактирование текста максимально быстро и эффективно.&lt;/p&gt;
 
@@ -30,9 +73,9 @@
 
 &lt;p&gt;При входе в программу вы попадаете в &lt;strong&gt;командный режим&lt;/strong&gt;, а при нажатии клавиши &lt;code&gt;i&lt;/code&gt; в &lt;strong&gt;режим вставки&lt;/strong&gt;. Для того чтобы вернуться обратно в командный режим необходимо нажать клавишу &lt;code&gt;Esc&lt;/code&gt;. Как видим ничего сложного нет!&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Примечание.&lt;/strong&gt; Как узнать в каком режиме вы сейчас находитесь? Очень просто, в режиме вставки в левом нижнем углу будет надпись &lt;code&gt;--ВСТАВКА--&lt;/code&gt; или &lt;code&gt;--INSERT--&lt;/code&gt; (если у вас установлена англоязычная версия). При выходе в командный режим данная надпись исчезает.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;div class=&quot;notice--success&quot;&gt;
+Как узнать в каком режиме вы сейчас находитесь? Очень просто, в режиме вставки в левом нижнем углу будет надпись &lt;code&gt;--ВСТАВКА--&lt;/code&gt; или &lt;code&gt;--INSERT--&lt;/code&gt; (если у вас установлена англоязычная версия). При выходе в командный режим данная надпись исчезает.
+&lt;/div&gt;
 
 &lt;p&gt;Итак, для того чтобы повторить последнее изменение, в редакторе Vim существует команда &lt;strong&gt;&lt;em&gt;“точка”&lt;/em&gt;&lt;/strong&gt;. Данная команда одна из самых мощных и гибких в редакторе. При этом, под &lt;em&gt;“последними изменениями”&lt;/em&gt; понимается изменение как над отдельными символами, целыми строками или даже файлами!&lt;/p&gt;
 
