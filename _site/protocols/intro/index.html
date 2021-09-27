@@ -332,7 +332,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          less than 1 minute read
+          1 minute read
         
       </span>
     
@@ -388,6 +388,24 @@
 <p><strong>Type of Service</strong> - 8-битное поле, может быть использовано для определения обработки пакета. В настоящее время данное поле переопределено как часть фреймворка <em>Differentiated Services</em>.</p>
 
 <p>Данный фреймворк позволяет более гибко обрабатывать IP-пакеты. Фреймворк DiffServe определяет классы обслуживания (<code class="language-plaintext highlighter-rouge">service classes</code>) на маршрутизаторах, а затем уже производить сортировку согласно данным классам. Затем маршрутизатор может ставить в очередь и производить пересылку пакетов с различными уровнями приоритета в зависимости от их классификации. Каждая процедура постановки в очередь и пересылки называется PHB - <a href="https://en.wikipedia.org/wiki/Per-hop_behaviour"><strong>Per-Hop Behaviour</strong></a></p>
+
+<p>В современном мире 6 бит поля Type of Service определено как поле DSCP - <em>DiffServe Code Point</em>. Используя эти 6 бит, администратор может определить произвольно либо в соответствии с предопределенными в архитектуре DiffServe классами обслуживания до 64 классов обслуживания, которые затем могут быть отсортированы в PHB.</p>
+
+<p>Оставшиеся 2 бита используется для поля ECN - <strong>Explicit Congestion Notification</strong> - явное уведомление о перегрузках. Если маршрутизатор поддерживает данный параметр, то поле примет значение <code class="language-plaintext highlighter-rouge">11</code> в случае сигнализации о перегрузке.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ip/header_length.png">
+          <img src="/assets/images/ip/header_length.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption>DiffServe and ECN
+</figcaption>
+  
+</figure>
 
         
 
