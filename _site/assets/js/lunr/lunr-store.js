@@ -46,4 +46,10 @@ var store = [{
         "tags": ["ip"],
         "url": "/protocols/ip_header/",
         "teaser": null
+      },{
+        "title": "RFC",
+        "excerpt":"Список RFC, которые будут встречаться по ходу написания статей           RFC 791 -  Internet Protocol            RFC 3168 - The Addition of Explicit Congestion Notification (ECN) to IP      ","categories": ["protocols"],
+        "tags": ["rfc"],
+        "url": "/protocols/rfc/",
+        "teaser": null
       }]
