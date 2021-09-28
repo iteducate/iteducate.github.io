@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-09-28T00:05:19+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Структура протокола IP</title><link href="https://iteducate.github.io/protocols/ip_header/" rel="alternate" type="text/html" title="Структура протокола IP" /><published>2021-09-25T09:00:00+03:00</published><updated>2021-09-25T09:00:00+03:00</updated><id>https://iteducate.github.io/protocols/ip_header</id><content type="html" xml:base="https://iteducate.github.io/protocols/ip_header/">&lt;p&gt;Формат заголовка протокола IP состоит из определённого набора полей, которые описаны в &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc791.html&quot;&gt;RFC 791&lt;/a&gt;. Понимание данных полей важно для понимания процесса маршрутизации. Ниже я опишу данные поля и постараюсь показать их в реальности, используя Wireshark.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-09-28T23:57:54+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Структура протокола IP</title><link href="https://iteducate.github.io/protocols/ip_header/" rel="alternate" type="text/html" title="Структура протокола IP" /><published>2021-09-25T09:00:00+03:00</published><updated>2021-09-25T09:00:00+03:00</updated><id>https://iteducate.github.io/protocols/ip_header</id><content type="html" xml:base="https://iteducate.github.io/protocols/ip_header/">&lt;p&gt;Формат заголовка протокола IP состоит из определённого набора полей, которые описаны в &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc791.html&quot;&gt;RFC 791&lt;/a&gt;. Разбор данных полей важен для понимания процесса маршрутизации. Ниже я опишу данные поля и постараюсь показать их в реальности, используя Wireshark.&lt;/p&gt;
 
 &lt;figure&gt;
   &lt;img src=&quot;/assets/images/ip/structure_ip.png&quot; alt=&quot;IP Header&quot; style=&quot;width:100%&quot; /&gt;
@@ -41,9 +41,9 @@
 
 &lt;p&gt;&lt;strong&gt;Type of Service&lt;/strong&gt; - 8-битное поле, может быть использовано для определения обработки пакета. В настоящее время данное поле переопределено как часть фреймворка &lt;em&gt;Differentiated Services&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;Данный фреймворк позволяет более гибко обрабатывать IP-пакеты. Фреймворк DiffServe определяет классы обслуживания (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;service classes&lt;/code&gt;) на маршрутизаторах, а затем уже производить сортировку согласно данным классам. Затем маршрутизатор может ставить в очередь и производить пересылку пакетов с различными уровнями приоритета в зависимости от их классификации. Каждая процедура постановки в очередь и пересылки называется PHB - &lt;a href=&quot;https://en.wikipedia.org/wiki/Per-hop_behaviour&quot;&gt;&lt;strong&gt;Per-Hop Behaviour&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Данный фреймворк позволяет более гибко обрабатывать IP-пакеты. Фреймворк DiffServe определяет классы обслуживания (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;service classes&lt;/code&gt;) на маршрутизаторах, а затем позволяет производить сортировку согласно данным классам. Маршрутизатор может ставить в очередь и производить пересылку пакетов с различными уровнями приоритета в зависимости от их классификации. Каждая процедура постановки в очередь и пересылки называется PHB - &lt;a href=&quot;https://en.wikipedia.org/wiki/Per-hop_behaviour&quot;&gt;&lt;strong&gt;Per-Hop Behaviour&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;В современном мире 6 бит поля Type of Service определено как поле DSCP - &lt;em&gt;DiffServe Code Point&lt;/em&gt;. Используя эти 6 бит, администратор может определить произвольно либо в соответствии с предопределенными в архитектуре DiffServe классами обслуживания до 64 классов обслуживания, которые затем могут быть отсортированы в PHB.&lt;/p&gt;
+&lt;p&gt;В современном мире 6 бит поля Type of Service определено как поле DSCP - &lt;em&gt;DiffServe Code Point&lt;/em&gt;. Используя эти 6 бит, произвольно либо в соответствии с предопределенными в архитектуре DiffServe классами обслуживания, администратор может определить до 64 классов обслуживания, которые затем могут быть отсортированы в PHB.&lt;/p&gt;
 
 &lt;p&gt;Оставшиеся 2 бита используется для поля ECN - &lt;strong&gt;Explicit Congestion Notification&lt;/strong&gt; - явное уведомление о перегрузках (&lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc3168.html&quot;&gt;RFC 3168&lt;/a&gt;). Если маршрутизатор поддерживает данный параметр, то поле примет значение &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;11&lt;/code&gt; в случае сигнализации о перегрузке.&lt;/p&gt;
 
@@ -59,7 +59,115 @@
     &lt;figcaption&gt;&lt;strong&gt;DiffServe and ECN&lt;/strong&gt;
 &lt;/figcaption&gt;
   
-&lt;/figure&gt;</content><author><name>Ivan Denisenko</name></author><category term="protocols" /><category term="ip" /><summary type="html">Формат заголовка протокола IP состоит из определённого набора полей, которые описаны в RFC 791. Понимание данных полей важно для понимания процесса маршрутизации. Ниже я опишу данные поля и постараюсь показать их в реальности, используя Wireshark.</summary></entry><entry><title type="html">RFC</title><link href="https://iteducate.github.io/protocols/rfc/" rel="alternate" type="text/html" title="RFC" /><published>2021-09-25T09:00:00+03:00</published><updated>2021-09-25T09:00:00+03:00</updated><id>https://iteducate.github.io/protocols/rfc</id><content type="html" xml:base="https://iteducate.github.io/protocols/rfc/">&lt;p&gt;Список RFC, которые будут встречаться по ходу написания статей:&lt;/p&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Total Length&lt;/strong&gt; - 16-битное поле, определяет общую длину пакета, включая заголовок, в байтах. Вычитая длину заголовка можно получить размер данных. 16 бит может содержать максимальное значение в 65535, учитывая это получаем максимально возможное значение IP пакета - 65535 байт.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ip/total_length.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ip/total_length.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Total Length&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;16-битное поле &lt;strong&gt;Identifier&lt;/strong&gt; совместно с полями &lt;strong&gt;Flags&lt;/strong&gt; и &lt;strong&gt;Fragment Offset&lt;/strong&gt; используются для того чтобы показать был ли фрагментирован пакет или нет.&lt;/p&gt;
+
+&lt;p&gt;Пакет будет фрагментирован на более мелкие пакеты в случае когда его размер превышает &lt;em&gt;Maximimum Transmition Unit (MTU)&lt;/em&gt; канальной среды через которую данный пакет будет передаваться.&lt;/p&gt;
+
+&lt;p&gt;Например, в случае когда MTU канальной среды равен 1500 байт и по ней передаётся пакет размером 5000 байт, то максимальный размер пакета может содержать только 1500 байт информации. Маршрутизатор должен маркировать каждый фрагмент с тем же значением в поле &lt;em&gt;Identifier&lt;/em&gt; для того чтобы получающая сторона могла определить, что фрагменты относятся к одному и тому же пакету.&lt;/p&gt;
+
+&lt;p class=&quot;notice--info&quot;&gt;&lt;i class=&quot;fa fa-info-circle&quot;&gt;&lt;/i&gt;&lt;strong&gt; Заметка:&lt;/strong&gt; фрагментированный пакет не собирается с каждой стороны канальной среды. Пакет остается фрагментированным до тех пор пока он не достигнет финальной точки назначения.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Flags&lt;/strong&gt; - 3-битное поле, первый бит в котором не используется. Второй бит - бит DF (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Don&apos;t Fragment&lt;/code&gt;). Когда данный бит установлен в &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;, то маршрутизатор не может фрагментировать пакет.&lt;/p&gt;
+
+&lt;p&gt;Если пакет не может быть отправлен без фрагментации, маршрутизатор отбросит пакет и отправит источнику сообщение об ошибке пересылки. Данный функционал позволяет протестировать MTU в сети.&lt;/p&gt;
+
+&lt;p&gt;Рассмотрим простую схему между двумя маршрутизаторами:&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ip/scheme_ext_ping.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ip/scheme_ext_ping.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Схема&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;С помощью расширенной программы &lt;em&gt;ping&lt;/em&gt; на маршрутизаторах Cisco можно найти максимальный MTU между устройствами.&lt;/p&gt;
+
+&lt;p&gt;Ниже представлен пример выполнения данной команды:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;gp&quot;&gt;Router#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;Router#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;ping
+&lt;span class=&quot;go&quot;&gt;Protocol [ip]: 
+Target IP address: 192.168.1.1
+Repeat count [5]: 1
+Datagram size [100]: 
+Timeout in seconds [2]: 
+Extended commands [n]: y
+Ingress ping [n]: 
+Source address or interface: 192.168.1.1
+Type of service [0]: 
+Set DF bit in IP header? [no]: y
+Validate reply data? [no]: 
+Data pattern [0x0000ABCD]: 
+Loose, Strict, Record, Timestamp, Verbose[none]: 
+Sweep range of sizes [n]: y
+Sweep min size [36]: 1451
+Sweep max size [18024]: 1550
+Sweep interval [1]: 1
+Type escape sequence to abort.
+Sending 100, [1451..1550]-byte ICMP Echos to 192.168.1.1, timeout is 2 seconds:
+Packet sent with a source address of 192.168.1.1 
+Packet sent with the DF bit set
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!....................
+&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;..............................
+&lt;/span&gt;&lt;span class=&quot;go&quot;&gt;Success rate is 50 percent (50/100), round-trip min/avg/max = 1/1/1 ms
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;Router#&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Из вывода видно, что максимальный MTU равен 1500 байт. Существуют и другие способы как с помощью данной команды найти максимальный MTU между группой сетевых устройств, но данный способ сейчас рассматривать не будем.&lt;/p&gt;
+
+&lt;p&gt;Третий бит в поле &lt;strong&gt;Flags&lt;/strong&gt; - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;More Fragment&lt;/code&gt;. Когда маршрутизатор фрагментирует пакет, он записывает значение равное &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt; в данный бит, за исключением последнего фрагмента. Этот бит необходим принимающей стороне для того чтобы определить где заканчивается фрагментированный пакет.&lt;/p&gt;</content><author><name>Ivan Denisenko</name></author><category term="protocols" /><category term="ip" /><summary type="html">Формат заголовка протокола IP состоит из определённого набора полей, которые описаны в RFC 791. Разбор данных полей важен для понимания процесса маршрутизации. Ниже я опишу данные поля и постараюсь показать их в реальности, используя Wireshark.</summary></entry><entry><title type="html">RFC</title><link href="https://iteducate.github.io/protocols/rfc/" rel="alternate" type="text/html" title="RFC" /><published>2021-09-25T09:00:00+03:00</published><updated>2021-09-25T09:00:00+03:00</updated><id>https://iteducate.github.io/protocols/rfc</id><content type="html" xml:base="https://iteducate.github.io/protocols/rfc/">&lt;p&gt;Список RFC, которые будут встречаться по ходу написания статей:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;

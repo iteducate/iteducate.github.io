@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Структура протокола IP - Blog Notes</title>
-<meta name="description" content="Формат заголовка протокола IP состоит из определённого набора полей, которые описаны в RFC 791. Понимание данных полей важно для понимания процесса маршрутизации. Ниже я опишу данные поля и постараюсь показать их в реальности, используя Wireshark.">
+<meta name="description" content="Формат заголовка протокола IP состоит из определённого набора полей, которые описаны в RFC 791. Разбор данных полей важен для понимания процесса маршрутизации. Ниже я опишу данные поля и постараюсь показать их в реальности, используя Wireshark.">
 
 
   <meta name="author" content="Ivan Denisenko">
@@ -26,7 +26,7 @@
 <meta property="og:url" content="https://iteducate.github.io/protocols/ip_header/">
 
 
-  <meta property="og:description" content="Формат заголовка протокола IP состоит из определённого набора полей, которые описаны в RFC 791. Понимание данных полей важно для понимания процесса маршрутизации. Ниже я опишу данные поля и постараюсь показать их в реальности, используя Wireshark.">
+  <meta property="og:description" content="Формат заголовка протокола IP состоит из определённого набора полей, которые описаны в RFC 791. Разбор данных полей важен для понимания процесса маршрутизации. Ниже я опишу данные поля и постараюсь показать их в реальности, используя Wireshark.">
 
 
 
@@ -303,7 +303,7 @@
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Структура протокола IP">
-    <meta itemprop="description" content="Формат заголовка протокола IP состоит из определённого набора полей, которые описаны в RFC 791. Понимание данных полей важно для понимания процесса маршрутизации. Ниже я опишу данные поля и постараюсь показать их в реальности, используя Wireshark.">
+    <meta itemprop="description" content="Формат заголовка протокола IP состоит из определённого набора полей, которые описаны в RFC 791. Разбор данных полей важен для понимания процесса маршрутизации. Ниже я опишу данные поля и постараюсь показать их в реальности, используя Wireshark.">
     <meta itemprop="datePublished" content="2021-09-25T09:00:00+03:00">
     
 
@@ -332,7 +332,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 minute read
+          3 minute read
         
       </span>
     
@@ -344,7 +344,7 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>Формат заголовка протокола IP состоит из определённого набора полей, которые описаны в <a href="https://www.rfc-editor.org/rfc/rfc791.html">RFC 791</a>. Понимание данных полей важно для понимания процесса маршрутизации. Ниже я опишу данные поля и постараюсь показать их в реальности, используя Wireshark.</p>
+        <p>Формат заголовка протокола IP состоит из определённого набора полей, которые описаны в <a href="https://www.rfc-editor.org/rfc/rfc791.html">RFC 791</a>. Разбор данных полей важен для понимания процесса маршрутизации. Ниже я опишу данные поля и постараюсь показать их в реальности, используя Wireshark.</p>
 
 <figure>
   <img src="/assets/images/ip/structure_ip.png" alt="IP Header" style="width:100%" />
@@ -387,9 +387,9 @@
 
 <p><strong>Type of Service</strong> - 8-битное поле, может быть использовано для определения обработки пакета. В настоящее время данное поле переопределено как часть фреймворка <em>Differentiated Services</em>.</p>
 
-<p>Данный фреймворк позволяет более гибко обрабатывать IP-пакеты. Фреймворк DiffServe определяет классы обслуживания (<code class="language-plaintext highlighter-rouge">service classes</code>) на маршрутизаторах, а затем уже производить сортировку согласно данным классам. Затем маршрутизатор может ставить в очередь и производить пересылку пакетов с различными уровнями приоритета в зависимости от их классификации. Каждая процедура постановки в очередь и пересылки называется PHB - <a href="https://en.wikipedia.org/wiki/Per-hop_behaviour"><strong>Per-Hop Behaviour</strong></a></p>
+<p>Данный фреймворк позволяет более гибко обрабатывать IP-пакеты. Фреймворк DiffServe определяет классы обслуживания (<code class="language-plaintext highlighter-rouge">service classes</code>) на маршрутизаторах, а затем позволяет производить сортировку согласно данным классам. Маршрутизатор может ставить в очередь и производить пересылку пакетов с различными уровнями приоритета в зависимости от их классификации. Каждая процедура постановки в очередь и пересылки называется PHB - <a href="https://en.wikipedia.org/wiki/Per-hop_behaviour"><strong>Per-Hop Behaviour</strong></a></p>
 
-<p>В современном мире 6 бит поля Type of Service определено как поле DSCP - <em>DiffServe Code Point</em>. Используя эти 6 бит, администратор может определить произвольно либо в соответствии с предопределенными в архитектуре DiffServe классами обслуживания до 64 классов обслуживания, которые затем могут быть отсортированы в PHB.</p>
+<p>В современном мире 6 бит поля Type of Service определено как поле DSCP - <em>DiffServe Code Point</em>. Используя эти 6 бит, произвольно либо в соответствии с предопределенными в архитектуре DiffServe классами обслуживания, администратор может определить до 64 классов обслуживания, которые затем могут быть отсортированы в PHB.</p>
 
 <p>Оставшиеся 2 бита используется для поля ECN - <strong>Explicit Congestion Notification</strong> - явное уведомление о перегрузках (<a href="https://www.rfc-editor.org/rfc/rfc3168.html">RFC 3168</a>). Если маршрутизатор поддерживает данный параметр, то поле примет значение <code class="language-plaintext highlighter-rouge">11</code> в случае сигнализации о перегрузке.</p>
 
@@ -406,6 +406,114 @@
 </figcaption>
   
 </figure>
+
+<p><strong>Total Length</strong> - 16-битное поле, определяет общую длину пакета, включая заголовок, в байтах. Вычитая длину заголовка можно получить размер данных. 16 бит может содержать максимальное значение в 65535, учитывая это получаем максимально возможное значение IP пакета - 65535 байт.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ip/total_length.png">
+          <img src="/assets/images/ip/total_length.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Total Length</strong>
+</figcaption>
+  
+</figure>
+
+<p>16-битное поле <strong>Identifier</strong> совместно с полями <strong>Flags</strong> и <strong>Fragment Offset</strong> используются для того чтобы показать был ли фрагментирован пакет или нет.</p>
+
+<p>Пакет будет фрагментирован на более мелкие пакеты в случае когда его размер превышает <em>Maximimum Transmition Unit (MTU)</em> канальной среды через которую данный пакет будет передаваться.</p>
+
+<p>Например, в случае когда MTU канальной среды равен 1500 байт и по ней передаётся пакет размером 5000 байт, то максимальный размер пакета может содержать только 1500 байт информации. Маршрутизатор должен маркировать каждый фрагмент с тем же значением в поле <em>Identifier</em> для того чтобы получающая сторона могла определить, что фрагменты относятся к одному и тому же пакету.</p>
+
+<p class="notice--info"><i class="fa fa-info-circle"></i><strong> Заметка:</strong> фрагментированный пакет не собирается с каждой стороны канальной среды. Пакет остается фрагментированным до тех пор пока он не достигнет финальной точки назначения.</p>
+
+<p><strong>Flags</strong> - 3-битное поле, первый бит в котором не используется. Второй бит - бит DF (<code class="language-plaintext highlighter-rouge">Don't Fragment</code>). Когда данный бит установлен в <code class="language-plaintext highlighter-rouge">1</code>, то маршрутизатор не может фрагментировать пакет.</p>
+
+<p>Если пакет не может быть отправлен без фрагментации, маршрутизатор отбросит пакет и отправит источнику сообщение об ошибке пересылки. Данный функционал позволяет протестировать MTU в сети.</p>
+
+<p>Рассмотрим простую схему между двумя маршрутизаторами:</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ip/scheme_ext_ping.png">
+          <img src="/assets/images/ip/scheme_ext_ping.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Схема</strong>
+</figcaption>
+  
+</figure>
+
+<p>С помощью расширенной программы <em>ping</em> на маршрутизаторах Cisco можно найти максимальный MTU между устройствами.</p>
+
+<p>Ниже представлен пример выполнения данной команды:</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+</pre></td><td class="code"><pre><span class="gp">Router#</span><span class="w"> 
+</span><span class="gp">Router#</span><span class="w"> </span>ping
+<span class="go">Protocol [ip]: 
+Target IP address: 192.168.1.1
+Repeat count [5]: 1
+Datagram size [100]: 
+Timeout in seconds [2]: 
+Extended commands [n]: y
+Ingress ping [n]: 
+Source address or interface: 192.168.1.1
+Type of service [0]: 
+Set DF bit in IP header? [no]: y
+Validate reply data? [no]: 
+Data pattern [0x0000ABCD]: 
+Loose, Strict, Record, Timestamp, Verbose[none]: 
+Sweep range of sizes [n]: y
+Sweep min size [36]: 1451
+Sweep max size [18024]: 1550
+Sweep interval [1]: 1
+Type escape sequence to abort.
+Sending 100, [1451..1550]-byte ICMP Echos to 192.168.1.1, timeout is 2 seconds:
+Packet sent with a source address of 192.168.1.1 
+Packet sent with the DF bit set
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!....................
+</span><span class="c">..............................
+</span><span class="go">Success rate is 50 percent (50/100), round-trip min/avg/max = 1/1/1 ms
+</span><span class="gp">Router#</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Из вывода видно, что максимальный MTU равен 1500 байт. Существуют и другие способы как с помощью данной команды найти максимальный MTU между группой сетевых устройств, но данный способ сейчас рассматривать не будем.</p>
+
+<p>Третий бит в поле <strong>Flags</strong> - <code class="language-plaintext highlighter-rouge">More Fragment</code>. Когда маршрутизатор фрагментирует пакет, он записывает значение равное <code class="language-plaintext highlighter-rouge">1</code> в данный бит, за исключением последнего фрагмента. Этот бит необходим принимающей стороне для того чтобы определить где заканчивается фрагментированный пакет.</p>
 
         
 
