@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-09-29T18:32:28+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Структура протокола IP</title><link href="https://iteducate.github.io/protocols/ip_header/" rel="alternate" type="text/html" title="Структура протокола IP" /><published>2021-09-25T09:00:00+03:00</published><updated>2021-09-25T09:00:00+03:00</updated><id>https://iteducate.github.io/protocols/ip_header</id><content type="html" xml:base="https://iteducate.github.io/protocols/ip_header/">&lt;p&gt;Формат заголовка протокола IP состоит из определённого набора полей, которые описаны в &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc791.html&quot;&gt;RFC 791&lt;/a&gt;. Разбор данных полей важен для понимания процесса маршрутизации. Ниже я опишу данные поля и постараюсь показать их в реальности, используя Wireshark.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-09-29T20:10:41+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Структура протокола IP</title><link href="https://iteducate.github.io/protocols/ip_header/" rel="alternate" type="text/html" title="Структура протокола IP" /><published>2021-09-25T09:00:00+03:00</published><updated>2021-09-25T09:00:00+03:00</updated><id>https://iteducate.github.io/protocols/ip_header</id><content type="html" xml:base="https://iteducate.github.io/protocols/ip_header/">&lt;p&gt;Формат заголовка протокола IP состоит из определённого набора полей, которые описаны в &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc791.html&quot;&gt;RFC 791&lt;/a&gt;. Разбор данных полей важен для понимания процесса маршрутизации. Ниже я опишу данные поля и постараюсь показать их в реальности, используя Wireshark.&lt;/p&gt;
 
 &lt;figure&gt;
   &lt;img src=&quot;/assets/images/ip/structure_ip.png&quot; alt=&quot;IP Header&quot; style=&quot;width:100%&quot; /&gt;
@@ -351,7 +351,35 @@ Success rate is 66 percent (2/3), round-trip min/avg/max = 3/3/3 ms
 
 &lt;p class=&quot;notice--danger&quot;&gt;&lt;i class=&quot;fa fa-exclamation&quot;&gt;&lt;/i&gt;&lt;strong&gt; Важно:&lt;/strong&gt; в случае если в процессе передачи фрагментированного пакета теряется хотя бы один пакет, то весь пакет будет переслан заново. Таким образом, это может привести к непропорциональным задержкам в сети.&lt;/p&gt;
 
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ip/identif_flag_offset.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ip/identif_flag_offset.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Поля Identifier, Flags, Fragment Offset&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
 &lt;p&gt;&lt;strong&gt;Time to Live&lt;/strong&gt; или просто &lt;em&gt;TTL&lt;/em&gt; - 8-битное поле, в которое записывается некоторое число в момент создания пакета.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ip/ttl.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ip/ttl.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Time to Live&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
 
 &lt;p&gt;По мере передачи пакета от одного маршрутизатора до другого, каждый из них будет уменьшать данное число. Если значение данного поля станет равным нулю, пакет будет отброшен и источнику пакета будет отправлено сообщение об ошибке пересылки. Данный механизм позволяет предотвратить бесконечное блуждание пакета по сети.&lt;/p&gt;
 
@@ -371,11 +399,119 @@ Success rate is 66 percent (2/3), round-trip min/avg/max = 3/3/3 ms
     &lt;figcaption&gt;&lt;strong&gt;Traceroute&lt;/strong&gt;
 &lt;/figcaption&gt;
   
-&lt;/figure&gt;</content><author><name>Ivan Denisenko</name></author><category term="protocols" /><category term="ip" /><summary type="html">Формат заголовка протокола IP состоит из определённого набора полей, которые описаны в RFC 791. Разбор данных полей важен для понимания процесса маршрутизации. Ниже я опишу данные поля и постараюсь показать их в реальности, используя Wireshark.</summary></entry><entry><title type="html">RFC</title><link href="https://iteducate.github.io/protocols/rfc/" rel="alternate" type="text/html" title="RFC" /><published>2021-09-25T09:00:00+03:00</published><updated>2021-09-25T09:00:00+03:00</updated><id>https://iteducate.github.io/protocols/rfc</id><content type="html" xml:base="https://iteducate.github.io/protocols/rfc/">&lt;p&gt;Список RFC, которые будут встречаться по ходу написания статей:&lt;/p&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Protocol&lt;/strong&gt; - 8-битное поле, определяющее номер вышестоящего протокола, которому предназначена передаваемая информация в пакете.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ip/protocol.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ip/protocol.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Protocol&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Ниже в таблице представлены одни из наиболее часто используемых протоколов, но данный список далеко не полный, каким может казаться на первый взгляд.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Номер протокола&lt;/th&gt;
+      &lt;th&gt;Название протокола&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Internet Control Message Protocol - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ICMP&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Internet Group Management Protocol - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IGMP&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;IP in IP (encapsulation)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;6&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Transmission Control Protocol - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TCP&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;17&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;User Datagram Protocol - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UDP&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;47&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Generic Routing Encapsulation - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GRE&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;89&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Open Shortest Path First - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OSPF&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;Header Checksum&lt;/strong&gt; - поле, определяющее ошибки в заголовке IP. Чексумма не вычисляется для содержимого IP пакета. Практически каждый вышестоящий протокол (&lt;em&gt;будь то TCP, UDP, ICMP, etc.&lt;/em&gt;) имеет свои механизмы вычисления ошибок.&lt;/p&gt;
+
+&lt;p&gt;Данное поле представляет собой 16-битное значение, вычисляемое отправителем пакета. Принимающая сторона снова вычисляет данное значение и если значения сходятся, то считается, что чексумма &lt;em&gt;не битая&lt;/em&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ip/checksum.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ip/checksum.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Header Checksum&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p class=&quot;notice--info&quot;&gt;&lt;i class=&quot;fa fa-info-circle&quot;&gt;&lt;/i&gt;&lt;strong&gt; Важно:&lt;/strong&gt; стоит помнить, что каждый маршрутизатор уменьшает значение поля TTL, поэтому значение чексуммы должно рассчитывается на каждом маршрутизаторе! &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc1624&quot;&gt;RFC 1624&lt;/a&gt; более подробно описывает процесс вычисления чексуммы в протоколе IP.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Source and Destination Addresses&lt;/strong&gt; - 32-битный адреса источника и назначения пакета. Формат адресов представляет собой 4 десятичных числа от &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt; до &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;255&lt;/code&gt;, разделенных точкой.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ip/src_dst.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ip/src_dst.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Source and Destination IP Addresses&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Options&lt;/strong&gt; - поле переменной длины, как следует из описания используется для дополнительных опций.&lt;/p&gt;
+
+&lt;p&gt;Данное поле используется в основном для тестирования. Наиболее часто используемые опции:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Loose source routing&lt;/li&gt;
+    &lt;li&gt;Strict source routing&lt;/li&gt;
+    &lt;li&gt;Record route&lt;/li&gt;
+    &lt;li&gt;Timestamp&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;</content><author><name>Ivan Denisenko</name></author><category term="protocols" /><category term="ip" /><summary type="html">Формат заголовка протокола IP состоит из определённого набора полей, которые описаны в RFC 791. Разбор данных полей важен для понимания процесса маршрутизации. Ниже я опишу данные поля и постараюсь показать их в реальности, используя Wireshark.</summary></entry><entry><title type="html">RFC</title><link href="https://iteducate.github.io/protocols/rfc/" rel="alternate" type="text/html" title="RFC" /><published>2021-09-25T09:00:00+03:00</published><updated>2021-09-25T09:00:00+03:00</updated><id>https://iteducate.github.io/protocols/rfc</id><content type="html" xml:base="https://iteducate.github.io/protocols/rfc/">&lt;p&gt;Список RFC, которые будут встречаться по ходу написания статей:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc791.html&quot;&gt;RFC 791 -  Internet Protocol&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc1624&quot;&gt;RFC 1624 - Computation of the Internet Checksum via Incremental Update&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc3168.html&quot;&gt;RFC 3168 - The Addition of Explicit Congestion Notification (ECN) to IP&lt;/a&gt;&lt;/p&gt;

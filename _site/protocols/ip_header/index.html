@@ -332,7 +332,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          6 minute read
+          7 minute read
         
       </span>
     
@@ -697,7 +697,35 @@ Success rate is 66 percent (2/3), round-trip min/avg/max = 3/3/3 ms
 
 <p class="notice--danger"><i class="fa fa-exclamation"></i><strong> Важно:</strong> в случае если в процессе передачи фрагментированного пакета теряется хотя бы один пакет, то весь пакет будет переслан заново. Таким образом, это может привести к непропорциональным задержкам в сети.</p>
 
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ip/identif_flag_offset.png">
+          <img src="/assets/images/ip/identif_flag_offset.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Поля Identifier, Flags, Fragment Offset</strong>
+</figcaption>
+  
+</figure>
+
 <p><strong>Time to Live</strong> или просто <em>TTL</em> - 8-битное поле, в которое записывается некоторое число в момент создания пакета.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ip/ttl.png">
+          <img src="/assets/images/ip/ttl.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Time to Live</strong>
+</figcaption>
+  
+</figure>
 
 <p>По мере передачи пакета от одного маршрутизатора до другого, каждый из них будет уменьшать данное число. Если значение данного поля станет равным нулю, пакет будет отброшен и источнику пакета будет отправлено сообщение об ошибке пересылки. Данный механизм позволяет предотвратить бесконечное блуждание пакета по сети.</p>
 
@@ -718,6 +746,111 @@ Success rate is 66 percent (2/3), round-trip min/avg/max = 3/3/3 ms
 </figcaption>
   
 </figure>
+
+<p><strong>Protocol</strong> - 8-битное поле, определяющее номер вышестоящего протокола, которому предназначена передаваемая информация в пакете.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ip/protocol.png">
+          <img src="/assets/images/ip/protocol.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Protocol</strong>
+</figcaption>
+  
+</figure>
+
+<p>Ниже в таблице представлены одни из наиболее часто используемых протоколов, но данный список далеко не полный, каким может казаться на первый взгляд.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Номер протокола</th>
+      <th>Название протокола</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">1</code></td>
+      <td>Internet Control Message Protocol - <code class="language-plaintext highlighter-rouge">ICMP</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">2</code></td>
+      <td>Internet Group Management Protocol - <code class="language-plaintext highlighter-rouge">IGMP</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">4</code></td>
+      <td>IP in IP (encapsulation)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">6</code></td>
+      <td>Transmission Control Protocol - <code class="language-plaintext highlighter-rouge">TCP</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">17</code></td>
+      <td>User Datagram Protocol - <code class="language-plaintext highlighter-rouge">UDP</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">47</code></td>
+      <td>Generic Routing Encapsulation - <code class="language-plaintext highlighter-rouge">GRE</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">89</code></td>
+      <td>Open Shortest Path First - <code class="language-plaintext highlighter-rouge">OSPF</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Header Checksum</strong> - поле, определяющее ошибки в заголовке IP. Чексумма не вычисляется для содержимого IP пакета. Практически каждый вышестоящий протокол (<em>будь то TCP, UDP, ICMP, etc.</em>) имеет свои механизмы вычисления ошибок.</p>
+
+<p>Данное поле представляет собой 16-битное значение, вычисляемое отправителем пакета. Принимающая сторона снова вычисляет данное значение и если значения сходятся, то считается, что чексумма <em>не битая</em>.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ip/checksum.png">
+          <img src="/assets/images/ip/checksum.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Header Checksum</strong>
+</figcaption>
+  
+</figure>
+
+<p class="notice--info"><i class="fa fa-info-circle"></i><strong> Важно:</strong> стоит помнить, что каждый маршрутизатор уменьшает значение поля TTL, поэтому значение чексуммы должно рассчитывается на каждом маршрутизаторе! <a href="https://www.rfc-editor.org/rfc/rfc1624">RFC 1624</a> более подробно описывает процесс вычисления чексуммы в протоколе IP.</p>
+
+<p><strong>Source and Destination Addresses</strong> - 32-битный адреса источника и назначения пакета. Формат адресов представляет собой 4 десятичных числа от <code class="language-plaintext highlighter-rouge">0</code> до <code class="language-plaintext highlighter-rouge">255</code>, разделенных точкой.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ip/src_dst.png">
+          <img src="/assets/images/ip/src_dst.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Source and Destination IP Addresses</strong>
+</figcaption>
+  
+</figure>
+
+<p><strong>Options</strong> - поле переменной длины, как следует из описания используется для дополнительных опций.</p>
+
+<p>Данное поле используется в основном для тестирования. Наиболее часто используемые опции:</p>
+<blockquote>
+  <ul>
+    <li>Loose source routing</li>
+    <li>Strict source routing</li>
+    <li>Record route</li>
+    <li>Timestamp</li>
+  </ul>
+</blockquote>
 
         
 
