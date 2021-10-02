@@ -23,7 +23,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Blog Notes">
 <meta property="og:title" content="Структура протокола IP">
-<meta property="og:url" content="https://iteducate.github.io/protocols/ip_header/">
+<meta property="og:url" content="https://iteducate.github.io/networks/ip_prot/">
 
 
   <meta property="og:description" content="Формат заголовка протокола IP состоит из определённого набора полей, которые описаны в RFC 791. Разбор данных полей важен для понимания процесса маршрутизации. Ниже я опишу данные поля и постараюсь показать их в реальности, используя Wireshark.">
@@ -45,7 +45,7 @@
   
 
 
-<link rel="canonical" href="https://iteducate.github.io/protocols/ip_header/">
+<link rel="canonical" href="https://iteducate.github.io/networks/ip_prot/">
 
 
 
@@ -882,7 +882,9 @@ Success rate is 66 percent (2/3), round-trip min/avg/max = 3/3/3 ms
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#ip" class="page__taxonomy-item" rel="tag">ip</a>
+      <a href="/tags/#ip" class="page__taxonomy-item" rel="tag">ip</a><span class="sep">, </span>
+    
+      <a href="/tags/#protocols" class="page__taxonomy-item" rel="tag">protocols</a>
     
     </span>
   </p>
@@ -899,7 +901,7 @@ Success rate is 66 percent (2/3), round-trip min/avg/max = 3/3/3 ms
     <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
     <span itemprop="keywords">
     
-      <a href="/categories/#protocols" class="page__taxonomy-item" rel="tag">protocols</a>
+      <a href="/categories/#networks" class="page__taxonomy-item" rel="tag">networks</a>
     
     </span>
   </p>
@@ -916,24 +918,24 @@ Success rate is 66 percent (2/3), round-trip min/avg/max = 3/3/3 ms
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0+%D0%BF%D1%80%D0%BE%D1%82%D0%BE%D0%BA%D0%BE%D0%BB%D0%B0+IP%20https%3A%2F%2Fiteducate.github.io%2Fprotocols%2Fip_header%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0+%D0%BF%D1%80%D0%BE%D1%82%D0%BE%D0%BA%D0%BE%D0%BB%D0%B0+IP%20https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Fip_prot%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fiteducate.github.io%2Fprotocols%2Fip_header%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Fip_prot%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fiteducate.github.io%2Fprotocols%2Fip_header%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Fip_prot%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 
-  <a href="https://vk.com/share.php?url=https%3A%2F%2Fiteducate.github.io%2Fprotocols%2Fip_header%2F" class="btn btn--vk" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on VK"><i class="fab fa-fw fa-vk" aria-hidden="true"></i><span> VK</span></a>
+  <a href="https://vk.com/share.php?url=https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Fip_prot%2F" class="btn btn--vk" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on VK"><i class="fab fa-fw fa-vk" aria-hidden="true"></i><span> VK</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/editors/vim_1/" class="pagination--pager" title="Необычный взгляд на редактирование текста. Часть I.
+      <a href="/protocols/rfc/" class="pagination--pager" title="RFC
 ">Previous</a>
     
     
-      <a href="/protocols/rfc/" class="pagination--pager" title="RFC
+      <a href="/networks/arp_prot/" class="pagination--pager" title="Структура протокола ARP
 ">Next</a>
     
   </nav>
@@ -958,6 +960,51 @@ Success rate is 66 percent (2/3), round-trip min/avg/max = 3/3/3 ms
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
+        <a href="/networks/arp_prot/" rel="permalink">Структура протокола ARP
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2021-10-02T09:00:00+03:00">October 2, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">P.S. вся информация представленная здесь используется исключительно в образовательных целях. Все совпадения с реальными объектами, адресами, именами и т.д. с...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
         <a href="/protocols/rfc/" rel="permalink">RFC
 </a>
       
@@ -969,7 +1016,7 @@ Success rate is 66 percent (2/3), round-trip min/avg/max = 3/3/3 ms
       
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2021-09-25T09:00:00+03:00">September 25, 2021</time>
+        <time datetime="2021-09-24T09:00:00+03:00">September 24, 2021</time>
       </span>
     
 
@@ -1085,51 +1132,6 @@ Success rate is 66 percent (2/3), round-trip min/avg/max = 3/3/3 ms
 </div>
 
         
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/%D0%B8%D0%B1/inform_security_1_1/" rel="permalink">Проблемы обеспечения безопасности автоматизированных систем
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2019-10-11T21:00:00+03:00">October 11, 2019</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          12 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Данная статья является продолжение того пути, который я начал в далёком 2012 году, поступив на специальность, связанную с обеспечением компьютерной безопасно...</p>
-  </article>
-</div>
-
-        
       </div>
     </div>
   
@@ -1207,8 +1209,8 @@ Success rate is 66 percent (2/3), round-trip min/avg/max = 3/3/3 ms
     
   <script>
     var disqus_config = function () {
-      this.page.url = "https://iteducate.github.io/protocols/ip_header/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/protocols/ip_header"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "https://iteducate.github.io/networks/ip_prot/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/networks/ip_prot"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');
