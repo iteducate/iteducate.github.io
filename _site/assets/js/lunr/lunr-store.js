@@ -42,9 +42,9 @@ var store = [{
         "teaser": null
       },{
         "title": "RFC",
-        "excerpt":"Список RFC, которые будут встречаться по ходу написания статей:           RFC 791 -  Internet Protocol            RFC 1624 - Computation of the Internet Checksum via Incremental Update            RFC 3168 - The Addition of Explicit Congestion Notification (ECN) to IP      ","categories": ["protocols"],
+        "excerpt":"Список RFC, которые будут встречаться по ходу написания статей:           RFC 791 -  Internet Protocol            RFC 826 -  An Ethernet Address Resolution Protocol            RFC 1624 - Computation of the Internet Checksum via Incremental Update            RFC 3168 - The Addition of Explicit Congestion Notification (ECN) to IP      ","categories": ["networks"],
         "tags": ["rfc"],
-        "url": "/protocols/rfc/",
+        "url": "/networks/rfc/",
         "teaser": null
       },{
         "title": "Структура протокола IP",
@@ -54,7 +54,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Структура протокола ARP",
-        "excerpt":"P.S. вся информация представленная здесь используется исключительно в образовательных целях. Все совпадения с реальными объектами, адресами, именами и т.д. случайна и не несёт цели получить от этого выгоду или причинить кому-либо вред.  ","categories": ["networks"],
+        "excerpt":"Маршрутизаторы передают пакеты по какому-либо логическому пути, который состоит из определённого количества каналов передачи данных, “читая” и “взаимодействуя” с сетевыми адресами. Пакеты, инкапсулированные в кадры (фреймы), передаются через канальную среду. Фреймы содержат уникальные идентификаторы канальной среды (например, MAC-адреса) для определения адресата источника и назначения в канальной среде.   Устройствам в канальной среде необходим способ определения идентификаторов канальной среды соседей для того чтобы фреймы могли быть отправлены корректному адресату назначения. Одним из таких механизмов определения для протокола IP версии 4 является протокол ARP - Address Resolution Protocol, описанный в RFC 826.   P.S. вся информация представленная здесь используется исключительно в образовательных целях. Все совпадения с реальными объектами, адресами, именами и т.д. случайна и не несёт цели получить от этого выгоду или причинить кому-либо вред.  ","categories": ["networks"],
         "tags": ["protocols","arp"],
         "url": "/networks/arp_prot/",
         "teaser": null
