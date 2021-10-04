@@ -332,7 +332,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          3 minute read
+          4 minute read
         
       </span>
     
@@ -619,6 +619,96 @@
 </pre></td></tr></tbody></table></code></pre></figure>
 
 <p class="notice--danger"><i class="fa fa-exclamation"></i><strong> Важно:</strong> команда <code>debug</code> очень требовательна к ресурсам, следует аккуратно использовать её на производстве. При неаккуратном задании параметров можно потерять доступ к устройству из-за постоянного спама сообщений в консоль.</p>
+
+<p>Для просмотра таблицы ARP на устройствах cisco можно выполнить команду <code class="language-plaintext highlighter-rouge">show arp</code> в привилегированном режиме. Для операционной системы Windows можно выполнить команду <code class="language-plaintext highlighter-rouge">arp -a</code>, а для Linux команда выглядит <code class="language-plaintext highlighter-rouge">arp -vn</code>. Примеры выполнения команд приведены ниже:</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/arp/arp_cisco.png">
+          <img src="/assets/images/arp/arp_cisco.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Cisco ARP table</strong>
+</figcaption>
+  
+</figure>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/arp/arp_win.png">
+          <img src="/assets/images/arp/arp_win.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Windows ARP table</strong>
+</figcaption>
+  
+</figure>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/arp/arp_lin.png">
+          <img src="/assets/images/arp/arp_lin.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Linux ARP table</strong>
+</figcaption>
+  
+</figure>
+
+<p>Стоит обратить внимание на колонку <code class="language-plaintext highlighter-rouge">Age</code> в выводе команды на маршрутизаторе. Данная колонка показывает через какое количество времени данная запись будет удалена из таблицы ARP. Это сделано для того чтобы предотвратить перегрузку таблицы ARP устаревшими записями.</p>
+
+<p>По умолчанию устройства cisco хранятся информацию у себя в таблице ARP в течение 4 часов, это можно проверить командой <code class="language-plaintext highlighter-rouge">show interface &lt;имя_интерфейса&gt; | include ARP</code></p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="gp">Router#</span><span class="w"> </span>show int gi0/0 | inc ARP
+<span class="go">  Encapsulation ARPA, loopback not set
+  ARP type: ARPA, ARP Timeout 04:00:00
+</span><span class="gp">Router#</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Поведение по умолчанию можно изменить, выполнив следующий набор команд (<em>настройка актуальна для отдельного интерфейса</em>)</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="gp">Router#</span><span class="w"> </span>conf t
+<span class="go">Enter configuration commands, one per line.  End with CNTL/Z.
+</span><span class="gp">Router(config)#</span><span class="w"> </span>interface gi0/0
+<span class="gp">Router(config-if)#</span><span class="w"> </span>arp <span class="nb">timeout </span>1800
+<span class="gp">Router(config-if)#</span><span class="w"> </span>end
+<span class="go">*Oct  4 20:56:43.122: %SYS-5-CONFIG_I: Configured from console by console
+</span><span class="gp">Router#</span><span class="w"> </span>show int gi0/0 | inc ARP
+<span class="go">  Encapsulation ARPA, loopback not set
+  ARP type: ARPA, ARP Timeout 00:30:00
+</span><span class="gp">Router#</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Для очистки ARP кэша можно выполнить команду</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="gp">Router#</span><span class="w"> </span>clear arp-cache
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>В следующий раз я вкратце рассмотрю другие разновидности протокола ARP: <code class="language-plaintext highlighter-rouge">Proxy ARP</code>, <code class="language-plaintext highlighter-rouge">Gratuitous ARP</code>, <code class="language-plaintext highlighter-rouge">Reverse ARP</code>.</p>
 
 <p><strong>P.S.</strong> <em>вся информация представленная здесь используется исключительно в образовательных целях. Все совпадения с реальными объектами, адресами, именами и т.д. случайна и не несёт цели получить от этого выгоду или причинить кому-либо вред.</em></p>
 
