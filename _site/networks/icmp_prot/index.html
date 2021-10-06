@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>RFC - Blog Notes</title>
-<meta name="description" content="Список RFC, которые будут встречаться по ходу написания статей:">
+<!-- begin _includes/seo.html --><title>Структура протокола ICMP - Blog Notes</title>
+<meta name="description" content="Internet Control Message Protocol или просто ICMP описан в RFC 792. Данный протокол определяет набор различных сообщений, целью которых является управление сетью.">
 
 
   <meta name="author" content="Ivan Denisenko">
@@ -22,30 +22,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Blog Notes">
-<meta property="og:title" content="RFC">
-<meta property="og:url" content="https://iteducate.github.io/networks/rfc/">
+<meta property="og:title" content="Структура протокола ICMP">
+<meta property="og:url" content="https://iteducate.github.io/networks/icmp_prot/">
 
 
-  <meta property="og:description" content="Список RFC, которые будут встречаться по ходу написания статей:">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2021-09-24T09:00:00+03:00">
+  <meta property="og:description" content="Internet Control Message Protocol или просто ICMP описан в RFC 792. Данный протокол определяет набор различных сообщений, целью которых является управление сетью.">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2021-10-07T00:00:00+03:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="https://iteducate.github.io/networks/rfc/">
+
+<link rel="canonical" href="https://iteducate.github.io/networks/icmp_prot/">
 
 
 
@@ -302,15 +302,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="RFC">
-    <meta itemprop="description" content="Список RFC, которые будут встречаться по ходу написания статей:">
-    <meta itemprop="datePublished" content="2021-09-24T09:00:00+03:00">
+    <meta itemprop="headline" content="Структура протокола ICMP">
+    <meta itemprop="description" content="Internet Control Message Protocol или просто ICMP описан в RFC 792. Данный протокол определяет набор различных сообщений, целью которых является управление сетью.">
+    <meta itemprop="datePublished" content="2021-10-07T00:00:00+03:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">RFC
+          <h1 id="page-title" class="page__title" itemprop="headline">Структура протокола ICMP
 </h1>
           
 
@@ -319,7 +319,7 @@
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2021-09-24T09:00:00+03:00">September 24, 2021</time>
+        <time datetime="2021-10-07T00:00:00+03:00">October 7, 2021</time>
       </span>
     
 
@@ -332,7 +332,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          less than 1 minute read
+          1 minute read
         
       </span>
     
@@ -344,34 +344,223 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>Список RFC, которые будут встречаться по ходу написания статей:</p>
+        <p>Internet Control Message Protocol или просто ICMP описан в <a href="https://www.rfc-editor.org/rfc/rfc792.html">RFC 792</a>. Данный протокол определяет набор различных сообщений, целью которых является управление сетью.</p>
 
-<ul>
-  <li>
-    <p><a href="https://www.rfc-editor.org/rfc/rfc791.html">RFC 791 -  Internet Protocol</a></p>
-  </li>
-  <li>
-    <p><a href="https://www.rfc-editor.org/rfc/rfc792.html">RFC 792 -  Internet Control Message Protocol</a></p>
-  </li>
-  <li>
-    <p><a href="https://www.rfc-editor.org/rfc/rfc826.html">RFC 826 -  An Ethernet Address Resolution Protocol</a></p>
-  </li>
-  <li>
-    <p><a href="https://www.rfc-editor.org/rfc/rfc925.html">RFC 925 -  Multi-LAN Address Resolution</a></p>
-  </li>
-  <li>
-    <p><a href="https://www.rfc-editor.org/rfc/rfc1027.html">RFC 1027 -  Using ARP to Implement Transparent Subnet Gateways</a></p>
-  </li>
-  <li>
-    <p><a href="https://www.rfc-editor.org/rfc/rfc1624">RFC 1624 - Computation of the Internet Checksum via Incremental Update</a></p>
-  </li>
-  <li>
-    <p><a href="https://www.rfc-editor.org/rfc/rfc1700.html">RFC 1700 -  Assigned Numbers</a></p>
-  </li>
-  <li>
-    <p><a href="https://www.rfc-editor.org/rfc/rfc3168.html">RFC 3168 - The Addition of Explicit Congestion Notification (ECN) to IP</a></p>
-  </li>
-</ul>
+<p>ICMP сообщения могут классифицироваться как <em>сообщения об ошибках</em>, а также как сообщения типа <em>“запрос - ответ”</em>.</p>
+
+<div class="mermaid" align="center">
+graph TD
+ C{ICMP}
+    C --&gt; D[Error message]
+    C --&gt; E[Query-Response]
+</div>
+
+<p>Ниже представлен основной формат пакета ICMP</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/icmp/structure_icmp.png">
+          <img src="/assets/images/icmp/structure_icmp.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Структура протокола ICMP</strong>
+</figcaption>
+  
+</figure>
+
+<p>Пакеты ICMP определяются по их типу (<strong><em>Type</em></strong>), однако, большинство типов могут иметь более специфичные типы, они определяются по полю <strong><em>Code</em></strong>. <a href="https://www.rfc-editor.org/rfc/rfc1700.html">RFC 1700</a> определяет все основные типы и коды для протокола ICMP.</p>
+
+<p>Ниже в таблице также перечислены данные поля с их описанием</p>
+
+<table>
+	<thead>
+		<tr>
+			<th scope="col">Тип</th>
+			<th scope="col">Код</th>
+			<th scope="col">Название</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>0</td>
+			<td>0</td>
+			<td>Echo Reply</td>
+		</tr>
+		<tr>
+			<td colspan="1" rowspan="14">3</td>
+			<td>&nbsp;</td>
+			<td>Destination Unreachable</td>
+		</tr>
+		<tr>
+			<td>0</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>Fragmentation Needed and Don't Fragment Flag Set</td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>6</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>7</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>8</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>9</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>10</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>11</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>12</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>0</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan="1" rowspan="5">5</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>0</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>6</td>
+			<td>0</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>8</td>
+			<td>0</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>9</td>
+			<td>0</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>10</td>
+			<td>0</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan="1" rowspan="3">11</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>0</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan="1" rowspan="4">12</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>0</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>13</td>
+			<td>0</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>14</td>
+			<td>0</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>15</td>
+			<td>0</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>16</td>
+			<td>0</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>17</td>
+			<td>0</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>18</td>
+			<td>0</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>30</td>
+			<td>-</td>
+			<td>Traceroute</td>
+		</tr>
+	</tbody>
+</table>
+
+<p><strong>P.S.</strong> <em>вся информация представленная здесь используется исключительно в образовательных целях. Все совпадения с реальными объектами, адресами, именами и т.д. случайна и не несёт цели получить от этого выгоду или причинить кому-либо вред.</em></p>
 
         
 
@@ -390,7 +579,9 @@
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#rfc" class="page__taxonomy-item" rel="tag">rfc</a>
+      <a href="/tags/#icmp" class="page__taxonomy-item" rel="tag">icmp</a><span class="sep">, </span>
+    
+      <a href="/tags/#protocols" class="page__taxonomy-item" rel="tag">protocols</a>
     
     </span>
   </p>
@@ -414,7 +605,7 @@
 
 
         
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-09-24T09:00:00+03:00">September 24, 2021</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-10-07T00:00:00+03:00">October 7, 2021</time></p>
 
 
       </footer>
@@ -424,25 +615,24 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=RFC%20https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Frfc%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0+%D0%BF%D1%80%D0%BE%D1%82%D0%BE%D0%BA%D0%BE%D0%BB%D0%B0+ICMP%20https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Ficmp_prot%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Frfc%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Ficmp_prot%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Frfc%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Ficmp_prot%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 
-  <a href="https://vk.com/share.php?url=https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Frfc%2F" class="btn btn--vk" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on VK"><i class="fab fa-fw fa-vk" aria-hidden="true"></i><span> VK</span></a>
+  <a href="https://vk.com/share.php?url=https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Ficmp_prot%2F" class="btn btn--vk" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on VK"><i class="fab fa-fw fa-vk" aria-hidden="true"></i><span> VK</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/editors/vim_1/" class="pagination--pager" title="Необычный взгляд на редактирование текста. Часть I.
+      <a href="/networks/arp_types/" class="pagination--pager" title="Разновидности протокола ARP
 ">Previous</a>
     
     
-      <a href="/networks/ip_prot/" class="pagination--pager" title="Структура протокола IP
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
@@ -456,51 +646,6 @@
     <div class="page__related">
       <h4 class="page__related-title">You may also enjoy</h4>
       <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/networks/icmp_prot/" rel="permalink">Структура протокола ICMP
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2021-10-07T00:00:00+03:00">October 7, 2021</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Internet Control Message Protocol или просто ICMP описан в RFC 792. Данный протокол определяет набор различных сообщений, целью которых является управление с...</p>
-  </article>
-</div>
-
         
           
 
@@ -580,7 +725,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          5 minute read
+          4 minute read
         
       </span>
     
@@ -633,6 +778,52 @@
 
 
     <p class="archive__item-excerpt" itemprop="description">Формат заголовка протокола IP состоит из определённого набора полей, которые описаны в RFC 791. Разбор данных полей важен для понимания процесса маршрутизаци...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/networks/rfc/" rel="permalink">RFC
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2021-09-24T09:00:00+03:00">September 24, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Список RFC, которые будут встречаться по ходу написания статей:
+</p>
   </article>
 </div>
 
@@ -714,8 +905,8 @@
     
   <script>
     var disqus_config = function () {
-      this.page.url = "https://iteducate.github.io/networks/rfc/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/networks/rfc"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "https://iteducate.github.io/networks/icmp_prot/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/networks/icmp_prot"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');

@@ -1,4 +1,220 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-10-06T21:22:09+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Разновидности протокола ARP</title><link href="https://iteducate.github.io/networks/arp_types/" rel="alternate" type="text/html" title="Разновидности протокола ARP" /><published>2021-10-05T09:00:00+03:00</published><updated>2021-10-05T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/arp_types</id><content type="html" xml:base="https://iteducate.github.io/networks/arp_types/">&lt;p&gt;В предыдущей статье был рассмотрен протокол ARP, структура и принцип его работы. Сегодня я хочу показать несколько разновидностей данного протокола, которые также иногда используются в сетях.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-10-07T01:09:50+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Структура протокола ICMP</title><link href="https://iteducate.github.io/networks/icmp_prot/" rel="alternate" type="text/html" title="Структура протокола ICMP" /><published>2021-10-07T00:00:00+03:00</published><updated>2021-10-07T00:00:00+03:00</updated><id>https://iteducate.github.io/networks/icmp_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/icmp_prot/">&lt;p&gt;Internet Control Message Protocol или просто ICMP описан в &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc792.html&quot;&gt;RFC 792&lt;/a&gt;. Данный протокол определяет набор различных сообщений, целью которых является управление сетью.&lt;/p&gt;
+
+&lt;p&gt;ICMP сообщения могут классифицироваться как &lt;em&gt;сообщения об ошибках&lt;/em&gt;, а также как сообщения типа &lt;em&gt;“запрос - ответ”&lt;/em&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;mermaid&quot; align=&quot;center&quot;&gt;
+graph TD
+ C{ICMP}
+    C --&amp;gt; D[Error message]
+    C --&amp;gt; E[Query-Response]
+&lt;/div&gt;
+
+&lt;p&gt;Ниже представлен основной формат пакета ICMP&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/icmp/structure_icmp.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/icmp/structure_icmp.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Структура протокола ICMP&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Пакеты ICMP определяются по их типу (&lt;strong&gt;&lt;em&gt;Type&lt;/em&gt;&lt;/strong&gt;), однако, большинство типов могут иметь более специфичные типы, они определяются по полю &lt;strong&gt;&lt;em&gt;Code&lt;/em&gt;&lt;/strong&gt;. &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc1700.html&quot;&gt;RFC 1700&lt;/a&gt; определяет все основные типы и коды для протокола ICMP.&lt;/p&gt;
+
+&lt;p&gt;Ниже в таблице также перечислены данные поля с их описанием&lt;/p&gt;
+
+&lt;table&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th scope=&quot;col&quot;&gt;Тип&lt;/th&gt;
+			&lt;th scope=&quot;col&quot;&gt;Код&lt;/th&gt;
+			&lt;th scope=&quot;col&quot;&gt;Название&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;td&gt;0&lt;/td&gt;
+			&lt;td&gt;0&lt;/td&gt;
+			&lt;td&gt;Echo Reply&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td colspan=&quot;1&quot; rowspan=&quot;14&quot;&gt;3&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;Destination Unreachable&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;0&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;1&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;2&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;3&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;4&lt;/td&gt;
+			&lt;td&gt;Fragmentation Needed and Don&apos;t Fragment Flag Set&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;5&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;6&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;7&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;8&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;9&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;10&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;11&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;12&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;4&lt;/td&gt;
+			&lt;td&gt;0&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td colspan=&quot;1&quot; rowspan=&quot;5&quot;&gt;5&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;0&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;1&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;2&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;3&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;6&lt;/td&gt;
+			&lt;td&gt;0&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;8&lt;/td&gt;
+			&lt;td&gt;0&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;9&lt;/td&gt;
+			&lt;td&gt;0&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;10&lt;/td&gt;
+			&lt;td&gt;0&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td colspan=&quot;1&quot; rowspan=&quot;3&quot;&gt;11&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;0&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;1&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td colspan=&quot;1&quot; rowspan=&quot;4&quot;&gt;12&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;0&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;1&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;2&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;13&lt;/td&gt;
+			&lt;td&gt;0&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;14&lt;/td&gt;
+			&lt;td&gt;0&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;15&lt;/td&gt;
+			&lt;td&gt;0&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;16&lt;/td&gt;
+			&lt;td&gt;0&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;17&lt;/td&gt;
+			&lt;td&gt;0&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;18&lt;/td&gt;
+			&lt;td&gt;0&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;30&lt;/td&gt;
+			&lt;td&gt;-&lt;/td&gt;
+			&lt;td&gt;Traceroute&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;P.S.&lt;/strong&gt; &lt;em&gt;вся информация представленная здесь используется исключительно в образовательных целях. Все совпадения с реальными объектами, адресами, именами и т.д. случайна и не несёт цели получить от этого выгоду или причинить кому-либо вред.&lt;/em&gt;&lt;/p&gt;</content><author><name>Ivan Denisenko</name></author><category term="networks" /><category term="protocols" /><category term="icmp" /><summary type="html">Internet Control Message Protocol или просто ICMP описан в RFC 792. Данный протокол определяет набор различных сообщений, целью которых является управление сетью.</summary></entry><entry><title type="html">Разновидности протокола ARP</title><link href="https://iteducate.github.io/networks/arp_types/" rel="alternate" type="text/html" title="Разновидности протокола ARP" /><published>2021-10-05T09:00:00+03:00</published><updated>2021-10-05T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/arp_types</id><content type="html" xml:base="https://iteducate.github.io/networks/arp_types/">&lt;p&gt;В предыдущей статье был рассмотрен протокол ARP, структура и принцип его работы. Сегодня я хочу показать несколько разновидностей данного протокола, которые также иногда используются в сетях.&lt;/p&gt;
 
 &lt;h2 id=&quot;proxy-arp&quot;&gt;Proxy ARP&lt;/h2&gt;
 
@@ -1024,6 +1240,9 @@ Success rate is 66 percent (2/3), round-trip min/avg/max = 3/3/3 ms
     &lt;p&gt;&lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc791.html&quot;&gt;RFC 791 -  Internet Protocol&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc792.html&quot;&gt;RFC 792 -  Internet Control Message Protocol&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc826.html&quot;&gt;RFC 826 -  An Ethernet Address Resolution Protocol&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
@@ -1034,6 +1253,9 @@ Success rate is 66 percent (2/3), round-trip min/avg/max = 3/3/3 ms
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc1624&quot;&gt;RFC 1624 - Computation of the Internet Checksum via Incremental Update&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc1700.html&quot;&gt;RFC 1700 -  Assigned Numbers&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc3168.html&quot;&gt;RFC 3168 - The Addition of Explicit Congestion Notification (ECN) to IP&lt;/a&gt;&lt;/p&gt;
@@ -1784,161 +2006,4 @@ caution: filename not matched:  access_log
 
 &lt;p&gt;The &lt;code&gt;zip&lt;/code&gt; and &lt;code&gt;unzip&lt;/code&gt; man pages describe the other things you can do with these tools, such as replace files within the archive, use different compression levels, and even use encryption.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Все материалы взяты с официального курса &lt;i class=&quot;fa fa-link&quot;&gt;&lt;/i&gt; &lt;a href=&quot;https://www.netacad.com/ru/courses/ndg-linux-essentials/&quot;&gt;NDG Linux Essential&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Ivan Denisenko</name></author><category term="linux" /><category term="gzip" /><category term="gunzip" /><category term="bzip" /><category term="bunzip" /><category term="tar" /><category term="zip" /><category term="unzip" /><summary type="html">File archiving is used when one or more files need to be transmitted or stored as efficiently as possible. There are two aspects to this: Archiving – Combining multiple files into one, which eliminates the overhead in individual files and makes it easier to transmit Compressing – Making the files smaller by removing redundant information</summary></entry><entry><title type="html">Основные значения фразового глагола take</title><link href="https://iteducate.github.io/english/phras_take/" rel="alternate" type="text/html" title="Основные значения фразового глагола take" /><published>2017-10-22T16:50:00+03:00</published><updated>2017-10-22T16:50:00+03:00</updated><id>https://iteducate.github.io/english/phras_take</id><content type="html" xml:base="https://iteducate.github.io/english/phras_take/">&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Take after&lt;/code&gt;&lt;/strong&gt; – быть похожим, походить на (родителей, родственников) – когда говорят о характере, склонностях и т.п.&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;Mary is very clever – she takes after her mother.&lt;/strong&gt; – Мэри очень умная – она пошла в свою мать&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Take away&lt;/code&gt;&lt;/strong&gt; – забирать, убирать, отнимать, отбирать&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;She was taken away to hospital&lt;/strong&gt; – ее забрали в больницу&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;Take 5 away from 10&lt;/strong&gt; – отними 5 от 10&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;You can take the dishes away&lt;/strong&gt; — можно убирать со стола&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Take apart&lt;/code&gt;&lt;/strong&gt; – еще одно сочетание глагола take , имеющее значение анализировать, разбирать&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;We must take apart your sewing machine&lt;/strong&gt; – мы должны разобрать вашу швейную машину&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;I will take your problems apart&lt;/strong&gt; – я разберусь с твоими проблемами&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Take aside&lt;/code&gt;&lt;/strong&gt; – отозвать, отвести в сторону (для разговора)&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;She had to tell him something important therefore she took him aside&lt;/strong&gt; — Ей нужно было сказать ему нечто важное, поэтому она отвела его в сторону&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Take along&lt;/code&gt;&lt;/strong&gt; – приводить, брать с собой (в дорогу) , привозить&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;He took his sister along to school&lt;/strong&gt; — Он привел свою сестру в школу&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;She asked to take her along with me&lt;/strong&gt; — Она попросила меня взять ее с собой&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Take back&lt;/code&gt;&lt;/strong&gt; – взять обратно, (слова) возвращать&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;I take my words back, I was wrong&lt;/strong&gt; — Беру свои слова обратно, я был неправ&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;Take this lamp back to the shop&lt;/strong&gt; — Верни эту лампу назад в магазин&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Take in&lt;/code&gt;&lt;/strong&gt; – вносить; убирать (паруса), ушивать (одежду); давать приют=брать жильцов; усваивать; обманывать; брать работу на дом;&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;The piano was taken in and placed in the right corner&lt;/strong&gt; — Пианино внесли в гостиную и поставили в правом углу&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;I could not take in the new lesson&lt;/strong&gt; — Я не смог усвоить новый урок&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;She made her living by taking in&lt;/strong&gt; — Она зарабатывала на жизнь, пуская жильцов&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;When I don’t manage to perform the work at the office I take it in&lt;/strong&gt; — Когда я не успеваю выполнить работу в офисе, я беру ее домой&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;I have lost my weight and had to take in my dress&lt;/strong&gt; — Я похуделa, и платье пришлось ушивать&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;This child took us in&lt;/strong&gt; — Это ребенок нас провел.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Take down&lt;/code&gt;&lt;/strong&gt; – снять (одежду), снимать (откуда-то), сносить, записывать, разобрать (машину), уничтожить, снизить (цену)&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;I took down his interesting speech&lt;/strong&gt; – я записал ее интересную речь&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;Mother took down the lamp to clean it&lt;/strong&gt; – мама сняла лампу чтобы почистить ее&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;The house was half ruined and it was decided to take in down&lt;/strong&gt; – дом был наполовину разрушен и было решено снести его&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;I came in and took down the wet jeans and boots&lt;/strong&gt; – я вошел и снял мокрые джинсы и ботинки&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Take on&lt;/code&gt;&lt;/strong&gt; – брать, нанимать (брать на работу), взять на себя, приобретать, волноваться; сразиться с кем-то&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;I won’t take on too much responsibility&lt;/strong&gt; – я не возьму на себя слишком много ответственности&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;We decided to take on at tennis&lt;/strong&gt; – мы решили сразиться в теннис&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Take out&lt;/code&gt;&lt;/strong&gt; – удалять, извлекать, вынимать; выводить (гулять), вывести пятно; уничтожать; сводить счеты, давать выход гневу, выписывать.&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;If I have time I’ll take you out to the park&lt;/strong&gt; – если у меня будет время я поведу вас в парк&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;Whatever I tried I couldn’t take out this spot&lt;/strong&gt; – что бы я ни пробовал я не смог вывести это пятно&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;I’m afraid but this tooth should be taken out&lt;/strong&gt; – боюсь, но этот зуб нужно удалить&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;There is no need to take it out!&lt;/strong&gt; – Незачем выходить из себя.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Take off&lt;/code&gt;&lt;/strong&gt; – снимать (одежду), увозить, уносить, уводить; сделать перерыв в работе; имитировать, копировать; снимать запрет; взлетать; пользоваться успехом, приобрести популярность;&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;Take your hands off my bag&lt;/strong&gt; – убери руки от моей сумки&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;My wife fall ill and I have no choice but to take some days off&lt;/strong&gt; – моя жена заболела и у меня нет другого выбора, кроме как взять несколько дней отгула.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;The plane will take off at 16:30&lt;/strong&gt; – самолет взлетит в 16:30&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;She took off her hat and put it on the table&lt;/strong&gt; – она сняла шляпу и положила ее на стол&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Take over&lt;/code&gt;&lt;/strong&gt; – брать ответственность, принимать руководство, вступать во владение; перевозить на другой берег&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;When you change the job I’ll take over from you&lt;/strong&gt; - Когда вы смените работу, я возьму с собой вас&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Take through&lt;/code&gt;&lt;/strong&gt; – объяснять, осуществлять, доводить до конца&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;Would you please take me through this lesson? It seems to be difficult&lt;/strong&gt; — Ты не мог бы объяснить мне этот урок? Мне он кажется трудным.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Take to&lt;/code&gt;&lt;/strong&gt; – привязаться, пристраститься&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;He was taken to his mother and couldn’t do without her&lt;/strong&gt; – Он был очень привязан к своей матери и не мог без нее обходиться.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Take up&lt;/code&gt;&lt;/strong&gt; – поднимать; занимать (место), принимать (вызов); снимать, выкапывать; браться за что-то, укорачивать; заниматься чем-то; встречаться с кем-либо; приобретать.&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;He took up his luggage and carried it to the car&lt;/strong&gt; – он поднял свой багаж и отнес к машине&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;— &lt;strong&gt;I’ll take up your matter, though it seems to be complicated&lt;/strong&gt; – я возьмусь за ваше дело, хотя оно кажется сложным&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name>Ivan Denisenko</name></author><category term="english" /><category term="phrasel_verbs" /><summary type="html">Take after – быть похожим, походить на (родителей, родственников) – когда говорят о характере, склонностях и т.п. — Mary is very clever – she takes after her mother. – Мэри очень умная – она пошла в свою мать</summary></entry></feed>
+&lt;p&gt;&lt;em&gt;Все материалы взяты с официального курса &lt;i class=&quot;fa fa-link&quot;&gt;&lt;/i&gt; &lt;a href=&quot;https://www.netacad.com/ru/courses/ndg-linux-essentials/&quot;&gt;NDG Linux Essential&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Ivan Denisenko</name></author><category term="linux" /><category term="gzip" /><category term="gunzip" /><category term="bzip" /><category term="bunzip" /><category term="tar" /><category term="zip" /><category term="unzip" /><summary type="html">File archiving is used when one or more files need to be transmitted or stored as efficiently as possible. There are two aspects to this: Archiving – Combining multiple files into one, which eliminates the overhead in individual files and makes it easier to transmit Compressing – Making the files smaller by removing redundant information</summary></entry></feed>
