@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Основные значения фразового глагола take - Blog Notes</title>
-<meta name="description" content="Take after – быть похожим, походить на (родителей, родственников) – когда говорят о характере, склонностях и т.п.    — Mary is very clever – she takes after her mother. – Мэри очень умная – она пошла в свою мать">
+<!-- begin _includes/seo.html --><title>Структура протокола TCP - Blog Notes</title>
+<meta name="description" content="Transmission Control Protocol или TCP описан в RFC 793, обеспечивает приложениям надежную службу, ориентированную на подключение.">
 
 
   <meta name="author" content="Ivan Denisenko">
@@ -22,30 +22,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Blog Notes">
-<meta property="og:title" content="Основные значения фразового глагола take">
-<meta property="og:url" content="https://iteducate.github.io/english/phras_take/">
+<meta property="og:title" content="Структура протокола TCP">
+<meta property="og:url" content="https://iteducate.github.io/networks/tcp_prot/">
 
 
-  <meta property="og:description" content="Take after – быть похожим, походить на (родителей, родственников) – когда говорят о характере, склонностях и т.п.    — Mary is very clever – she takes after her mother. – Мэри очень умная – она пошла в свою мать">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2017-10-22T16:50:00+03:00">
+  <meta property="og:description" content="Transmission Control Protocol или TCP описан в RFC 793, обеспечивает приложениям надежную службу, ориентированную на подключение.">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2021-10-09T09:00:00+03:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="https://iteducate.github.io/english/phras_take/">
+
+<link rel="canonical" href="https://iteducate.github.io/networks/tcp_prot/">
 
 
 
@@ -302,15 +302,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Основные значения фразового глагола take">
-    <meta itemprop="description" content="Take after – быть похожим, походить на (родителей, родственников) – когда говорят о характере, склонностях и т.п.  — Mary is very clever – she takes after her mother. – Мэри очень умная – она пошла в свою мать">
-    <meta itemprop="datePublished" content="2017-10-22T16:50:00+03:00">
+    <meta itemprop="headline" content="Структура протокола TCP">
+    <meta itemprop="description" content="Transmission Control Protocol или TCP описан в RFC 793, обеспечивает приложениям надежную службу, ориентированную на подключение.">
+    <meta itemprop="datePublished" content="2021-10-09T09:00:00+03:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Основные значения фразового глагола take
+          <h1 id="page-title" class="page__title" itemprop="headline">Структура протокола TCP
 </h1>
           
 
@@ -319,7 +319,7 @@
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2017-10-22T16:50:00+03:00">October 22, 2017</time>
+        <time datetime="2021-10-09T09:00:00+03:00">October 9, 2021</time>
       </span>
     
 
@@ -332,7 +332,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          4 minute read
+          1 minute read
         
       </span>
     
@@ -344,164 +344,37 @@
 
       <section class="page__content" itemprop="text">
         
-        <p><strong><code class="language-plaintext highlighter-rouge">Take after</code></strong> – быть похожим, походить на (родителей, родственников) – когда говорят о характере, склонностях и т.п.</p>
-<blockquote>
-  <p>— <strong>Mary is very clever – she takes after her mother.</strong> – Мэри очень умная – она пошла в свою мать</p>
-</blockquote>
+        <p>Transmission Control Protocol или TCP описан в <a href="https://www.rfc-editor.org/rfc/rfc793.html">RFC 793</a>, обеспечивает приложениям надежную службу, ориентированную на подключение.</p>
 
-<p><strong><code class="language-plaintext highlighter-rouge">Take away</code></strong> – забирать, убирать, отнимать, отбирать</p>
-<blockquote>
-  <p>— <strong>She was taken away to hospital</strong> – ее забрали в больницу</p>
-</blockquote>
+<p>Протокол TCP <em>похож</em> на телефонный звонок, в котором сначала устанавливается соединение, затем передаются данные, и в конце осуществляется отключение когда передача данных завершена.</p>
 
-<blockquote>
-  <p>— <strong>Take 5 away from 10</strong> – отними 5 от 10</p>
-</blockquote>
+<p>TCP использует три основных механизма, описанных ниже:</p>
 
-<blockquote>
-  <p>— <strong>You can take the dishes away</strong> — можно убирать со стола</p>
-</blockquote>
+<ul>
+  <li>Пакеты маркируются порядковыми номерами (<code class="language-plaintext highlighter-rouge">sequence number</code>). Это позволяет службе TCP с приёмной стороны восстановить корректную последовательность пакетов, прежде чем отправлять их конечному приложению.</li>
+  <li>Для обеспечения надежности TCP использует механизмы подтверждения, чексуммы и таймеров (<code class="language-plaintext highlighter-rouge">acknowledment</code>, <code class="language-plaintext highlighter-rouge">checksum</code>, <code class="language-plaintext highlighter-rouge">timers</code>). Получатель может уведомить отправителя о том, что какой-то пакет из последовательности не пришел или содержит ошибки, или отправитель может предположить, что пакет не дошел до получателя, если получатель не прислал подтверждение получателю через определенное время.</li>
+  <li>TCP использует механизм “плавающего окна” (<code class="language-plaintext highlighter-rouge">windowing</code>) для регулирования потока пакетов. Windowing уменьшает шанс того, что пакет будет отброшен приемной стороной из-за переполнения буфера.</li>
+</ul>
 
-<p><strong><code class="language-plaintext highlighter-rouge">Take apart</code></strong> – еще одно сочетание глагола take , имеющее значение анализировать, разбирать</p>
-<blockquote>
-  <p>— <strong>We must take apart your sewing machine</strong> – мы должны разобрать вашу швейную машину</p>
-</blockquote>
+<p>Заголовок TCP следует сразу за данными прикладного уровня, он содержит поля необходимые для работы механизмов, которые описаны выше, а также определяет порты, которые в свою очередь определяют приложения источника и назначения. Данные с заголовком TCP затем инкапсулируются в заголовок IP.</p>
 
-<blockquote>
-  <p>— <strong>I will take your problems apart</strong> – я разберусь с твоими проблемами</p>
-</blockquote>
+<p>Структура протокола TCP выглядит следующим образом</p>
 
-<p><strong><code class="language-plaintext highlighter-rouge">Take aside</code></strong> – отозвать, отвести в сторону (для разговора)</p>
-<blockquote>
-  <p>— <strong>She had to tell him something important therefore she took him aside</strong> — Ей нужно было сказать ему нечто важное, поэтому она отвела его в сторону</p>
-</blockquote>
+<figure class=" ">
+  
+    
+      <a href="/assets/images/tcp/structure_tcp.png">
+          <img src="/assets/images/tcp/structure_tcp.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>TCP Header Structure</strong>
+</figcaption>
+  
+</figure>
 
-<p><strong><code class="language-plaintext highlighter-rouge">Take along</code></strong> – приводить, брать с собой (в дорогу) , привозить</p>
-<blockquote>
-  <p>— <strong>He took his sister along to school</strong> — Он привел свою сестру в школу</p>
-</blockquote>
-
-<blockquote>
-  <p>— <strong>She asked to take her along with me</strong> — Она попросила меня взять ее с собой</p>
-</blockquote>
-
-<p><strong><code class="language-plaintext highlighter-rouge">Take back</code></strong> – взять обратно, (слова) возвращать</p>
-<blockquote>
-  <p>— <strong>I take my words back, I was wrong</strong> — Беру свои слова обратно, я был неправ</p>
-</blockquote>
-
-<blockquote>
-  <p>— <strong>Take this lamp back to the shop</strong> — Верни эту лампу назад в магазин</p>
-</blockquote>
-
-<p><strong><code class="language-plaintext highlighter-rouge">Take in</code></strong> – вносить; убирать (паруса), ушивать (одежду); давать приют=брать жильцов; усваивать; обманывать; брать работу на дом;</p>
-<blockquote>
-  <p>— <strong>The piano was taken in and placed in the right corner</strong> — Пианино внесли в гостиную и поставили в правом углу</p>
-</blockquote>
-
-<blockquote>
-  <p>— <strong>I could not take in the new lesson</strong> — Я не смог усвоить новый урок</p>
-</blockquote>
-
-<blockquote>
-  <p>— <strong>She made her living by taking in</strong> — Она зарабатывала на жизнь, пуская жильцов</p>
-</blockquote>
-
-<blockquote>
-  <p>— <strong>When I don’t manage to perform the work at the office I take it in</strong> — Когда я не успеваю выполнить работу в офисе, я беру ее домой</p>
-</blockquote>
-
-<blockquote>
-  <p>— <strong>I have lost my weight and had to take in my dress</strong> — Я похуделa, и платье пришлось ушивать</p>
-</blockquote>
-
-<blockquote>
-  <p>— <strong>This child took us in</strong> — Это ребенок нас провел.</p>
-</blockquote>
-
-<p><strong><code class="language-plaintext highlighter-rouge">Take down</code></strong> – снять (одежду), снимать (откуда-то), сносить, записывать, разобрать (машину), уничтожить, снизить (цену)</p>
-<blockquote>
-  <p>— <strong>I took down his interesting speech</strong> – я записал ее интересную речь</p>
-</blockquote>
-
-<blockquote>
-  <p>— <strong>Mother took down the lamp to clean it</strong> – мама сняла лампу чтобы почистить ее</p>
-</blockquote>
-
-<blockquote>
-  <p>— <strong>The house was half ruined and it was decided to take in down</strong> – дом был наполовину разрушен и было решено снести его</p>
-</blockquote>
-
-<blockquote>
-  <p>— <strong>I came in and took down the wet jeans and boots</strong> – я вошел и снял мокрые джинсы и ботинки</p>
-</blockquote>
-
-<p><strong><code class="language-plaintext highlighter-rouge">Take on</code></strong> – брать, нанимать (брать на работу), взять на себя, приобретать, волноваться; сразиться с кем-то</p>
-<blockquote>
-  <p>— <strong>I won’t take on too much responsibility</strong> – я не возьму на себя слишком много ответственности</p>
-</blockquote>
-
-<blockquote>
-  <p>— <strong>We decided to take on at tennis</strong> – мы решили сразиться в теннис</p>
-</blockquote>
-
-<p><strong><code class="language-plaintext highlighter-rouge">Take out</code></strong> – удалять, извлекать, вынимать; выводить (гулять), вывести пятно; уничтожать; сводить счеты, давать выход гневу, выписывать.</p>
-<blockquote>
-  <p>— <strong>If I have time I’ll take you out to the park</strong> – если у меня будет время я поведу вас в парк</p>
-</blockquote>
-
-<blockquote>
-  <p>— <strong>Whatever I tried I couldn’t take out this spot</strong> – что бы я ни пробовал я не смог вывести это пятно</p>
-</blockquote>
-
-<blockquote>
-  <p>— <strong>I’m afraid but this tooth should be taken out</strong> – боюсь, но этот зуб нужно удалить</p>
-</blockquote>
-
-<blockquote>
-  <p>— <strong>There is no need to take it out!</strong> – Незачем выходить из себя.</p>
-</blockquote>
-
-<p><strong><code class="language-plaintext highlighter-rouge">Take off</code></strong> – снимать (одежду), увозить, уносить, уводить; сделать перерыв в работе; имитировать, копировать; снимать запрет; взлетать; пользоваться успехом, приобрести популярность;</p>
-<blockquote>
-  <p>— <strong>Take your hands off my bag</strong> – убери руки от моей сумки</p>
-</blockquote>
-
-<blockquote>
-  <p>— <strong>My wife fall ill and I have no choice but to take some days off</strong> – моя жена заболела и у меня нет другого выбора, кроме как взять несколько дней отгула.</p>
-</blockquote>
-
-<blockquote>
-  <p>— <strong>The plane will take off at 16:30</strong> – самолет взлетит в 16:30</p>
-</blockquote>
-
-<blockquote>
-  <p>— <strong>She took off her hat and put it on the table</strong> – она сняла шляпу и положила ее на стол</p>
-</blockquote>
-
-<p><strong><code class="language-plaintext highlighter-rouge">Take over</code></strong> – брать ответственность, принимать руководство, вступать во владение; перевозить на другой берег</p>
-<blockquote>
-  <p>— <strong>When you change the job I’ll take over from you</strong> - Когда вы смените работу, я возьму с собой вас</p>
-</blockquote>
-
-<p><strong><code class="language-plaintext highlighter-rouge">Take through</code></strong> – объяснять, осуществлять, доводить до конца</p>
-<blockquote>
-  <p>— <strong>Would you please take me through this lesson? It seems to be difficult</strong> — Ты не мог бы объяснить мне этот урок? Мне он кажется трудным.</p>
-</blockquote>
-
-<p><strong><code class="language-plaintext highlighter-rouge">Take to</code></strong> – привязаться, пристраститься</p>
-<blockquote>
-  <p>— <strong>He was taken to his mother and couldn’t do without her</strong> – Он был очень привязан к своей матери и не мог без нее обходиться.</p>
-</blockquote>
-
-<p><strong><code class="language-plaintext highlighter-rouge">Take up</code></strong> – поднимать; занимать (место), принимать (вызов); снимать, выкапывать; браться за что-то, укорачивать; заниматься чем-то; встречаться с кем-либо; приобретать.</p>
-<blockquote>
-  <p>— <strong>He took up his luggage and carried it to the car</strong> – он поднял свой багаж и отнес к машине</p>
-</blockquote>
-
-<blockquote>
-  <p>— <strong>I’ll take up your matter, though it seems to be complicated</strong> – я возьмусь за ваше дело, хотя оно кажется сложным</p>
-</blockquote>
+<p><strong>P.S.</strong> <em>вся информация представленная здесь используется исключительно в образовательных целях. Все совпадения с реальными объектами, адресами, именами и т.д. случайна и не несёт цели получить от этого выгоду или причинить кому-либо вред.</em></p>
 
         
 
@@ -520,7 +393,9 @@
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#phrasel-verbs" class="page__taxonomy-item" rel="tag">phrasel_verbs</a>
+      <a href="/tags/#protocols" class="page__taxonomy-item" rel="tag">protocols</a><span class="sep">, </span>
+    
+      <a href="/tags/#tcp" class="page__taxonomy-item" rel="tag">tcp</a>
     
     </span>
   </p>
@@ -537,14 +412,14 @@
     <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
     <span itemprop="keywords">
     
-      <a href="/categories/#english" class="page__taxonomy-item" rel="tag">english</a>
+      <a href="/categories/#networks" class="page__taxonomy-item" rel="tag">networks</a>
     
     </span>
   </p>
 
 
         
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-10-22T16:50:00+03:00">October 22, 2017</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-10-09T09:00:00+03:00">October 9, 2021</time></p>
 
 
       </footer>
@@ -554,25 +429,24 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D1%8B%D0%B5+%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D1%8F+%D1%84%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE+%D0%B3%D0%BB%D0%B0%D0%B3%D0%BE%D0%BB%D0%B0+take%20https%3A%2F%2Fiteducate.github.io%2Fenglish%2Fphras_take%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0+%D0%BF%D1%80%D0%BE%D1%82%D0%BE%D0%BA%D0%BE%D0%BB%D0%B0+TCP%20https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Ftcp_prot%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fiteducate.github.io%2Fenglish%2Fphras_take%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Ftcp_prot%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fiteducate.github.io%2Fenglish%2Fphras_take%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Ftcp_prot%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 
-  <a href="https://vk.com/share.php?url=https%3A%2F%2Fiteducate.github.io%2Fenglish%2Fphras_take%2F" class="btn btn--vk" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on VK"><i class="fab fa-fw fa-vk" aria-hidden="true"></i><span> VK</span></a>
+  <a href="https://vk.com/share.php?url=https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Ftcp_prot%2F" class="btn btn--vk" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on VK"><i class="fab fa-fw fa-vk" aria-hidden="true"></i><span> VK</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F/bismark/" class="pagination--pager" title="Исторические личности: Часть 1
+      <a href="/networks/icmp_prot/" class="pagination--pager" title="Структура протокола ICMP
 ">Previous</a>
     
     
-      <a href="/linux/archiving_compression/" class="pagination--pager" title="Archiving and Compression
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
@@ -607,7 +481,7 @@
       
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2021-10-07T00:00:00+03:00">October 7, 2021</time>
+        <time datetime="2021-10-07T09:00:00+03:00">October 7, 2021</time>
       </span>
     
 
@@ -710,7 +584,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          5 minute read
+          4 minute read
         
       </span>
     
@@ -844,8 +718,8 @@
     
   <script>
     var disqus_config = function () {
-      this.page.url = "https://iteducate.github.io/english/phras_take/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/english/phras_take"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "https://iteducate.github.io/networks/tcp_prot/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/networks/tcp_prot"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');
