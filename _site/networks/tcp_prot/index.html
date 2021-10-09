@@ -374,6 +374,58 @@
   
 </figure>
 
+<p><strong>Source</strong> и <strong>Destination</strong> порты - 16-битные поля, определяющие приложения источника и назначения для инкапсулированных данных. RFC 1700 определяет все номера для портов (<em>общего и не общего назначения</em>).</p>
+
+<p class="notice--info"><i class="fa fa-info-circle"></i><strong><code>Сокет</code></strong> - сочетание порта (<i>источника/назначения</i>) и соответствующего IP-адреса. Сокет уникально определяет каждое приложение в сети.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/tcp/src_dst_ports.png">
+          <img src="/assets/images/tcp/src_dst_ports.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Source and Destination Ports</strong>
+</figcaption>
+  
+</figure>
+
+<p><strong>Sequence Number</strong> - 32-битное поле, определяет где инкапсулированные данные находятся внутри общего потока отправителя. Например, если порядковый номер сегмента 1234 и сегмент содержит 512 байт данных, то следующий сегмент должен иметь порядковый номер <code class="language-plaintext highlighter-rouge">1234 + 512 = 1746</code></p>
+
+<p>Ниже представлена вырезка из трафика, в котором sequence number равен <code class="language-plaintext highlighter-rouge">337</code>, ожидаемый следующий порядковый номер должен быть <code class="language-plaintext highlighter-rouge">390</code>, который состоить из <code class="language-plaintext highlighter-rouge">seq number</code> + <code class="language-plaintext highlighter-rouge">TCP Payload</code> (<em>337 + 53 = 390</em>)</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/tcp/tcp_seq_1.png">
+          <img src="/assets/images/tcp/tcp_seq_1.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Sequence Number 1</strong>
+</figcaption>
+  
+</figure>
+
+<p>А вот вторая вырезка, которая подтверждает ожидаемый в предыдущем пакете порядковый номер.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/tcp/tcp_seq_2.png">
+          <img src="/assets/images/tcp/tcp_seq_2.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Sequence Number 2</strong>
+</figcaption>
+  
+</figure>
+
 <p><strong>P.S.</strong> <em>вся информация представленная здесь используется исключительно в образовательных целях. Все совпадения с реальными объектами, адресами, именами и т.д. случайна и не несёт цели получить от этого выгоду или причинить кому-либо вред.</em></p>
 
         

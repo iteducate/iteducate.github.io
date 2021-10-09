@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-10-09T19:39:18+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Структура протокола TCP</title><link href="https://iteducate.github.io/networks/tcp_prot/" rel="alternate" type="text/html" title="Структура протокола TCP" /><published>2021-10-09T09:00:00+03:00</published><updated>2021-10-09T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/tcp_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/tcp_prot/">&lt;p&gt;Transmission Control Protocol или TCP описан в &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc793.html&quot;&gt;RFC 793&lt;/a&gt;, обеспечивает приложениям надежную службу, ориентированную на подключение.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-10-09T20:18:38+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Структура протокола TCP</title><link href="https://iteducate.github.io/networks/tcp_prot/" rel="alternate" type="text/html" title="Структура протокола TCP" /><published>2021-10-09T09:00:00+03:00</published><updated>2021-10-09T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/tcp_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/tcp_prot/">&lt;p&gt;Transmission Control Protocol или TCP описан в &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc793.html&quot;&gt;RFC 793&lt;/a&gt;, обеспечивает приложениям надежную службу, ориентированную на подключение.&lt;/p&gt;
 
 &lt;p&gt;Протокол TCP &lt;em&gt;похож&lt;/em&gt; на телефонный звонок, в котором сначала устанавливается соединение, затем передаются данные, и в конце осуществляется отключение когда передача данных завершена.&lt;/p&gt;
 
@@ -24,6 +24,58 @@
   
   
     &lt;figcaption&gt;&lt;strong&gt;TCP Header Structure&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Source&lt;/strong&gt; и &lt;strong&gt;Destination&lt;/strong&gt; порты - 16-битные поля, определяющие приложения источника и назначения для инкапсулированных данных. RFC 1700 определяет все номера для портов (&lt;em&gt;общего и не общего назначения&lt;/em&gt;).&lt;/p&gt;
+
+&lt;p class=&quot;notice--info&quot;&gt;&lt;i class=&quot;fa fa-info-circle&quot;&gt;&lt;/i&gt;&lt;strong&gt;&lt;code&gt;Сокет&lt;/code&gt;&lt;/strong&gt; - сочетание порта (&lt;i&gt;источника/назначения&lt;/i&gt;) и соответствующего IP-адреса. Сокет уникально определяет каждое приложение в сети.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/tcp/src_dst_ports.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/tcp/src_dst_ports.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Source and Destination Ports&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Sequence Number&lt;/strong&gt; - 32-битное поле, определяет где инкапсулированные данные находятся внутри общего потока отправителя. Например, если порядковый номер сегмента 1234 и сегмент содержит 512 байт данных, то следующий сегмент должен иметь порядковый номер &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1234 + 512 = 1746&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Ниже представлена вырезка из трафика, в котором sequence number равен &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;337&lt;/code&gt;, ожидаемый следующий порядковый номер должен быть &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;390&lt;/code&gt;, который состоить из &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq number&lt;/code&gt; + &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TCP Payload&lt;/code&gt; (&lt;em&gt;337 + 53 = 390&lt;/em&gt;)&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/tcp/tcp_seq_1.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/tcp/tcp_seq_1.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Sequence Number 1&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;А вот вторая вырезка, которая подтверждает ожидаемый в предыдущем пакете порядковый номер.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/tcp/tcp_seq_2.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/tcp/tcp_seq_2.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Sequence Number 2&lt;/strong&gt;
 &lt;/figcaption&gt;
   
 &lt;/figure&gt;
