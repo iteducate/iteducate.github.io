@@ -332,7 +332,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 minute read
+          4 minute read
         
       </span>
     
@@ -373,7 +373,7 @@ graph TD
 
 <p>Пакеты ICMP определяются по их типу (<strong><em>Type</em></strong>), однако, большинство типов могут иметь более специфичные типы, они определяются по полю <strong><em>Code</em></strong>. <a href="https://www.rfc-editor.org/rfc/rfc1700.html">RFC 1700</a> определяет все основные типы и коды для протокола ICMP.</p>
 
-<p>Ниже в таблице также перечислены данные поля с их описанием</p>
+<p>В следующей таблице перечислены данные поля с их описанием</p>
 
 <table>
 	<thead>
@@ -392,23 +392,23 @@ graph TD
 		<tr>
 			<td colspan="1" rowspan="14">3</td>
 			<td>&nbsp;</td>
-			<td>Destination Unreachable</td>
+			<td>DESTINATION UNREACHABLE</td>
 		</tr>
 		<tr>
 			<td>0</td>
-			<td>&nbsp;</td>
+			<td>Network Unreachable</td>
 		</tr>
 		<tr>
 			<td>1</td>
-			<td>&nbsp;</td>
+			<td>Host Unreachable</td>
 		</tr>
 		<tr>
 			<td>2</td>
-			<td>&nbsp;</td>
+			<td>Protocol Unreachable</td>
 		</tr>
 		<tr>
 			<td>3</td>
-			<td>&nbsp;</td>
+			<td>Port Unreachable</td>
 		</tr>
 		<tr>
 			<td>4</td>
@@ -416,141 +416,141 @@ graph TD
 		</tr>
 		<tr>
 			<td>5</td>
-			<td>&nbsp;</td>
+			<td>Source Route Failed</td>
 		</tr>
 		<tr>
 			<td>6</td>
-			<td>&nbsp;</td>
+			<td>Destination Network Unknown</td>
 		</tr>
 		<tr>
 			<td>7</td>
-			<td>&nbsp;</td>
+			<td>Destination Host Unknown</td>
 		</tr>
 		<tr>
 			<td>8</td>
-			<td>&nbsp;</td>
+			<td>Source Host Isolated</td>
 		</tr>
 		<tr>
 			<td>9</td>
-			<td>&nbsp;</td>
+			<td>Destination Network Administratively Prohibited</td>
 		</tr>
 		<tr>
 			<td>10</td>
-			<td>&nbsp;</td>
+			<td>Destination Host Administratively Prohibited</td>
 		</tr>
 		<tr>
 			<td>11</td>
-			<td>&nbsp;</td>
+			<td>Destination Network Unreachable for Type of Service</td>
 		</tr>
 		<tr>
 			<td>12</td>
-			<td>&nbsp;</td>
+			<td>Destination Host Unreachable for Type of Service</td>
 		</tr>
 		<tr>
 			<td>4</td>
 			<td>0</td>
-			<td>&nbsp;</td>
+			<td>SOURCE QUENCH (deprecated)</td>
 		</tr>
 		<tr>
 			<td colspan="1" rowspan="5">5</td>
 			<td>&nbsp;</td>
-			<td>&nbsp;</td>
+			<td>REDIRECT</td>
 		</tr>
 		<tr>
 			<td>0</td>
-			<td>&nbsp;</td>
+			<td>Redirect Datagram for the Network (or Subnet)</td>
 		</tr>
 		<tr>
 			<td>1</td>
-			<td>&nbsp;</td>
+			<td>Redirect Datagram for the Host</td>
 		</tr>
 		<tr>
 			<td>2</td>
-			<td>&nbsp;</td>
+			<td>Redirect Datagram for the Network and Type of Service</td>
 		</tr>
 		<tr>
 			<td>3</td>
-			<td>&nbsp;</td>
+			<td>Redirect Datagram for the Host and Type of Service</td>
 		</tr>
 		<tr>
 			<td>6</td>
 			<td>0</td>
-			<td>&nbsp;</td>
+			<td>ALTERNATE HOST ADDRESS</td>
 		</tr>
 		<tr>
 			<td>8</td>
 			<td>0</td>
-			<td>&nbsp;</td>
+			<td>ECHO</td>
 		</tr>
 		<tr>
 			<td>9</td>
 			<td>0</td>
-			<td>&nbsp;</td>
+			<td>ROUTER ADVERTISEMENT</td>
 		</tr>
 		<tr>
 			<td>10</td>
 			<td>0</td>
-			<td>&nbsp;</td>
+			<td>ROUTER SELECTION</td>
 		</tr>
 		<tr>
 			<td colspan="1" rowspan="3">11</td>
 			<td>&nbsp;</td>
-			<td>&nbsp;</td>
+			<td>TIME EXCEEDED</td>
 		</tr>
 		<tr>
 			<td>0</td>
-			<td>&nbsp;</td>
+			<td>Time to Live Exceeded in Transmit</td>
 		</tr>
 		<tr>
 			<td>1</td>
-			<td>&nbsp;</td>
+			<td>Fragment Reassembly Time Exceeded</td>
 		</tr>
 		<tr>
 			<td colspan="1" rowspan="4">12</td>
 			<td>&nbsp;</td>
-			<td>&nbsp;</td>
+			<td>PARAMETER PROBLEM</td>
 		</tr>
 		<tr>
 			<td>0</td>
-			<td>&nbsp;</td>
+			<td>Pointer Indicates the Error</td>
 		</tr>
 		<tr>
 			<td>1</td>
-			<td>&nbsp;</td>
+			<td>Missing a Required Option</td>
 		</tr>
 		<tr>
 			<td>2</td>
-			<td>&nbsp;</td>
+			<td>Bad Length</td>
 		</tr>
 		<tr>
 			<td>13</td>
 			<td>0</td>
-			<td>&nbsp;</td>
+			<td>TIMESTAMP</td>
 		</tr>
 		<tr>
 			<td>14</td>
 			<td>0</td>
-			<td>&nbsp;</td>
+			<td>TIMESTAMP REPLY</td>
 		</tr>
 		<tr>
 			<td>15</td>
 			<td>0</td>
-			<td>&nbsp;</td>
+			<td>INFORMATION REQUEST (Obsolete)</td>
 		</tr>
 		<tr>
 			<td>16</td>
 			<td>0</td>
-			<td>&nbsp;</td>
+			<td>INFORMATION REPLY (Obsolete)</td>
 		</tr>
 		<tr>
 			<td>17</td>
 			<td>0</td>
-			<td>&nbsp;</td>
+			<td>ADDRESS MASK REQUEST (Near-Obsolete)</td>
 		</tr>
 		<tr>
 			<td>18</td>
 			<td>0</td>
-			<td>&nbsp;</td>
+			<td>ADDRESS MASK REPLY (Near-Obsolete)</td>
 		</tr>
 		<tr>
 			<td>30</td>
@@ -559,6 +559,139 @@ graph TD
 		</tr>
 	</tbody>
 </table>
+
+<p>Данную информацию не следует учить, как и другую представленную в статьях, главное научиться понимать что это и для чего используется, остальное приходит с опытом работы. Тем более, что вся представленная информация общедоступна каждому из нас бесплатно.</p>
+
+<p>Одни из наиболее часто встречающихся примеров ICMP сообщений являются <code class="language-plaintext highlighter-rouge">Echo</code> и <code class="language-plaintext highlighter-rouge">Reply</code>. По <a href="/assets/pcap/icmp.pcapng">ссылке</a> можно скачать дамп, показывающий выполнение команды <em>ping</em> в сторону адреса 8.8.8.8. Ниже будут представлены вырезки <code class="language-plaintext highlighter-rouge">Echo</code> и <code class="language-plaintext highlighter-rouge">Reply</code> из данных дампов.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/icmp/icmp_request.png">
+          <img src="/assets/images/icmp/icmp_request.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>ICMP Request</strong>
+</figcaption>
+  
+</figure>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/icmp/icmp_reply.png">
+          <img src="/assets/images/icmp/icmp_reply.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>ICMP Reply</strong>
+</figcaption>
+  
+</figure>
+
+<p>Далеко не все типы пакетов ICMP можно встретить сегодня в современных сетях, но некоторые из них имеют важное значение для функционала маршрутизации, например, редирект - <em>ICMP Type 5</em>.</p>
+
+<p>Данный тип используется маршрутизаторами для уведомления других устройств о том, что для данного адреса назначения в текущей канальной среде следует использовать другой маршрутизатор.</p>
+
+<p>Предположим, что в одной канальной среде с конечным устройством есть два маршрутизатора <code class="language-plaintext highlighter-rouge">Router-London</code> и <code class="language-plaintext highlighter-rouge">Router-Moscow</code>. Маршрутизатор <code class="language-plaintext highlighter-rouge">Router-Moscow</code> является шлюзом по умолчанию для конечного устройства. Конечное устройство отправляет пакет на маршрутизатор <code class="language-plaintext highlighter-rouge">Router-Moscow</code>, в свою очередь маршрутизатор <code class="language-plaintext highlighter-rouge">Router-Moscow</code> имеет достижимость адреса на который отправил конечный хост через маршрутизатор <code class="language-plaintext highlighter-rouge">Router-London</code>.</p>
+
+<p>Получается, что маршрутизатор <code class="language-plaintext highlighter-rouge">Router-Moscow</code> должен отправить пакет в тот же самый интерфейс на котором он получил изначальный пакет. Маршрутизатор <code class="language-plaintext highlighter-rouge">Router-Moscow</code> отправляет пакет маршрутизатору <code class="language-plaintext highlighter-rouge">Router-London</code>, а также отправляет сообщение <em>ICMP Redirect</em> конечному устройству, информируя его о том, что все следующие пакеты он должен отправлять непосредственно через маршрутизатор <code class="language-plaintext highlighter-rouge">Router-London</code> (<em>имеется в виду только до сети, куда был отправлен первый пакет, все пакеты до других сетей отправляются также на шлюз по умолчанию</em>)</p>
+
+<h2 id="практика">Практика</h2>
+
+<p>Рассмотрим пример с ICMP Redirect на практике. Имеется простая схема с двумя маршрутизаторами в одной канальной среде</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/icmp/scheme_icmp_redirect.png">
+          <img src="/assets/images/icmp/scheme_icmp_redirect.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Схема ICMP Redirect</strong>
+</figcaption>
+  
+</figure>
+
+<p>Вся адресация представлена на схеме. В качестве простоты эксперимента рассмотрим ситуацию когда клиент будет отправлять пинг на адрес внешнего интерфейса маршрутизатора <code class="language-plaintext highlighter-rouge">Router-London</code>, маршрутизатор <code class="language-plaintext highlighter-rouge">Router-Moscow</code> является шлюзом для клиента.</p>
+
+<p>На маршрутизаторе <code class="language-plaintext highlighter-rouge">Router-Moscow</code> дополнительно настроен статический маршрут до сети 172.17.0.0/24 через адрес внутреннего интерфейса маршрутизатора <code class="language-plaintext highlighter-rouge">Router-London</code>.</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="code"><pre><span class="gp">Router_Moscow#</span><span class="w"> </span>show ip route static
+<span class="go">Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+
+Gateway of last resort is not set
+
+      172.17.0.0/24 is subnetted, 1 subnets
+S        172.17.0.0 [1/0] via 192.168.1.254
+</span><span class="gp">Router_Moscow#</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Включив дебаг на маршрутизаторе <code class="language-plaintext highlighter-rouge">Router-Moscow</code> с помощью команды <code class="language-plaintext highlighter-rouge">debug ip icmp</code>, можно заметить как данный маршрутизатор отправляет сообщение ICMP Redirect клиенту.</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="gp">Router_Moscow#</span><span class="w"> </span>debug ip icmp 
+<span class="go">ICMP packet debugging is on
+</span><span class="gp">Router_Moscow#</span><span class="w">
+</span><span class="go">*Oct  9 11:46:43.504: ICMP: redirect sent to 192.168.1.100 for dest 172.17.0.254, use gw 192.168.1.254
+</span><span class="gp">Router_Moscow#</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>При этом первый пакет на клиенте потеряется из-за того, что маршрутизатор <code class="language-plaintext highlighter-rouge">Router-London</code> не будет знать куда отправлять ответ на первый <em>ICMP Request</em> клиента, т.к. его кэш ARP будет пуст и ему придется отправить <em>ARP Request</em> чтобы узнать MAC-адрес клиента.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/icmp/client_ping.png">
+          <img src="/assets/images/icmp/client_ping.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Потеря первого пакета при пинге клиента</strong>
+</figcaption>
+  
+</figure>
+
+<p>Для того чтобы убедиться в правдивости моих слов предлагаю скачать дампы с двух интерфейсов маршрутизатора <code class="language-plaintext highlighter-rouge">Router-London</code> и <code class="language-plaintext highlighter-rouge">Router-Moscow</code> и посмотреть весь процесс самим.</p>
+
+<p class="notice--info"><i class="fa fa-exclamation"></i><strong> Помните:</strong> так как все устройства находятся в общей широковещательной среде, то все пакеты отправленные на широковещательный адрес <code>ffff.ffff.ffff</code> будут видны в каждом из дампов.</p>
+
+<p><a href="/assets/pcap/Router_Moscow_int_gi0-0.pcapng">Дамп</a> с интерфейса gi0/0 маршрутизатора Router-Moscow
+<a href="/assets/pcap/Router_London_int_gi0-0.pcapng">Дамп</a> с интерфейса gi0/0 маршрутизатора Router-London</p>
 
 <p><strong>P.S.</strong> <em>вся информация представленная здесь используется исключительно в образовательных целях. Все совпадения с реальными объектами, адресами, именами и т.д. случайна и не несёт цели получить от этого выгоду или причинить кому-либо вред.</em></p>
 

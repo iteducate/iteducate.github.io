@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-10-07T01:09:50+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Структура протокола ICMP</title><link href="https://iteducate.github.io/networks/icmp_prot/" rel="alternate" type="text/html" title="Структура протокола ICMP" /><published>2021-10-07T00:00:00+03:00</published><updated>2021-10-07T00:00:00+03:00</updated><id>https://iteducate.github.io/networks/icmp_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/icmp_prot/">&lt;p&gt;Internet Control Message Protocol или просто ICMP описан в &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc792.html&quot;&gt;RFC 792&lt;/a&gt;. Данный протокол определяет набор различных сообщений, целью которых является управление сетью.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-10-09T15:24:29+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Структура протокола ICMP</title><link href="https://iteducate.github.io/networks/icmp_prot/" rel="alternate" type="text/html" title="Структура протокола ICMP" /><published>2021-10-07T00:00:00+03:00</published><updated>2021-10-07T00:00:00+03:00</updated><id>https://iteducate.github.io/networks/icmp_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/icmp_prot/">&lt;p&gt;Internet Control Message Protocol или просто ICMP описан в &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc792.html&quot;&gt;RFC 792&lt;/a&gt;. Данный протокол определяет набор различных сообщений, целью которых является управление сетью.&lt;/p&gt;
 
 &lt;p&gt;ICMP сообщения могут классифицироваться как &lt;em&gt;сообщения об ошибках&lt;/em&gt;, а также как сообщения типа &lt;em&gt;“запрос - ответ”&lt;/em&gt;.&lt;/p&gt;
 
@@ -27,7 +27,7 @@ graph TD
 
 &lt;p&gt;Пакеты ICMP определяются по их типу (&lt;strong&gt;&lt;em&gt;Type&lt;/em&gt;&lt;/strong&gt;), однако, большинство типов могут иметь более специфичные типы, они определяются по полю &lt;strong&gt;&lt;em&gt;Code&lt;/em&gt;&lt;/strong&gt;. &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc1700.html&quot;&gt;RFC 1700&lt;/a&gt; определяет все основные типы и коды для протокола ICMP.&lt;/p&gt;
 
-&lt;p&gt;Ниже в таблице также перечислены данные поля с их описанием&lt;/p&gt;
+&lt;p&gt;В следующей таблице перечислены данные поля с их описанием&lt;/p&gt;
 
 &lt;table&gt;
 	&lt;thead&gt;
@@ -46,23 +46,23 @@ graph TD
 		&lt;tr&gt;
 			&lt;td colspan=&quot;1&quot; rowspan=&quot;14&quot;&gt;3&lt;/td&gt;
 			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
-			&lt;td&gt;Destination Unreachable&lt;/td&gt;
+			&lt;td&gt;DESTINATION UNREACHABLE&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;0&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;Network Unreachable&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;1&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;Host Unreachable&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;2&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;Protocol Unreachable&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;3&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;Port Unreachable&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;4&lt;/td&gt;
@@ -70,141 +70,141 @@ graph TD
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;5&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;Source Route Failed&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;6&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;Destination Network Unknown&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;7&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;Destination Host Unknown&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;8&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;Source Host Isolated&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;9&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;Destination Network Administratively Prohibited&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;10&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;Destination Host Administratively Prohibited&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;11&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;Destination Network Unreachable for Type of Service&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;12&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;Destination Host Unreachable for Type of Service&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;4&lt;/td&gt;
 			&lt;td&gt;0&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;SOURCE QUENCH (deprecated)&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td colspan=&quot;1&quot; rowspan=&quot;5&quot;&gt;5&lt;/td&gt;
 			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;REDIRECT&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;0&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;Redirect Datagram for the Network (or Subnet)&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;1&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;Redirect Datagram for the Host&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;2&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;Redirect Datagram for the Network and Type of Service&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;3&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;Redirect Datagram for the Host and Type of Service&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;6&lt;/td&gt;
 			&lt;td&gt;0&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;ALTERNATE HOST ADDRESS&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;8&lt;/td&gt;
 			&lt;td&gt;0&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;ECHO&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;9&lt;/td&gt;
 			&lt;td&gt;0&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;ROUTER ADVERTISEMENT&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;10&lt;/td&gt;
 			&lt;td&gt;0&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;ROUTER SELECTION&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td colspan=&quot;1&quot; rowspan=&quot;3&quot;&gt;11&lt;/td&gt;
 			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;TIME EXCEEDED&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;0&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;Time to Live Exceeded in Transmit&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;1&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;Fragment Reassembly Time Exceeded&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td colspan=&quot;1&quot; rowspan=&quot;4&quot;&gt;12&lt;/td&gt;
 			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;PARAMETER PROBLEM&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;0&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;Pointer Indicates the Error&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;1&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;Missing a Required Option&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;2&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;Bad Length&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;13&lt;/td&gt;
 			&lt;td&gt;0&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;TIMESTAMP&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;14&lt;/td&gt;
 			&lt;td&gt;0&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;TIMESTAMP REPLY&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;15&lt;/td&gt;
 			&lt;td&gt;0&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;INFORMATION REQUEST (Obsolete)&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;16&lt;/td&gt;
 			&lt;td&gt;0&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;INFORMATION REPLY (Obsolete)&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;17&lt;/td&gt;
 			&lt;td&gt;0&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;ADDRESS MASK REQUEST (Near-Obsolete)&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;18&lt;/td&gt;
 			&lt;td&gt;0&lt;/td&gt;
-			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;ADDRESS MASK REPLY (Near-Obsolete)&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;30&lt;/td&gt;
@@ -213,6 +213,139 @@ graph TD
 		&lt;/tr&gt;
 	&lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;p&gt;Данную информацию не следует учить, как и другую представленную в статьях, главное научиться понимать что это и для чего используется, остальное приходит с опытом работы. Тем более, что вся представленная информация общедоступна каждому из нас бесплатно.&lt;/p&gt;
+
+&lt;p&gt;Одни из наиболее часто встречающихся примеров ICMP сообщений являются &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Echo&lt;/code&gt; и &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Reply&lt;/code&gt;. По &lt;a href=&quot;/assets/pcap/icmp.pcapng&quot;&gt;ссылке&lt;/a&gt; можно скачать дамп, показывающий выполнение команды &lt;em&gt;ping&lt;/em&gt; в сторону адреса 8.8.8.8. Ниже будут представлены вырезки &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Echo&lt;/code&gt; и &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Reply&lt;/code&gt; из данных дампов.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/icmp/icmp_request.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/icmp/icmp_request.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;ICMP Request&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/icmp/icmp_reply.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/icmp/icmp_reply.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;ICMP Reply&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Далеко не все типы пакетов ICMP можно встретить сегодня в современных сетях, но некоторые из них имеют важное значение для функционала маршрутизации, например, редирект - &lt;em&gt;ICMP Type 5&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Данный тип используется маршрутизаторами для уведомления других устройств о том, что для данного адреса назначения в текущей канальной среде следует использовать другой маршрутизатор.&lt;/p&gt;
+
+&lt;p&gt;Предположим, что в одной канальной среде с конечным устройством есть два маршрутизатора &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Router-London&lt;/code&gt; и &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Router-Moscow&lt;/code&gt;. Маршрутизатор &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Router-Moscow&lt;/code&gt; является шлюзом по умолчанию для конечного устройства. Конечное устройство отправляет пакет на маршрутизатор &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Router-Moscow&lt;/code&gt;, в свою очередь маршрутизатор &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Router-Moscow&lt;/code&gt; имеет достижимость адреса на который отправил конечный хост через маршрутизатор &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Router-London&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Получается, что маршрутизатор &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Router-Moscow&lt;/code&gt; должен отправить пакет в тот же самый интерфейс на котором он получил изначальный пакет. Маршрутизатор &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Router-Moscow&lt;/code&gt; отправляет пакет маршрутизатору &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Router-London&lt;/code&gt;, а также отправляет сообщение &lt;em&gt;ICMP Redirect&lt;/em&gt; конечному устройству, информируя его о том, что все следующие пакеты он должен отправлять непосредственно через маршрутизатор &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Router-London&lt;/code&gt; (&lt;em&gt;имеется в виду только до сети, куда был отправлен первый пакет, все пакеты до других сетей отправляются также на шлюз по умолчанию&lt;/em&gt;)&lt;/p&gt;
+
+&lt;h2 id=&quot;практика&quot;&gt;Практика&lt;/h2&gt;
+
+&lt;p&gt;Рассмотрим пример с ICMP Redirect на практике. Имеется простая схема с двумя маршрутизаторами в одной канальной среде&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/icmp/scheme_icmp_redirect.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/icmp/scheme_icmp_redirect.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Схема ICMP Redirect&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Вся адресация представлена на схеме. В качестве простоты эксперимента рассмотрим ситуацию когда клиент будет отправлять пинг на адрес внешнего интерфейса маршрутизатора &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Router-London&lt;/code&gt;, маршрутизатор &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Router-Moscow&lt;/code&gt; является шлюзом для клиента.&lt;/p&gt;
+
+&lt;p&gt;На маршрутизаторе &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Router-Moscow&lt;/code&gt; дополнительно настроен статический маршрут до сети 172.17.0.0/24 через адрес внутреннего интерфейса маршрутизатора &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Router-London&lt;/code&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;gp&quot;&gt;Router_Moscow#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;show ip route static
+&lt;span class=&quot;go&quot;&gt;Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+
+Gateway of last resort is not set
+
+      172.17.0.0/24 is subnetted, 1 subnets
+S        172.17.0.0 [1/0] via 192.168.1.254
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;Router_Moscow#&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Включив дебаг на маршрутизаторе &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Router-Moscow&lt;/code&gt; с помощью команды &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;debug ip icmp&lt;/code&gt;, можно заметить как данный маршрутизатор отправляет сообщение ICMP Redirect клиенту.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;gp&quot;&gt;Router_Moscow#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;debug ip icmp 
+&lt;span class=&quot;go&quot;&gt;ICMP packet debugging is on
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;Router_Moscow#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;go&quot;&gt;*Oct  9 11:46:43.504: ICMP: redirect sent to 192.168.1.100 for dest 172.17.0.254, use gw 192.168.1.254
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;Router_Moscow#&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;При этом первый пакет на клиенте потеряется из-за того, что маршрутизатор &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Router-London&lt;/code&gt; не будет знать куда отправлять ответ на первый &lt;em&gt;ICMP Request&lt;/em&gt; клиента, т.к. его кэш ARP будет пуст и ему придется отправить &lt;em&gt;ARP Request&lt;/em&gt; чтобы узнать MAC-адрес клиента.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/icmp/client_ping.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/icmp/client_ping.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Потеря первого пакета при пинге клиента&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Для того чтобы убедиться в правдивости моих слов предлагаю скачать дампы с двух интерфейсов маршрутизатора &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Router-London&lt;/code&gt; и &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Router-Moscow&lt;/code&gt; и посмотреть весь процесс самим.&lt;/p&gt;
+
+&lt;p class=&quot;notice--info&quot;&gt;&lt;i class=&quot;fa fa-exclamation&quot;&gt;&lt;/i&gt;&lt;strong&gt; Помните:&lt;/strong&gt; так как все устройства находятся в общей широковещательной среде, то все пакеты отправленные на широковещательный адрес &lt;code&gt;ffff.ffff.ffff&lt;/code&gt; будут видны в каждом из дампов.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/pcap/Router_Moscow_int_gi0-0.pcapng&quot;&gt;Дамп&lt;/a&gt; с интерфейса gi0/0 маршрутизатора Router-Moscow
+&lt;a href=&quot;/assets/pcap/Router_London_int_gi0-0.pcapng&quot;&gt;Дамп&lt;/a&gt; с интерфейса gi0/0 маршрутизатора Router-London&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;P.S.&lt;/strong&gt; &lt;em&gt;вся информация представленная здесь используется исключительно в образовательных целях. Все совпадения с реальными объектами, адресами, именами и т.д. случайна и не несёт цели получить от этого выгоду или причинить кому-либо вред.&lt;/em&gt;&lt;/p&gt;</content><author><name>Ivan Denisenko</name></author><category term="networks" /><category term="protocols" /><category term="icmp" /><summary type="html">Internet Control Message Protocol или просто ICMP описан в RFC 792. Данный протокол определяет набор различных сообщений, целью которых является управление сетью.</summary></entry><entry><title type="html">Разновидности протокола ARP</title><link href="https://iteducate.github.io/networks/arp_types/" rel="alternate" type="text/html" title="Разновидности протокола ARP" /><published>2021-10-05T09:00:00+03:00</published><updated>2021-10-05T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/arp_types</id><content type="html" xml:base="https://iteducate.github.io/networks/arp_types/">&lt;p&gt;В предыдущей статье был рассмотрен протокол ARP, структура и принцип его работы. Сегодня я хочу показать несколько разновидностей данного протокола, которые также иногда используются в сетях.&lt;/p&gt;
 
