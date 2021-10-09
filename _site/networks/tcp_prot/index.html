@@ -332,7 +332,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 minute read
+          3 minute read
         
       </span>
     
@@ -425,6 +425,123 @@
 </figcaption>
   
 </figure>
+
+<p><strong>Acknowledgment Number</strong> - 32-битное поле, определяет порядковый номер, который источник ожидает получить от получателя в следующий раз. Если устройство получает номер подтверждения, который не соответствует следующему порядковому номеру, который он собирается отправить (<em>или отправил</em>), то это будет означать, что пакеты были утеряны.</p>
+
+<p><strong>Header Length</strong> или еще данное поле называют <em>Data Offset</em> - 4-битное поле, определяющее длину заголовка <em>в 32-битных словах</em>. Данное поле очень важно, т.к. оно позволяет определить начало данных, потому что поле <em>Options</em> имеет переменную длину.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/tcp/header_length.png">
+          <img src="/assets/images/tcp/header_length.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Header Length</strong>
+</figcaption>
+  
+</figure>
+
+<p><strong>Reserved</strong> - 4-битное поле, которое всегда заполнено нулями.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/tcp/reserved.png">
+          <img src="/assets/images/tcp/reserved.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Reserved</strong>
+</figcaption>
+  
+</figure>
+
+<p><strong>Flags</strong> - 8 однобитовых флагов, которые используются для управления потоком данных и контроля подключения. Флаги слева направо:</p>
+
+<blockquote>
+  <ul>
+    <li><strong>CWR</strong> - Congestion Window Reduced</li>
+    <li><strong>ECE</strong> - ECN-Echo</li>
+    <li><strong>URG</strong> - Urgent</li>
+    <li><strong>ACK</strong> - Acknowledment</li>
+    <li><strong>PSH</strong> - Push</li>
+    <li><strong>RST</strong> - Reset</li>
+    <li><strong>SYN</strong> - Synchronize</li>
+    <li><strong>FIN</strong> - Final</li>
+  </ul>
+</blockquote>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/tcp/flags.png">
+          <img src="/assets/images/tcp/flags.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Flags</strong>
+</figcaption>
+  
+</figure>
+
+<p><strong>Window Size</strong> - 16-битное поле, которое используется для контроля потока. Данное поле определяет количество байт, которое отправитель сегмента примет от узла на другом конце соединения, прежде чем этот узел  прекратит передачу, ожидая подтверждения.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/tcp/window.png">
+          <img src="/assets/images/tcp/window.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Window Size</strong>
+</figcaption>
+  
+</figure>
+
+<p>Window вычисляется путём умножения значения <code class="language-plaintext highlighter-rouge">window</code> на <code class="language-plaintext highlighter-rouge">window size scaling factor</code>, в случае выше получаем <code class="language-plaintext highlighter-rouge">8181 * 32 = 261792</code></p>
+
+<p><strong>Checksum</strong> - - 16-битное поле, позволяющее обнаружить ошибку в заголовке и инкапсулированных данных.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/tcp/checksum.png">
+          <img src="/assets/images/tcp/checksum.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Checksum</strong>
+</figcaption>
+  
+</figure>
+
+<p><strong>Urgent Pointer</strong> - 16-битное поле, используется только в случае использования флага <code class="language-plaintext highlighter-rouge">URG</code>. Значение данного поля добавляется к Sequence Number тем самым указывая на окончание срочных данных.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/tcp/urgent.png">
+          <img src="/assets/images/tcp/urgent.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Urgent Pointer</strong>
+</figcaption>
+  
+</figure>
+
+<p><strong>Options</strong> - как следует из названия, данное поле определяет опции в процессе TCP. Наиболее часто используемая опция - Maximum Segment Size (<strong><em>MSS</em></strong>), которая информирует получателя о наибольшем размере сегмента, который отправитель готов принять. Оставшаяся часть поля заполняется нулями до выравнивания до значения 4 байт.</p>
+
+<p>Более подробно каждое поле можно рассмотреть, скачав данный <a href="/assets/pcap/tcp.pcapng">дамп</a></p>
 
 <p><strong>P.S.</strong> <em>вся информация представленная здесь используется исключительно в образовательных целях. Все совпадения с реальными объектами, адресами, именами и т.д. случайна и не несёт цели получить от этого выгоду или причинить кому-либо вред.</em></p>
 

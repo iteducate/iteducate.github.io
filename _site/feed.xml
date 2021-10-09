@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-10-09T20:18:38+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Структура протокола TCP</title><link href="https://iteducate.github.io/networks/tcp_prot/" rel="alternate" type="text/html" title="Структура протокола TCP" /><published>2021-10-09T09:00:00+03:00</published><updated>2021-10-09T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/tcp_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/tcp_prot/">&lt;p&gt;Transmission Control Protocol или TCP описан в &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc793.html&quot;&gt;RFC 793&lt;/a&gt;, обеспечивает приложениям надежную службу, ориентированную на подключение.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-10-10T00:42:36+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Структура протокола TCP</title><link href="https://iteducate.github.io/networks/tcp_prot/" rel="alternate" type="text/html" title="Структура протокола TCP" /><published>2021-10-09T09:00:00+03:00</published><updated>2021-10-09T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/tcp_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/tcp_prot/">&lt;p&gt;Transmission Control Protocol или TCP описан в &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc793.html&quot;&gt;RFC 793&lt;/a&gt;, обеспечивает приложениям надежную службу, ориентированную на подключение.&lt;/p&gt;
 
 &lt;p&gt;Протокол TCP &lt;em&gt;похож&lt;/em&gt; на телефонный звонок, в котором сначала устанавливается соединение, затем передаются данные, и в конце осуществляется отключение когда передача данных завершена.&lt;/p&gt;
 
@@ -79,6 +79,123 @@
 &lt;/figcaption&gt;
   
 &lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Acknowledgment Number&lt;/strong&gt; - 32-битное поле, определяет порядковый номер, который источник ожидает получить от получателя в следующий раз. Если устройство получает номер подтверждения, который не соответствует следующему порядковому номеру, который он собирается отправить (&lt;em&gt;или отправил&lt;/em&gt;), то это будет означать, что пакеты были утеряны.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Header Length&lt;/strong&gt; или еще данное поле называют &lt;em&gt;Data Offset&lt;/em&gt; - 4-битное поле, определяющее длину заголовка &lt;em&gt;в 32-битных словах&lt;/em&gt;. Данное поле очень важно, т.к. оно позволяет определить начало данных, потому что поле &lt;em&gt;Options&lt;/em&gt; имеет переменную длину.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/tcp/header_length.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/tcp/header_length.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Header Length&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Reserved&lt;/strong&gt; - 4-битное поле, которое всегда заполнено нулями.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/tcp/reserved.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/tcp/reserved.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Reserved&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Flags&lt;/strong&gt; - 8 однобитовых флагов, которые используются для управления потоком данных и контроля подключения. Флаги слева направо:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;CWR&lt;/strong&gt; - Congestion Window Reduced&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;ECE&lt;/strong&gt; - ECN-Echo&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;URG&lt;/strong&gt; - Urgent&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;ACK&lt;/strong&gt; - Acknowledment&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;PSH&lt;/strong&gt; - Push&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;RST&lt;/strong&gt; - Reset&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;SYN&lt;/strong&gt; - Synchronize&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;FIN&lt;/strong&gt; - Final&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/tcp/flags.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/tcp/flags.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Flags&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Window Size&lt;/strong&gt; - 16-битное поле, которое используется для контроля потока. Данное поле определяет количество байт, которое отправитель сегмента примет от узла на другом конце соединения, прежде чем этот узел  прекратит передачу, ожидая подтверждения.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/tcp/window.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/tcp/window.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Window Size&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Window вычисляется путём умножения значения &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;window&lt;/code&gt; на &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;window size scaling factor&lt;/code&gt;, в случае выше получаем &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;8181 * 32 = 261792&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Checksum&lt;/strong&gt; - - 16-битное поле, позволяющее обнаружить ошибку в заголовке и инкапсулированных данных.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/tcp/checksum.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/tcp/checksum.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Checksum&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Urgent Pointer&lt;/strong&gt; - 16-битное поле, используется только в случае использования флага &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;URG&lt;/code&gt;. Значение данного поля добавляется к Sequence Number тем самым указывая на окончание срочных данных.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/tcp/urgent.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/tcp/urgent.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Urgent Pointer&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Options&lt;/strong&gt; - как следует из названия, данное поле определяет опции в процессе TCP. Наиболее часто используемая опция - Maximum Segment Size (&lt;strong&gt;&lt;em&gt;MSS&lt;/em&gt;&lt;/strong&gt;), которая информирует получателя о наибольшем размере сегмента, который отправитель готов принять. Оставшаяся часть поля заполняется нулями до выравнивания до значения 4 байт.&lt;/p&gt;
+
+&lt;p&gt;Более подробно каждое поле можно рассмотреть, скачав данный &lt;a href=&quot;/assets/pcap/tcp.pcapng&quot;&gt;дамп&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;P.S.&lt;/strong&gt; &lt;em&gt;вся информация представленная здесь используется исключительно в образовательных целях. Все совпадения с реальными объектами, адресами, именами и т.д. случайна и не несёт цели получить от этого выгоду или причинить кому-либо вред.&lt;/em&gt;&lt;/p&gt;</content><author><name>Ivan Denisenko</name></author><category term="networks" /><category term="protocols" /><category term="tcp" /><summary type="html">Transmission Control Protocol или TCP описан в RFC 793, обеспечивает приложениям надежную службу, ориентированную на подключение.</summary></entry><entry><title type="html">Структура протокола ICMP</title><link href="https://iteducate.github.io/networks/icmp_prot/" rel="alternate" type="text/html" title="Структура протокола ICMP" /><published>2021-10-07T09:00:00+03:00</published><updated>2021-10-07T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/icmp_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/icmp_prot/">&lt;p&gt;Internet Control Message Protocol или просто ICMP описан в &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc792.html&quot;&gt;RFC 792&lt;/a&gt;. Данный протокол определяет набор различных сообщений, целью которых является управление сетью.&lt;/p&gt;
 
