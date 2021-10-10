@@ -1,4 +1,72 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-10-10T00:42:36+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Структура протокола TCP</title><link href="https://iteducate.github.io/networks/tcp_prot/" rel="alternate" type="text/html" title="Структура протокола TCP" /><published>2021-10-09T09:00:00+03:00</published><updated>2021-10-09T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/tcp_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/tcp_prot/">&lt;p&gt;Transmission Control Protocol или TCP описан в &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc793.html&quot;&gt;RFC 793&lt;/a&gt;, обеспечивает приложениям надежную службу, ориентированную на подключение.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-10-10T12:48:49+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Структура протокола UDP</title><link href="https://iteducate.github.io/networks/udp_prot/" rel="alternate" type="text/html" title="Структура протокола UDP" /><published>2021-10-10T09:00:00+03:00</published><updated>2021-10-10T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/udp_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/udp_prot/">&lt;p&gt;User Datagram Protocol или UDP описан в &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc768.html&quot;&gt;RFC 768&lt;/a&gt; предоставляет услуги доставки пакетов без подключения с максимальными усилиями. Главное преимущество протокола UDP - отсутствие траты времени на установку соединения с удаленным узлом. Приложения, использующие UDP вместо TCP, понимают это основное преимущество в производительности и поэтому используют именно UDP.&lt;/p&gt;
+
+&lt;p&gt;Второе преимущество протокола UDP - размер заголовка, он намного меньше, чем у протокола TCP. Ниже представлена структура заголовка&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/udp/structure_udp.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/udp/structure_udp.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;UDP Header Structure&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Поля &lt;strong&gt;Source&lt;/strong&gt; и &lt;strong&gt;Destination&lt;/strong&gt; port идентичны тем, которые есть у протокола TCP, размер данных полей также 16 бит.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/udp/src_dst_ports.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/udp/src_dst_ports.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Source and Destination Ports&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;UDP Length&lt;/strong&gt; - 16-битное поле, указывающее длину всего сегмента в байтах (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;udp header&lt;/code&gt; + &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;udp payload&lt;/code&gt;).&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/udp/length.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/udp/length.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Length&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Checksum&lt;/strong&gt; - 16-битное &lt;em&gt;опциональное (необязательно)&lt;/em&gt; поле, проверяющее чексумму всего сегмента. Когда поле неиспользуется, то оно заполняется нулями.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/udp/checksum.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/udp/checksum.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Checksum&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Полностью изучить протокол можно скачав данный &lt;a href=&quot;/assets/pcap/udp.pcapng&quot;&gt;дамп&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;P.S.&lt;/strong&gt; &lt;em&gt;вся информация представленная здесь используется исключительно в образовательных целях. Все совпадения с реальными объектами, адресами, именами и т.д. случайна и не несёт цели получить от этого выгоду или причинить кому-либо вред.&lt;/em&gt;&lt;/p&gt;</content><author><name>Ivan Denisenko</name></author><category term="networks" /><category term="protocols" /><category term="udp" /><summary type="html">User Datagram Protocol или UDP описан в RFC 768 предоставляет услуги доставки пакетов без подключения с максимальными усилиями. Главное преимущество протокола UDP - отсутствие траты времени на установку соединения с удаленным узлом. Приложения, использующие UDP вместо TCP, понимают это основное преимущество в производительности и поэтому используют именно UDP.</summary></entry><entry><title type="html">Структура протокола TCP</title><link href="https://iteducate.github.io/networks/tcp_prot/" rel="alternate" type="text/html" title="Структура протокола TCP" /><published>2021-10-09T09:00:00+03:00</published><updated>2021-10-09T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/tcp_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/tcp_prot/">&lt;p&gt;Transmission Control Protocol или TCP описан в &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc793.html&quot;&gt;RFC 793&lt;/a&gt;, обеспечивает приложениям надежную службу, ориентированную на подключение.&lt;/p&gt;
 
 &lt;p&gt;Протокол TCP &lt;em&gt;похож&lt;/em&gt; на телефонный звонок, в котором сначала устанавливается соединение, затем передаются данные, и в конце осуществляется отключение когда передача данных завершена.&lt;/p&gt;
 
@@ -772,7 +840,7 @@ Internet  160.1.74.28             -   5000.0003.0001  ARPA   GigabitEthernet0/1
   
 &lt;/figure&gt;
 
-&lt;p&gt;Стоит напомнить, что формат протокола обычно показывается в разрезе 4 байт. Из-за этого часть информации из полей протокола может быть показана как часть следующих 4 байт (&lt;em&gt;на примере Hardware и IP адресацции&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;Стоит напомнить, что формат протокола обычно показывается в разрезе 4 байт. Из-за этого часть информации из полей протокола может быть показана как часть следующих 4 байт (&lt;em&gt;на примере Hardware и IP адресации&lt;/em&gt;).&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Hardware Type&lt;/strong&gt; - 16-битное поле, определяющее &lt;em&gt;“тип канальной среды”&lt;/em&gt;. Наиболее часто используемые типы представлены в таблице ниже&lt;/p&gt;
 
@@ -1578,6 +1646,9 @@ Success rate is 66 percent (2/3), round-trip min/avg/max = 3/3/3 ms
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc793.html&quot;&gt;RFC 793 - Transmission Control Protocol&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc768.html&quot;&gt;RFC 768 - User Datagram Protocol&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc826.html&quot;&gt;RFC 826 - An Ethernet Address Resolution Protocol&lt;/a&gt;&lt;/p&gt;

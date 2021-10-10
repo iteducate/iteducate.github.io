@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Структура протокола TCP - Blog Notes</title>
-<meta name="description" content="Transmission Control Protocol или TCP описан в RFC 793, обеспечивает приложениям надежную службу, ориентированную на подключение.">
+<!-- begin _includes/seo.html --><title>Структура протокола UDP - Blog Notes</title>
+<meta name="description" content="User Datagram Protocol или UDP описан в RFC 768 предоставляет услуги доставки пакетов без подключения с максимальными усилиями. Главное преимущество протокола UDP - отсутствие траты времени на установку соединения с удаленным узлом. Приложения, использующие UDP вместо TCP, понимают это основное преимущество в производительности и поэтому используют именно UDP.">
 
 
   <meta name="author" content="Ivan Denisenko">
@@ -22,30 +22,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Blog Notes">
-<meta property="og:title" content="Структура протокола TCP">
-<meta property="og:url" content="https://iteducate.github.io/networks/tcp_prot/">
+<meta property="og:title" content="Структура протокола UDP">
+<meta property="og:url" content="https://iteducate.github.io/networks/udp_prot/">
 
 
-  <meta property="og:description" content="Transmission Control Protocol или TCP описан в RFC 793, обеспечивает приложениям надежную службу, ориентированную на подключение.">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2021-10-09T09:00:00+03:00">
+  <meta property="og:description" content="User Datagram Protocol или UDP описан в RFC 768 предоставляет услуги доставки пакетов без подключения с максимальными усилиями. Главное преимущество протокола UDP - отсутствие траты времени на установку соединения с удаленным узлом. Приложения, использующие UDP вместо TCP, понимают это основное преимущество в производительности и поэтому используют именно UDP.">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2021-10-10T09:00:00+03:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="https://iteducate.github.io/networks/tcp_prot/">
+
+<link rel="canonical" href="https://iteducate.github.io/networks/udp_prot/">
 
 
 
@@ -302,15 +302,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Структура протокола TCP">
-    <meta itemprop="description" content="Transmission Control Protocol или TCP описан в RFC 793, обеспечивает приложениям надежную службу, ориентированную на подключение.">
-    <meta itemprop="datePublished" content="2021-10-09T09:00:00+03:00">
+    <meta itemprop="headline" content="Структура протокола UDP">
+    <meta itemprop="description" content="User Datagram Protocol или UDP описан в RFC 768 предоставляет услуги доставки пакетов без подключения с максимальными усилиями. Главное преимущество протокола UDP - отсутствие траты времени на установку соединения с удаленным узлом. Приложения, использующие UDP вместо TCP, понимают это основное преимущество в производительности и поэтому используют именно UDP.">
+    <meta itemprop="datePublished" content="2021-10-10T09:00:00+03:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Структура протокола TCP
+          <h1 id="page-title" class="page__title" itemprop="headline">Структура протокола UDP
 </h1>
           
 
@@ -319,7 +319,7 @@
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2021-10-09T09:00:00+03:00">October 9, 2021</time>
+        <time datetime="2021-10-10T09:00:00+03:00">October 10, 2021</time>
       </span>
     
 
@@ -332,7 +332,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          3 minute read
+          less than 1 minute read
         
       </span>
     
@@ -344,45 +344,31 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>Transmission Control Protocol или TCP описан в <a href="https://www.rfc-editor.org/rfc/rfc793.html">RFC 793</a>, обеспечивает приложениям надежную службу, ориентированную на подключение.</p>
+        <p>User Datagram Protocol или UDP описан в <a href="https://www.rfc-editor.org/rfc/rfc768.html">RFC 768</a> предоставляет услуги доставки пакетов без подключения с максимальными усилиями. Главное преимущество протокола UDP - отсутствие траты времени на установку соединения с удаленным узлом. Приложения, использующие UDP вместо TCP, понимают это основное преимущество в производительности и поэтому используют именно UDP.</p>
 
-<p>Протокол TCP <em>похож</em> на телефонный звонок, в котором сначала устанавливается соединение, затем передаются данные, и в конце осуществляется отключение когда передача данных завершена.</p>
-
-<p>TCP использует три основных механизма, описанных ниже:</p>
-
-<ul>
-  <li>Пакеты маркируются порядковыми номерами (<code class="language-plaintext highlighter-rouge">sequence number</code>). Это позволяет службе TCP с приёмной стороны восстановить корректную последовательность пакетов, прежде чем отправлять их конечному приложению.</li>
-  <li>Для обеспечения надежности TCP использует механизмы подтверждения, чексуммы и таймеров (<code class="language-plaintext highlighter-rouge">acknowledment</code>, <code class="language-plaintext highlighter-rouge">checksum</code>, <code class="language-plaintext highlighter-rouge">timers</code>). Получатель может уведомить отправителя о том, что какой-то пакет из последовательности не пришел или содержит ошибки, или отправитель может предположить, что пакет не дошел до получателя, если получатель не прислал подтверждение получателю через определенное время.</li>
-  <li>TCP использует механизм “плавающего окна” (<code class="language-plaintext highlighter-rouge">windowing</code>) для регулирования потока пакетов. Windowing уменьшает шанс того, что пакет будет отброшен приемной стороной из-за переполнения буфера.</li>
-</ul>
-
-<p>Заголовок TCP следует сразу за данными прикладного уровня, он содержит поля необходимые для работы механизмов, которые описаны выше, а также определяет порты, которые в свою очередь определяют приложения источника и назначения. Данные с заголовком TCP затем инкапсулируются в заголовок IP.</p>
-
-<p>Структура протокола TCP выглядит следующим образом</p>
+<p>Второе преимущество протокола UDP - размер заголовка, он намного меньше, чем у протокола TCP. Ниже представлена структура заголовка</p>
 
 <figure class=" ">
   
     
-      <a href="/assets/images/tcp/structure_tcp.png">
-          <img src="/assets/images/tcp/structure_tcp.png" alt="" />
+      <a href="/assets/images/udp/structure_udp.png">
+          <img src="/assets/images/udp/structure_udp.png" alt="" />
       </a>
     
   
   
-    <figcaption><strong>TCP Header Structure</strong>
+    <figcaption><strong>UDP Header Structure</strong>
 </figcaption>
   
 </figure>
 
-<p><strong>Source</strong> и <strong>Destination</strong> порты - 16-битные поля, определяющие приложения источника и назначения для инкапсулированных данных. RFC 1700 определяет все номера для портов (<em>общего и не общего назначения</em>).</p>
-
-<p class="notice--info"><i class="fa fa-info-circle"></i><strong><code>Сокет</code></strong> - сочетание порта (<i>источника/назначения</i>) и соответствующего IP-адреса. Сокет уникально определяет каждое приложение в сети.</p>
+<p>Поля <strong>Source</strong> и <strong>Destination</strong> port идентичны тем, которые есть у протокола TCP, размер данных полей также 16 бит.</p>
 
 <figure class=" ">
   
     
-      <a href="/assets/images/tcp/src_dst_ports.png">
-          <img src="/assets/images/tcp/src_dst_ports.png" alt="" />
+      <a href="/assets/images/udp/src_dst_ports.png">
+          <img src="/assets/images/udp/src_dst_ports.png" alt="" />
       </a>
     
   
@@ -392,128 +378,29 @@
   
 </figure>
 
-<p><strong>Sequence Number</strong> - 32-битное поле, определяет где инкапсулированные данные находятся внутри общего потока отправителя. Например, если порядковый номер сегмента 1234 и сегмент содержит 512 байт данных, то следующий сегмент должен иметь порядковый номер <code class="language-plaintext highlighter-rouge">1234 + 512 = 1746</code></p>
-
-<p>Ниже представлена вырезка из трафика, в котором sequence number равен <code class="language-plaintext highlighter-rouge">337</code>, ожидаемый следующий порядковый номер должен быть <code class="language-plaintext highlighter-rouge">390</code>, который состоить из <code class="language-plaintext highlighter-rouge">seq number</code> + <code class="language-plaintext highlighter-rouge">TCP Payload</code> (<em>337 + 53 = 390</em>)</p>
+<p><strong>UDP Length</strong> - 16-битное поле, указывающее длину всего сегмента в байтах (<code class="language-plaintext highlighter-rouge">udp header</code> + <code class="language-plaintext highlighter-rouge">udp payload</code>).</p>
 
 <figure class=" ">
   
     
-      <a href="/assets/images/tcp/tcp_seq_1.png">
-          <img src="/assets/images/tcp/tcp_seq_1.png" alt="" />
+      <a href="/assets/images/udp/length.png">
+          <img src="/assets/images/udp/length.png" alt="" />
       </a>
     
   
   
-    <figcaption><strong>Sequence Number 1</strong>
+    <figcaption><strong>Length</strong>
 </figcaption>
   
 </figure>
 
-<p>А вот вторая вырезка, которая подтверждает ожидаемый в предыдущем пакете порядковый номер.</p>
+<p><strong>Checksum</strong> - 16-битное <em>опциональное (необязательно)</em> поле, проверяющее чексумму всего сегмента. Когда поле неиспользуется, то оно заполняется нулями.</p>
 
 <figure class=" ">
   
     
-      <a href="/assets/images/tcp/tcp_seq_2.png">
-          <img src="/assets/images/tcp/tcp_seq_2.png" alt="" />
-      </a>
-    
-  
-  
-    <figcaption><strong>Sequence Number 2</strong>
-</figcaption>
-  
-</figure>
-
-<p><strong>Acknowledgment Number</strong> - 32-битное поле, определяет порядковый номер, который источник ожидает получить от получателя в следующий раз. Если устройство получает номер подтверждения, который не соответствует следующему порядковому номеру, который он собирается отправить (<em>или отправил</em>), то это будет означать, что пакеты были утеряны.</p>
-
-<p><strong>Header Length</strong> или еще данное поле называют <em>Data Offset</em> - 4-битное поле, определяющее длину заголовка <em>в 32-битных словах</em>. Данное поле очень важно, т.к. оно позволяет определить начало данных, потому что поле <em>Options</em> имеет переменную длину.</p>
-
-<figure class=" ">
-  
-    
-      <a href="/assets/images/tcp/header_length.png">
-          <img src="/assets/images/tcp/header_length.png" alt="" />
-      </a>
-    
-  
-  
-    <figcaption><strong>Header Length</strong>
-</figcaption>
-  
-</figure>
-
-<p><strong>Reserved</strong> - 4-битное поле, которое всегда заполнено нулями.</p>
-
-<figure class=" ">
-  
-    
-      <a href="/assets/images/tcp/reserved.png">
-          <img src="/assets/images/tcp/reserved.png" alt="" />
-      </a>
-    
-  
-  
-    <figcaption><strong>Reserved</strong>
-</figcaption>
-  
-</figure>
-
-<p><strong>Flags</strong> - 8 однобитовых флагов, которые используются для управления потоком данных и контроля подключения. Флаги слева направо:</p>
-
-<blockquote>
-  <ul>
-    <li><strong>CWR</strong> - Congestion Window Reduced</li>
-    <li><strong>ECE</strong> - ECN-Echo</li>
-    <li><strong>URG</strong> - Urgent</li>
-    <li><strong>ACK</strong> - Acknowledment</li>
-    <li><strong>PSH</strong> - Push</li>
-    <li><strong>RST</strong> - Reset</li>
-    <li><strong>SYN</strong> - Synchronize</li>
-    <li><strong>FIN</strong> - Final</li>
-  </ul>
-</blockquote>
-
-<figure class=" ">
-  
-    
-      <a href="/assets/images/tcp/flags.png">
-          <img src="/assets/images/tcp/flags.png" alt="" />
-      </a>
-    
-  
-  
-    <figcaption><strong>Flags</strong>
-</figcaption>
-  
-</figure>
-
-<p><strong>Window Size</strong> - 16-битное поле, которое используется для контроля потока. Данное поле определяет количество байт, которое отправитель сегмента примет от узла на другом конце соединения, прежде чем этот узел  прекратит передачу, ожидая подтверждения.</p>
-
-<figure class=" ">
-  
-    
-      <a href="/assets/images/tcp/window.png">
-          <img src="/assets/images/tcp/window.png" alt="" />
-      </a>
-    
-  
-  
-    <figcaption><strong>Window Size</strong>
-</figcaption>
-  
-</figure>
-
-<p>Window вычисляется путём умножения значения <code class="language-plaintext highlighter-rouge">window</code> на <code class="language-plaintext highlighter-rouge">window size scaling factor</code>, в случае выше получаем <code class="language-plaintext highlighter-rouge">8181 * 32 = 261792</code></p>
-
-<p><strong>Checksum</strong> - - 16-битное поле, позволяющее обнаружить ошибку в заголовке и инкапсулированных данных.</p>
-
-<figure class=" ">
-  
-    
-      <a href="/assets/images/tcp/checksum.png">
-          <img src="/assets/images/tcp/checksum.png" alt="" />
+      <a href="/assets/images/udp/checksum.png">
+          <img src="/assets/images/udp/checksum.png" alt="" />
       </a>
     
   
@@ -523,25 +410,7 @@
   
 </figure>
 
-<p><strong>Urgent Pointer</strong> - 16-битное поле, используется только в случае использования флага <code class="language-plaintext highlighter-rouge">URG</code>. Значение данного поля добавляется к Sequence Number тем самым указывая на окончание срочных данных.</p>
-
-<figure class=" ">
-  
-    
-      <a href="/assets/images/tcp/urgent.png">
-          <img src="/assets/images/tcp/urgent.png" alt="" />
-      </a>
-    
-  
-  
-    <figcaption><strong>Urgent Pointer</strong>
-</figcaption>
-  
-</figure>
-
-<p><strong>Options</strong> - как следует из названия, данное поле определяет опции в процессе TCP. Наиболее часто используемая опция - Maximum Segment Size (<strong><em>MSS</em></strong>), которая информирует получателя о наибольшем размере сегмента, который отправитель готов принять. Оставшаяся часть поля заполняется нулями до выравнивания до значения 4 байт.</p>
-
-<p>Более подробно каждое поле можно рассмотреть, скачав данный <a href="/assets/pcap/tcp.pcapng">дамп</a></p>
+<p>Полностью изучить протокол можно скачав данный <a href="/assets/pcap/udp.pcapng">дамп</a></p>
 
 <p><strong>P.S.</strong> <em>вся информация представленная здесь используется исключительно в образовательных целях. Все совпадения с реальными объектами, адресами, именами и т.д. случайна и не несёт цели получить от этого выгоду или причинить кому-либо вред.</em></p>
 
@@ -564,7 +433,7 @@
     
       <a href="/tags/#protocols" class="page__taxonomy-item" rel="tag">protocols</a><span class="sep">, </span>
     
-      <a href="/tags/#tcp" class="page__taxonomy-item" rel="tag">tcp</a>
+      <a href="/tags/#udp" class="page__taxonomy-item" rel="tag">udp</a>
     
     </span>
   </p>
@@ -588,7 +457,7 @@
 
 
         
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-10-09T09:00:00+03:00">October 9, 2021</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-10-10T09:00:00+03:00">October 10, 2021</time></p>
 
 
       </footer>
@@ -598,25 +467,24 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0+%D0%BF%D1%80%D0%BE%D1%82%D0%BE%D0%BA%D0%BE%D0%BB%D0%B0+TCP%20https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Ftcp_prot%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0+%D0%BF%D1%80%D0%BE%D1%82%D0%BE%D0%BA%D0%BE%D0%BB%D0%B0+UDP%20https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Fudp_prot%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Ftcp_prot%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Fudp_prot%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Ftcp_prot%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Fudp_prot%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 
-  <a href="https://vk.com/share.php?url=https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Ftcp_prot%2F" class="btn btn--vk" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on VK"><i class="fab fa-fw fa-vk" aria-hidden="true"></i><span> VK</span></a>
+  <a href="https://vk.com/share.php?url=https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Fudp_prot%2F" class="btn btn--vk" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on VK"><i class="fab fa-fw fa-vk" aria-hidden="true"></i><span> VK</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/networks/icmp_prot/" class="pagination--pager" title="Структура протокола ICMP
+      <a href="/networks/tcp_prot/" class="pagination--pager" title="Структура протокола TCP
 ">Previous</a>
     
     
-      <a href="/networks/udp_prot/" class="pagination--pager" title="Структура протокола UDP
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
@@ -640,7 +508,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/networks/udp_prot/" rel="permalink">Структура протокола UDP
+        <a href="/networks/tcp_prot/" rel="permalink">Структура протокола TCP
 </a>
       
     </h2>
@@ -651,7 +519,7 @@
       
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2021-10-10T09:00:00+03:00">October 10, 2021</time>
+        <time datetime="2021-10-09T09:00:00+03:00">October 9, 2021</time>
       </span>
     
 
@@ -664,14 +532,15 @@
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          less than 1 minute read
+          3 minute read
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">User Datagram Protocol или UDP описан в RFC 768 предоставляет услуги доставки пакетов без подключения с максимальными усилиями. Главное преимущество протокол...</p>
+    <p class="archive__item-excerpt" itemprop="description">Transmission Control Protocol или TCP описан в RFC 793, обеспечивает приложениям надежную службу, ориентированную на подключение.
+</p>
   </article>
 </div>
 
@@ -888,8 +757,8 @@
     
   <script>
     var disqus_config = function () {
-      this.page.url = "https://iteducate.github.io/networks/tcp_prot/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/networks/tcp_prot"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "https://iteducate.github.io/networks/udp_prot/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/networks/udp_prot"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');
