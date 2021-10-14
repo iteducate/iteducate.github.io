@@ -1,4 +1,83 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-10-10T12:48:49+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Структура протокола UDP</title><link href="https://iteducate.github.io/networks/udp_prot/" rel="alternate" type="text/html" title="Структура протокола UDP" /><published>2021-10-10T09:00:00+03:00</published><updated>2021-10-10T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/udp_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/udp_prot/">&lt;p&gt;User Datagram Protocol или UDP описан в &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc768.html&quot;&gt;RFC 768&lt;/a&gt; предоставляет услуги доставки пакетов без подключения с максимальными усилиями. Главное преимущество протокола UDP - отсутствие траты времени на установку соединения с удаленным узлом. Приложения, использующие UDP вместо TCP, понимают это основное преимущество в производительности и поэтому используют именно UDP.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-10-15T01:00:36+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Структура протокола IPv6</title><link href="https://iteducate.github.io/networks/ipv6_prot/" rel="alternate" type="text/html" title="Структура протокола IPv6" /><published>2021-10-14T09:00:00+03:00</published><updated>2021-10-14T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/ipv6_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/ipv6_prot/">&lt;p&gt;Протокол IPv6 пришел на замену протоколу IPv4 и хотя в настоящее время IPv4 всё еще везде используется, придет время и протокол IPv6 вытеснит своего предшественника полностью.&lt;/p&gt;
+
+&lt;p&gt;Первое, что стоит упомянуть когда рассматривают протокол IPv6 - это измененная структура адреса и количество возможных адресов. Если в IPv4 используется &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2^32&lt;/code&gt; адресов, когда в новой версии это число было увеличено до невероятных значений &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2^128&lt;/code&gt;. Структура адреса выглядит следующим образом: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fe80:0000:0000:0000:c800:00ef:fe74:0c00&lt;/code&gt; - 8 хекстетов, разделенных символом &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;типы-адресов-ipv6&quot;&gt;Типы адресов IPv6&lt;/h2&gt;
+
+&lt;p&gt;Всего существует три основных типа IPv6 адресов:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Unicast&lt;/strong&gt; адреса&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Anycast&lt;/strong&gt; адреса&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Multicast&lt;/strong&gt; адреса&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;В отличие от IPv4, в IPv6 нет broadcast адресов. Однако, группа multicast адресов &lt;em&gt;“all nodes”&lt;/em&gt; делает ту же работу, что и broadcast адреса.&lt;/p&gt;
+
+&lt;h3 id=&quot;unicast&quot;&gt;Unicast&lt;/h3&gt;
+
+&lt;p&gt;IPv6 unicast адреса работают в точности так же как и в IPv4. Данные адреса определяют один интерфейс или устройство. Существует три типа IPv6 unicast адресов:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Global&lt;/strong&gt; адреса - это те же адреса, что и публичные адреса в IPv4. Они глобально маршрутизируются и могут использоваться при коммуникации через сеть Интернет. В настоящее время вся глобальная одноадресная адресация выделяется из префиксного блока &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2000::/3&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ipv6/global_unicast.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ipv6/global_unicast.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Global scope&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Unique local unicast&lt;/strong&gt; адреса - адреса, которые в IPv4 определены как &lt;em&gt;“серые”&lt;/em&gt;, т.е. адреса, описанные в &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc1918.html&quot;&gt;RFC 1918&lt;/a&gt;. Данные адреса маршрутизируются в пределах внутренней коммуникации организации и не маршрутизируются в сети Интернет. &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc4193.html&quot;&gt;RFC 4193&lt;/a&gt; определяет блок префиксов &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fc00::/7&lt;/code&gt; для уникальной локальной одноадресной адресации. Данные адреса всегда начинаются с двоичного значения &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1111 110&lt;/code&gt;, которое соответствует префиксу &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fc00::/7&lt;/code&gt;. Восьмой бит - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;бит L&lt;/code&gt; в настоящее время установлен в 1, чтобы указать, что адрес назначен локально. Установка бита L на 0 еще не определена и зарезервирована для использования в будущем. Объединение префикса (&lt;em&gt;первых 7 бит&lt;/em&gt;) и бита L создает два потенциальных адресных блока:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fc00::/8&lt;/code&gt;: зарезервировано для будущего использования&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fd00::/8&lt;/code&gt;: локальная одноадресная адресация&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ipv6/unique_local.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ipv6/unique_local.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Unique local scope&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Link-local&lt;/strong&gt; адреса - немаршрутизируемые адреса, используются для коммуникации в пределах одного непосредственно подключенного канала.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ipv6/link_local.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ipv6/link_local.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Link local scope&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;P.S.&lt;/strong&gt; &lt;em&gt;вся информация представленная здесь используется исключительно в образовательных целях. Все совпадения с реальными объектами, адресами, именами и т.д. случайна и не несёт цели получить от этого выгоду или причинить кому-либо вред.&lt;/em&gt;&lt;/p&gt;</content><author><name>Ivan Denisenko</name></author><category term="networks" /><category term="protocols" /><category term="ipv6" /><summary type="html">Протокол IPv6 пришел на замену протоколу IPv4 и хотя в настоящее время IPv4 всё еще везде используется, придет время и протокол IPv6 вытеснит своего предшественника полностью.</summary></entry><entry><title type="html">Структура протокола UDP</title><link href="https://iteducate.github.io/networks/udp_prot/" rel="alternate" type="text/html" title="Структура протокола UDP" /><published>2021-10-10T09:00:00+03:00</published><updated>2021-10-10T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/udp_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/udp_prot/">&lt;p&gt;User Datagram Protocol или UDP описан в &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc768.html&quot;&gt;RFC 768&lt;/a&gt; предоставляет услуги доставки пакетов без подключения с максимальными усилиями. Главное преимущество протокола UDP - отсутствие траты времени на установку соединения с удаленным узлом. Приложения, использующие UDP вместо TCP, понимают это основное преимущество в производительности и поэтому используют именно UDP.&lt;/p&gt;
 
 &lt;p&gt;Второе преимущество протокола UDP - размер заголовка, он намного меньше, чем у протокола TCP. Ниже представлена структура заголовка&lt;/p&gt;
 

@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Структура протокола UDP - Blog Notes</title>
-<meta name="description" content="User Datagram Protocol или UDP описан в RFC 768 предоставляет услуги доставки пакетов без подключения с максимальными усилиями. Главное преимущество протокола UDP - отсутствие траты времени на установку соединения с удаленным узлом. Приложения, использующие UDP вместо TCP, понимают это основное преимущество в производительности и поэтому используют именно UDP.">
+<!-- begin _includes/seo.html --><title>Структура протокола IPv6 - Blog Notes</title>
+<meta name="description" content="Протокол IPv6 пришел на замену протоколу IPv4 и хотя в настоящее время IPv4 всё еще везде используется, придет время и протокол IPv6 вытеснит своего предшественника полностью.">
 
 
   <meta name="author" content="Ivan Denisenko">
@@ -22,30 +22,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Blog Notes">
-<meta property="og:title" content="Структура протокола UDP">
-<meta property="og:url" content="https://iteducate.github.io/networks/udp_prot/">
+<meta property="og:title" content="Структура протокола IPv6">
+<meta property="og:url" content="https://iteducate.github.io/networks/ipv6_prot/">
 
 
-  <meta property="og:description" content="User Datagram Protocol или UDP описан в RFC 768 предоставляет услуги доставки пакетов без подключения с максимальными усилиями. Главное преимущество протокола UDP - отсутствие траты времени на установку соединения с удаленным узлом. Приложения, использующие UDP вместо TCP, понимают это основное преимущество в производительности и поэтому используют именно UDP.">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2021-10-10T09:00:00+03:00">
+  <meta property="og:description" content="Протокол IPv6 пришел на замену протоколу IPv4 и хотя в настоящее время IPv4 всё еще везде используется, придет время и протокол IPv6 вытеснит своего предшественника полностью.">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2021-10-14T09:00:00+03:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="https://iteducate.github.io/networks/udp_prot/">
+
+<link rel="canonical" href="https://iteducate.github.io/networks/ipv6_prot/">
 
 
 
@@ -302,15 +302,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Структура протокола UDP">
-    <meta itemprop="description" content="User Datagram Protocol или UDP описан в RFC 768 предоставляет услуги доставки пакетов без подключения с максимальными усилиями. Главное преимущество протокола UDP - отсутствие траты времени на установку соединения с удаленным узлом. Приложения, использующие UDP вместо TCP, понимают это основное преимущество в производительности и поэтому используют именно UDP.">
-    <meta itemprop="datePublished" content="2021-10-10T09:00:00+03:00">
+    <meta itemprop="headline" content="Структура протокола IPv6">
+    <meta itemprop="description" content="Протокол IPv6 пришел на замену протоколу IPv4 и хотя в настоящее время IPv4 всё еще везде используется, придет время и протокол IPv6 вытеснит своего предшественника полностью.">
+    <meta itemprop="datePublished" content="2021-10-14T09:00:00+03:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Структура протокола UDP
+          <h1 id="page-title" class="page__title" itemprop="headline">Структура протокола IPv6
 </h1>
           
 
@@ -319,7 +319,7 @@
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2021-10-10T09:00:00+03:00">October 10, 2021</time>
+        <time datetime="2021-10-14T09:00:00+03:00">October 14, 2021</time>
       </span>
     
 
@@ -332,7 +332,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          less than 1 minute read
+          1 minute read
         
       </span>
     
@@ -344,73 +344,92 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>User Datagram Protocol или UDP описан в <a href="https://www.rfc-editor.org/rfc/rfc768.html">RFC 768</a> предоставляет услуги доставки пакетов без подключения с максимальными усилиями. Главное преимущество протокола UDP - отсутствие траты времени на установку соединения с удаленным узлом. Приложения, использующие UDP вместо TCP, понимают это основное преимущество в производительности и поэтому используют именно UDP.</p>
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Содержание</h4></header>
+              <ul class="toc__menu"><li><a href="#типы-адресов-ipv6">Типы адресов IPv6</a><ul><li><a href="#unicast">Unicast</a></li></ul></li></ul>
 
-<p>Второе преимущество протокола UDP - размер заголовка, он намного меньше, чем у протокола TCP. Ниже представлена структура заголовка</p>
+            </nav>
+          </aside>
+        
+        <p>Протокол IPv6 пришел на замену протоколу IPv4 и хотя в настоящее время IPv4 всё еще везде используется, придет время и протокол IPv6 вытеснит своего предшественника полностью.</p>
 
-<figure class=" ">
-  
-    
-      <a href="/assets/images/udp/structure_udp.png">
-          <img src="/assets/images/udp/structure_udp.png" alt="" />
-      </a>
-    
-  
-  
-    <figcaption><strong>UDP Header Structure</strong>
-</figcaption>
-  
-</figure>
+<p>Первое, что стоит упомянуть когда рассматривают протокол IPv6 - это измененная структура адреса и количество возможных адресов. Если в IPv4 используется <code class="language-plaintext highlighter-rouge">2^32</code> адресов, когда в новой версии это число было увеличено до невероятных значений <code class="language-plaintext highlighter-rouge">2^128</code>. Структура адреса выглядит следующим образом: <code class="language-plaintext highlighter-rouge">fe80:0000:0000:0000:c800:00ef:fe74:0c00</code> - 8 хекстетов, разделенных символом <code class="language-plaintext highlighter-rouge">:</code></p>
 
-<p>Поля <strong>Source</strong> и <strong>Destination</strong> port идентичны тем, которые есть у протокола TCP, размер данных полей также 16 бит.</p>
+<h2 id="типы-адресов-ipv6">Типы адресов IPv6</h2>
 
-<figure class=" ">
-  
-    
-      <a href="/assets/images/udp/src_dst_ports.png">
-          <img src="/assets/images/udp/src_dst_ports.png" alt="" />
-      </a>
-    
-  
-  
-    <figcaption><strong>Source and Destination Ports</strong>
-</figcaption>
-  
-</figure>
+<p>Всего существует три основных типа IPv6 адресов:</p>
 
-<p><strong>UDP Length</strong> - 16-битное поле, указывающее длину всего сегмента в байтах (<code class="language-plaintext highlighter-rouge">udp header</code> + <code class="language-plaintext highlighter-rouge">udp payload</code>).</p>
+<ul>
+  <li><strong>Unicast</strong> адреса</li>
+  <li><strong>Anycast</strong> адреса</li>
+  <li><strong>Multicast</strong> адреса</li>
+</ul>
+
+<p>В отличие от IPv4, в IPv6 нет broadcast адресов. Однако, группа multicast адресов <em>“all nodes”</em> делает ту же работу, что и broadcast адреса.</p>
+
+<h3 id="unicast">Unicast</h3>
+
+<p>IPv6 unicast адреса работают в точности так же как и в IPv4. Данные адреса определяют один интерфейс или устройство. Существует три типа IPv6 unicast адресов:</p>
+
+<ul>
+  <li><strong>Global</strong> адреса - это те же адреса, что и публичные адреса в IPv4. Они глобально маршрутизируются и могут использоваться при коммуникации через сеть Интернет. В настоящее время вся глобальная одноадресная адресация выделяется из префиксного блока <code class="language-plaintext highlighter-rouge">2000::/3</code>.</li>
+</ul>
 
 <figure class=" ">
   
     
-      <a href="/assets/images/udp/length.png">
-          <img src="/assets/images/udp/length.png" alt="" />
+      <a href="/assets/images/ipv6/global_unicast.png">
+          <img src="/assets/images/ipv6/global_unicast.png" alt="" />
       </a>
     
   
   
-    <figcaption><strong>Length</strong>
+    <figcaption><strong>Global scope</strong>
 </figcaption>
   
 </figure>
 
-<p><strong>Checksum</strong> - 16-битное <em>опциональное (необязательно)</em> поле, проверяющее чексумму всего сегмента. Когда поле неиспользуется, то оно заполняется нулями.</p>
+<ul>
+  <li><strong>Unique local unicast</strong> адреса - адреса, которые в IPv4 определены как <em>“серые”</em>, т.е. адреса, описанные в <a href="https://www.rfc-editor.org/rfc/rfc1918.html">RFC 1918</a>. Данные адреса маршрутизируются в пределах внутренней коммуникации организации и не маршрутизируются в сети Интернет. <a href="https://www.rfc-editor.org/rfc/rfc4193.html">RFC 4193</a> определяет блок префиксов <code class="language-plaintext highlighter-rouge">fc00::/7</code> для уникальной локальной одноадресной адресации. Данные адреса всегда начинаются с двоичного значения <code class="language-plaintext highlighter-rouge">1111 110</code>, которое соответствует префиксу <code class="language-plaintext highlighter-rouge">fc00::/7</code>. Восьмой бит - <code class="language-plaintext highlighter-rouge">бит L</code> в настоящее время установлен в 1, чтобы указать, что адрес назначен локально. Установка бита L на 0 еще не определена и зарезервирована для использования в будущем. Объединение префикса (<em>первых 7 бит</em>) и бита L создает два потенциальных адресных блока:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">fc00::/8</code>: зарезервировано для будущего использования</li>
+      <li><code class="language-plaintext highlighter-rouge">fd00::/8</code>: локальная одноадресная адресация</li>
+    </ul>
+  </li>
+</ul>
 
 <figure class=" ">
   
     
-      <a href="/assets/images/udp/checksum.png">
-          <img src="/assets/images/udp/checksum.png" alt="" />
+      <a href="/assets/images/ipv6/unique_local.png">
+          <img src="/assets/images/ipv6/unique_local.png" alt="" />
       </a>
     
   
   
-    <figcaption><strong>Checksum</strong>
+    <figcaption><strong>Unique local scope</strong>
 </figcaption>
   
 </figure>
 
-<p>Полностью изучить протокол можно скачав данный <a href="/assets/pcap/udp.pcapng">дамп</a></p>
+<ul>
+  <li><strong>Link-local</strong> адреса - немаршрутизируемые адреса, используются для коммуникации в пределах одного непосредственно подключенного канала.</li>
+</ul>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ipv6/link_local.png">
+          <img src="/assets/images/ipv6/link_local.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Link local scope</strong>
+</figcaption>
+  
+</figure>
 
 <p><strong>P.S.</strong> <em>вся информация представленная здесь используется исключительно в образовательных целях. Все совпадения с реальными объектами, адресами, именами и т.д. случайна и не несёт цели получить от этого выгоду или причинить кому-либо вред.</em></p>
 
@@ -431,9 +450,9 @@
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#protocols" class="page__taxonomy-item" rel="tag">protocols</a><span class="sep">, </span>
+      <a href="/tags/#ipv6" class="page__taxonomy-item" rel="tag">ipv6</a><span class="sep">, </span>
     
-      <a href="/tags/#udp" class="page__taxonomy-item" rel="tag">udp</a>
+      <a href="/tags/#protocols" class="page__taxonomy-item" rel="tag">protocols</a>
     
     </span>
   </p>
@@ -457,7 +476,7 @@
 
 
         
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-10-10T09:00:00+03:00">October 10, 2021</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-10-14T09:00:00+03:00">October 14, 2021</time></p>
 
 
       </footer>
@@ -467,25 +486,24 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0+%D0%BF%D1%80%D0%BE%D1%82%D0%BE%D0%BA%D0%BE%D0%BB%D0%B0+UDP%20https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Fudp_prot%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0+%D0%BF%D1%80%D0%BE%D1%82%D0%BE%D0%BA%D0%BE%D0%BB%D0%B0+IPv6%20https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Fipv6_prot%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Fudp_prot%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Fipv6_prot%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Fudp_prot%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Fipv6_prot%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 
-  <a href="https://vk.com/share.php?url=https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Fudp_prot%2F" class="btn btn--vk" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on VK"><i class="fab fa-fw fa-vk" aria-hidden="true"></i><span> VK</span></a>
+  <a href="https://vk.com/share.php?url=https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Fipv6_prot%2F" class="btn btn--vk" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on VK"><i class="fab fa-fw fa-vk" aria-hidden="true"></i><span> VK</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/networks/tcp_prot/" class="pagination--pager" title="Структура протокола TCP
+      <a href="/networks/udp_prot/" class="pagination--pager" title="Структура протокола UDP
 ">Previous</a>
     
     
-      <a href="/networks/ipv6_prot/" class="pagination--pager" title="Структура протокола IPv6
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
@@ -509,7 +527,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/networks/ipv6_prot/" rel="permalink">Структура протокола IPv6
+        <a href="/networks/udp_prot/" rel="permalink">Структура протокола UDP
 </a>
       
     </h2>
@@ -520,7 +538,7 @@
       
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2021-10-14T09:00:00+03:00">October 14, 2021</time>
+        <time datetime="2021-10-10T09:00:00+03:00">October 10, 2021</time>
       </span>
     
 
@@ -533,14 +551,14 @@
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          1 minute read
+          less than 1 minute read
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">Протокол IPv6 пришел на замену протоколу IPv4 и хотя в настоящее время IPv4 всё еще везде используется, придет время и протокол IPv6 вытеснит своего предшест...</p>
+    <p class="archive__item-excerpt" itemprop="description">User Datagram Protocol или UDP описан в RFC 768 предоставляет услуги доставки пакетов без подключения с максимальными усилиями. Главное преимущество протокол...</p>
   </article>
 </div>
 
@@ -758,8 +776,8 @@
     
   <script>
     var disqus_config = function () {
-      this.page.url = "https://iteducate.github.io/networks/udp_prot/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/networks/udp_prot"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "https://iteducate.github.io/networks/ipv6_prot/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/networks/ipv6_prot"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');
