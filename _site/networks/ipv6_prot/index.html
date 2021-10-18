@@ -332,7 +332,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 minute read
+          2 minute read
         
       </span>
     
@@ -347,14 +347,14 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Содержание</h4></header>
-              <ul class="toc__menu"><li><a href="#типы-адресов-ipv6">Типы адресов IPv6</a><ul><li><a href="#unicast">Unicast</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#типы-адресов-ipv6">Типы адресов IPv6</a><ul><li><a href="#unicast">Unicast</a></li><li><a href="#anycast">Anycast</a></li><li><a href="#multicast">Multicast</a></li></ul></li></ul>
 
             </nav>
           </aside>
         
         <p>Протокол IPv6 пришел на замену протоколу IPv4 и хотя в настоящее время IPv4 всё еще везде используется, придет время и протокол IPv6 вытеснит своего предшественника полностью.</p>
 
-<p>Первое, что стоит упомянуть когда рассматривают протокол IPv6 - это измененная структура адреса и количество возможных адресов. Если в IPv4 используется <code class="language-plaintext highlighter-rouge">2^32</code> адресов, когда в новой версии это число было увеличено до невероятных значений <code class="language-plaintext highlighter-rouge">2^128</code>. Структура адреса выглядит следующим образом: <code class="language-plaintext highlighter-rouge">fe80:0000:0000:0000:c800:00ef:fe74:0c00</code> - 8 хекстетов, разделенных символом <code class="language-plaintext highlighter-rouge">:</code></p>
+<p>Первое, что стоит упомянуть когда рассматривают протокол IPv6 - это измененная структура адреса и количество возможных адресов. Если в IPv4 используется <code class="language-plaintext highlighter-rouge">2^32</code> адресов, то в новой версии это число достигает невероятных значений <code class="language-plaintext highlighter-rouge">2^128</code>. Структура адреса выглядит следующим образом: <code class="language-plaintext highlighter-rouge">2001:1536:a0b8:3491:c800:00ef:fe74:0c00</code> - 8 хекстетов, разделенных символом <code class="language-plaintext highlighter-rouge">:</code></p>
 
 <h2 id="типы-адресов-ipv6">Типы адресов IPv6</h2>
 
@@ -414,7 +414,7 @@
 </figure>
 
 <ul>
-  <li><strong>Link-local</strong> адреса - немаршрутизируемые адреса, используются для коммуникации в пределах одного непосредственно подключенного канала.</li>
+  <li><strong>Link-local</strong> адреса - немаршрутизируемые адреса, используются для коммуникации в пределах одного непосредственно подключенного канала. Основное назначение данных адресов - обнаружение соседей и определение дубликата адресов. Адреса выделяются из префиксного блока <code class="language-plaintext highlighter-rouge">fe80::/10</code>. Данные адреса могут назначаться как вручную, так и динамически с использованием механизма <strong>SLAAC</strong> (<em>stateless address autoconfiguration</em>). При использовании SLAAC часть Interface ID выводится из MAC-адреса модификацией формата EUI-64.</li>
 </ul>
 
 <figure class=" ">
@@ -431,6 +431,47 @@
   
 </figure>
 
+<h3 id="anycast">Anycast</h3>
+
+<p>Anycast адреса представляют скорее сервис нежели чем отдельное устройство, поэтому один адрес может быть назначен разным устройствам, предоставляющим один и тот же сервис. Основное предназначение anycast адресов - обеспечение отказоустойчивости.</p>
+
+<p>На следующей схеме приведён пример того как может выглядеть это в реальности</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ipv6/anycast.png">
+          <img src="/assets/images/ipv6/anycast.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Anycast</strong>
+</figcaption>
+  
+</figure>
+
+<p>В сети имеется два сервера, которые имеют идентичную адресацию, но физически расположены в разных местах. В зависимости от того где находится клиент, трафик пойдет к ближайшему серверу, опираясь на таблицу маршрутизации.</p>
+
+<p>В случае если в сети произойдет падение одного из маршрутизаторов, находящихся рядом с серверами, произойдет перестроение пути следования трафика для одного из клиентов и трафик для этого клиента пойдет по новому пути. В этом случае оба клиента будут обращаться к одному и тому же серверу.</p>
+
+<p>Какого определённого формата для данных типов адресов не существует, поэтому теоретически любой unicast адрес может быть anycast. Для корректной работы anycast адресов может быть желательно отключать механизм определения дубликата адресов (<em>DAD - Duplicate Address Detection</em>). В операционной системе Cisco IOS и Cisco IOS XE механизм DAD отключается для всего префикса, делается это следующей командой:</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre><span class="gp">Cisco_CSR1000v(config)#</span><span class="w"> </span>interface gigabitEthernet 1
+<span class="gp">Cisco_CSR1000v(config-if)#</span><span class="w"> </span>ipv6 address 2001:abcd:1111::1/64 anycast 
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Для операционной системы Cisco IOS XR механизм DAD отключается для всего интерфейса (<em>включая префиксы link-local</em>) с помощью команды:</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre><span class="gp">RP/0/0/CPU0:Cisco_XRv(config)#</span><span class="w"> </span>interface gigabitEthernet 0/0/0/0
+<span class="gp">RP/0/0/CPU0:Cisco_XRv(config-if)#</span><span class="w"> </span>ipv6 nd dad attempts 0
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="multicast">Multicast</h3>
 <p><strong>P.S.</strong> <em>вся информация представленная здесь используется исключительно в образовательных целях. Все совпадения с реальными объектами, адресами, именами и т.д. случайна и не несёт цели получить от этого выгоду или причинить кому-либо вред.</em></p>
 
         
