@@ -347,7 +347,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Содержание</h4></header>
-              <ul class="toc__menu"><li><a href="#типы-адресов-ipv6">Типы адресов IPv6</a><ul><li><a href="#unicast">Unicast</a></li><li><a href="#anycast">Anycast</a></li><li><a href="#multicast">Multicast</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#типы-адресов-ipv6">Типы адресов IPv6</a><ul><li><a href="#unicast">Unicast</a></li><li><a href="#anycast">Anycast</a></li><li><a href="#multicast">Multicast</a></li><li><a href="#специальные-ipv6-адреса">Специальные IPv6 адреса</a></li></ul></li></ul>
 
             </nav>
           </aside>
@@ -663,6 +663,15 @@ GigabitEthernet0/0/0/0 is Up, ipv6 protocol is Up, Vrfid is default (0x60000000)
   MTU is 1514 (1500 is available to IPv6)
   ---часть информации пропущена---</span>
 </pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="специальные-ipv6-адреса">Специальные IPv6 адреса</h3>
+
+<p>Помимо основных адресов, описанных выше, есть два типа, которые не включены ни в одну из категорий.</p>
+
+<ul>
+  <li><strong>Неопределенный адрес</strong> - указывает на то, что на интерфейсе еще нет никакого адреса, обозначается как <code class="language-plaintext highlighter-rouge">0:0:0:0:0:0:0:0 или просто ::</code>. Данный адрес используется устройством когда оно только инициализированно и не получило еще никакого другого адреса</li>
+  <li><strong>Loopback адрес</strong> - используется для того чтобы отправлять пакеты самому себе, обозначается как <code class="language-plaintext highlighter-rouge">0:0:0:0:0:0:0:1 или ::1</code></li>
+</ul>
 
 <p><strong>P.S.</strong> <em>вся информация представленная здесь используется исключительно в образовательных целях. Все совпадения с реальными объектами, адресами, именами и т.д. случайна и не несёт цели получить от этого выгоду или причинить кому-либо вред.</em></p>
 
