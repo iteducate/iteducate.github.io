@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Структура протокола IPv6 - Blog Notes</title>
+<!-- begin _includes/seo.html --><title>Протокол IPv6 - Blog Notes</title>
 <meta name="description" content="Протокол IPv6 пришел на замену протоколу IPv4 и хотя в настоящее время IPv4 всё еще везде используется, придет время и протокол IPv6 вытеснит своего предшественника полностью.">
 
 
@@ -22,7 +22,7 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Blog Notes">
-<meta property="og:title" content="Структура протокола IPv6">
+<meta property="og:title" content="Протокол IPv6">
 <meta property="og:url" content="https://iteducate.github.io/networks/ipv6_prot/">
 
 
@@ -302,7 +302,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Структура протокола IPv6">
+    <meta itemprop="headline" content="Протокол IPv6">
     <meta itemprop="description" content="Протокол IPv6 пришел на замену протоколу IPv4 и хотя в настоящее время IPv4 всё еще везде используется, придет время и протокол IPv6 вытеснит своего предшественника полностью.">
     <meta itemprop="datePublished" content="2021-10-14T09:00:00+03:00">
     
@@ -310,7 +310,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Структура протокола IPv6
+          <h1 id="page-title" class="page__title" itemprop="headline">Протокол IPv6
 </h1>
           
 
@@ -332,7 +332,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          6 minute read
+          7 minute read
         
       </span>
     
@@ -347,7 +347,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Содержание</h4></header>
-              <ul class="toc__menu"><li><a href="#типы-адресов-ipv6">Типы адресов IPv6</a><ul><li><a href="#unicast">Unicast</a></li><li><a href="#anycast">Anycast</a></li><li><a href="#multicast">Multicast</a></li><li><a href="#специальные-ipv6-адреса">Специальные IPv6 адреса</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#типы-адресов-ipv6">Типы адресов IPv6</a><ul><li><a href="#unicast">Unicast</a></li><li><a href="#anycast">Anycast</a></li><li><a href="#multicast">Multicast</a></li><li><a href="#специальные-ipv6-адреса">Специальные IPv6 адреса</a></li></ul></li><li><a href="#структура-заголовка-ipv6">Структура заголовка IPv6</a></li></ul>
 
             </nav>
           </aside>
@@ -673,6 +673,134 @@ GigabitEthernet0/0/0/0 is Up, ipv6 protocol is Up, Vrfid is default (0x60000000)
   <li><strong>Loopback адрес</strong> - используется для того чтобы отправлять пакеты самому себе, обозначается как <code class="language-plaintext highlighter-rouge">0:0:0:0:0:0:0:1 или ::1</code></li>
 </ul>
 
+<h2 id="структура-заголовка-ipv6">Структура заголовка IPv6</h2>
+
+<p>Формат заголовка протокола IPv6 представлен на рисунке ниже</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ipv6/ipv6_header.png">
+          <img src="/assets/images/ipv6/ipv6_header.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Header IPv6</strong>
+</figcaption>
+  
+</figure>
+
+<p><strong>Version</strong> - 4-битное поле, также как и в протоколе IPv4 отвечает за версию протокола. Принимает значение <code class="language-plaintext highlighter-rouge">0110</code>.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ipv6/version.png">
+          <img src="/assets/images/ipv6/version.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Version</strong>
+</figcaption>
+  
+</figure>
+
+<p><strong>Traffic Class</strong> - 8-битное поле, идентично полю DiffServ в протоколе IPv4.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ipv6/dscp.png">
+          <img src="/assets/images/ipv6/dscp.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Traffic Service</strong>
+</figcaption>
+  
+</figure>
+
+<p><strong>Flow Label</strong> - 20-битное уникальное для IPv6 поле. Данное поле позволяет помечать определенный поток трафика, при балансировке трафика метка позволяет более точно определять путь, по которому пойдет тот или иной пакет, предотвращая возможное изменение следования порядка пакетов.</p>
+
+<p>Поток определяется как совокупность адреса и порта источника и назначения. Однако, определить порт источника и назначения для маршрутизатора может быть сложной задачей и возможным падением производительности для него. Расширения заголовка IPv6 позволяют маршрутизатору определить заголовок транспортного уровня.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ipv6/flow_label.png">
+          <img src="/assets/images/ipv6/flow_label.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Flow Label</strong>
+</figcaption>
+  
+</figure>
+
+<p><strong>Payload Length</strong> - 16-битное поле, определяющее длину содержимого пакета в байтах. Размер заголовка IPv6 всегда фиксирован и составляет 40 байт, поэтому, в отличие от протокола IPv4, вычитать размер заголовка из общего содержимого пакета нет необходимости.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ipv6/payload.png">
+          <img src="/assets/images/ipv6/payload.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Payload Length</strong>
+</figcaption>
+  
+</figure>
+
+<p><strong>Next Header</strong> - 8-битное поле, определяющее заголовок протокола, который следует за протоколом IPv6. Данное поле идентично полю Protocol в заголовке IPv4 и используется для тех же самых целей. Однако, в протоколе IPv6 вместо протокола, располагающегося выше протокола IPv6, можеть быть расширение заголовка IPv6.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ipv6/next_header.png">
+          <img src="/assets/images/ipv6/next_header.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Hext Header</strong>
+</figcaption>
+  
+</figure>
+
+<p><strong>Hop Limit</strong> - 8-битное поле, выполняющее те же функции, что и поле Time to Live в протоколе IPv4. Если данное поле примет значение 0 на пути следования пакета, то пакет будет отброшен.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ipv6/hop_limit.png">
+          <img src="/assets/images/ipv6/hop_limit.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Hop Limit</strong>
+</figcaption>
+  
+</figure>
+
+<p><strong>Source и Destination Address</strong> - 128-битные поля, определяющие адреса источника и назначения соответственно.</p>
+
+<figure class=" ">
+  
+  
+    <figcaption><strong>Source и Destination Address</strong>
+</figcaption>
+  
+</figure>
+
+<p>В данном <a href="/assets/pcap/ipv6/ipv6.pcapng">дампе</a> можно более подробно рассмотреть все поля протокола IPv6.</p>
+
 <p><strong>P.S.</strong> <em>вся информация представленная здесь используется исключительно в образовательных целях. Все совпадения с реальными объектами, адресами, именами и т.д. случайна и не несёт цели получить от этого выгоду или причинить кому-либо вред.</em></p>
 
         
@@ -728,7 +856,7 @@ GigabitEthernet0/0/0/0 is Up, ipv6 protocol is Up, Vrfid is default (0x60000000)
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0+%D0%BF%D1%80%D0%BE%D1%82%D0%BE%D0%BA%D0%BE%D0%BB%D0%B0+IPv6%20https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Fipv6_prot%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%D0%9F%D1%80%D0%BE%D1%82%D0%BE%D0%BA%D0%BE%D0%BB+IPv6%20https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Fipv6_prot%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Fipv6_prot%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 

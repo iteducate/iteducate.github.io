@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-10-23T20:19:49+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Структура протокола IPv6</title><link href="https://iteducate.github.io/networks/ipv6_prot/" rel="alternate" type="text/html" title="Структура протокола IPv6" /><published>2021-10-14T09:00:00+03:00</published><updated>2021-10-14T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/ipv6_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/ipv6_prot/">&lt;p&gt;Протокол IPv6 пришел на замену протоколу IPv4 и хотя в настоящее время IPv4 всё еще везде используется, придет время и протокол IPv6 вытеснит своего предшественника полностью.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-10-24T00:40:42+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Протокол IPv6</title><link href="https://iteducate.github.io/networks/ipv6_prot/" rel="alternate" type="text/html" title="Протокол IPv6" /><published>2021-10-14T09:00:00+03:00</published><updated>2021-10-14T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/ipv6_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/ipv6_prot/">&lt;p&gt;Протокол IPv6 пришел на замену протоколу IPv4 и хотя в настоящее время IPv4 всё еще везде используется, придет время и протокол IPv6 вытеснит своего предшественника полностью.&lt;/p&gt;
 
 &lt;p&gt;Первое, что стоит упомянуть когда рассматривают протокол IPv6 - это измененная структура адреса и количество возможных адресов. Если в IPv4 используется &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2^32&lt;/code&gt; адресов, то в новой версии это число достигает невероятных значений &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2^128&lt;/code&gt;. Структура адреса выглядит следующим образом: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2001:1536:a0b8:3491:c800:00ef:fe74:0c00&lt;/code&gt; - 8 хекстетов, разделенных символом &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:&lt;/code&gt;&lt;/p&gt;
 
@@ -318,6 +318,134 @@ GigabitEthernet0/0/0/0 is Up, ipv6 protocol is Up, Vrfid is default (0x60000000)
   &lt;li&gt;&lt;strong&gt;Неопределенный адрес&lt;/strong&gt; - указывает на то, что на интерфейсе еще нет никакого адреса, обозначается как &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0:0:0:0:0:0:0:0 или просто ::&lt;/code&gt;. Данный адрес используется устройством когда оно только инициализированно и не получило еще никакого другого адреса&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Loopback адрес&lt;/strong&gt; - используется для того чтобы отправлять пакеты самому себе, обозначается как &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0:0:0:0:0:0:0:1 или ::1&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2 id=&quot;структура-заголовка-ipv6&quot;&gt;Структура заголовка IPv6&lt;/h2&gt;
+
+&lt;p&gt;Формат заголовка протокола IPv6 представлен на рисунке ниже&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ipv6/ipv6_header.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ipv6/ipv6_header.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Header IPv6&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Version&lt;/strong&gt; - 4-битное поле, также как и в протоколе IPv4 отвечает за версию протокола. Принимает значение &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0110&lt;/code&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ipv6/version.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ipv6/version.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Version&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Traffic Class&lt;/strong&gt; - 8-битное поле, идентично полю DiffServ в протоколе IPv4.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ipv6/dscp.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ipv6/dscp.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Traffic Service&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Flow Label&lt;/strong&gt; - 20-битное уникальное для IPv6 поле. Данное поле позволяет помечать определенный поток трафика, при балансировке трафика метка позволяет более точно определять путь, по которому пойдет тот или иной пакет, предотвращая возможное изменение следования порядка пакетов.&lt;/p&gt;
+
+&lt;p&gt;Поток определяется как совокупность адреса и порта источника и назначения. Однако, определить порт источника и назначения для маршрутизатора может быть сложной задачей и возможным падением производительности для него. Расширения заголовка IPv6 позволяют маршрутизатору определить заголовок транспортного уровня.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ipv6/flow_label.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ipv6/flow_label.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Flow Label&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Payload Length&lt;/strong&gt; - 16-битное поле, определяющее длину содержимого пакета в байтах. Размер заголовка IPv6 всегда фиксирован и составляет 40 байт, поэтому, в отличие от протокола IPv4, вычитать размер заголовка из общего содержимого пакета нет необходимости.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ipv6/payload.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ipv6/payload.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Payload Length&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Next Header&lt;/strong&gt; - 8-битное поле, определяющее заголовок протокола, который следует за протоколом IPv6. Данное поле идентично полю Protocol в заголовке IPv4 и используется для тех же самых целей. Однако, в протоколе IPv6 вместо протокола, располагающегося выше протокола IPv6, можеть быть расширение заголовка IPv6.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ipv6/next_header.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ipv6/next_header.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Hext Header&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Hop Limit&lt;/strong&gt; - 8-битное поле, выполняющее те же функции, что и поле Time to Live в протоколе IPv4. Если данное поле примет значение 0 на пути следования пакета, то пакет будет отброшен.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ipv6/hop_limit.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ipv6/hop_limit.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Hop Limit&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Source и Destination Address&lt;/strong&gt; - 128-битные поля, определяющие адреса источника и назначения соответственно.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Source и Destination Address&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;В данном &lt;a href=&quot;/assets/pcap/ipv6/ipv6.pcapng&quot;&gt;дампе&lt;/a&gt; можно более подробно рассмотреть все поля протокола IPv6.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;P.S.&lt;/strong&gt; &lt;em&gt;вся информация представленная здесь используется исключительно в образовательных целях. Все совпадения с реальными объектами, адресами, именами и т.д. случайна и не несёт цели получить от этого выгоду или причинить кому-либо вред.&lt;/em&gt;&lt;/p&gt;</content><author><name>Ivan Denisenko</name></author><category term="networks" /><category term="protocols" /><category term="ipv6" /><summary type="html">Протокол IPv6 пришел на замену протоколу IPv4 и хотя в настоящее время IPv4 всё еще везде используется, придет время и протокол IPv6 вытеснит своего предшественника полностью.</summary></entry><entry><title type="html">Структура протокола UDP</title><link href="https://iteducate.github.io/networks/udp_prot/" rel="alternate" type="text/html" title="Структура протокола UDP" /><published>2021-10-10T09:00:00+03:00</published><updated>2021-10-10T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/udp_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/udp_prot/">&lt;p&gt;User Datagram Protocol или UDP описан в &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc768.html&quot;&gt;RFC 768&lt;/a&gt; предоставляет услуги доставки пакетов без подключения с максимальными усилиями. Главное преимущество протокола UDP - отсутствие траты времени на установку соединения с удаленным узлом. Приложения, использующие UDP вместо TCP, понимают это основное преимущество в производительности и поэтому используют именно UDP.&lt;/p&gt;
 
