@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-10-22T21:09:44+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Структура протокола IPv6</title><link href="https://iteducate.github.io/networks/ipv6_prot/" rel="alternate" type="text/html" title="Структура протокола IPv6" /><published>2021-10-14T09:00:00+03:00</published><updated>2021-10-14T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/ipv6_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/ipv6_prot/">&lt;p&gt;Протокол IPv6 пришел на замену протоколу IPv4 и хотя в настоящее время IPv4 всё еще везде используется, придет время и протокол IPv6 вытеснит своего предшественника полностью.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-10-23T19:50:19+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Структура протокола IPv6</title><link href="https://iteducate.github.io/networks/ipv6_prot/" rel="alternate" type="text/html" title="Структура протокола IPv6" /><published>2021-10-14T09:00:00+03:00</published><updated>2021-10-14T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/ipv6_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/ipv6_prot/">&lt;p&gt;Протокол IPv6 пришел на замену протоколу IPv4 и хотя в настоящее время IPv4 всё еще везде используется, придет время и протокол IPv6 вытеснит своего предшественника полностью.&lt;/p&gt;
 
 &lt;p&gt;Первое, что стоит упомянуть когда рассматривают протокол IPv6 - это измененная структура адреса и количество возможных адресов. Если в IPv4 используется &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2^32&lt;/code&gt; адресов, то в новой версии это число достигает невероятных значений &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2^128&lt;/code&gt;. Структура адреса выглядит следующим образом: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2001:1536:a0b8:3491:c800:00ef:fe74:0c00&lt;/code&gt; - 8 хекстетов, разделенных символом &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:&lt;/code&gt;&lt;/p&gt;
 
@@ -119,7 +119,9 @@
 
 &lt;h3 id=&quot;multicast&quot;&gt;Multicast&lt;/h3&gt;
 
-&lt;p&gt;Multicast адреса определяют не одно устройство, а группу устройств - multicast группу. Multicast адреса не могут выступать в качестве адреса источника в пакете. В IPv6 multicast адреса имеют различное назначение: передача информации о протоколе маршрутизации, обнаружение соседних устройств, разрешение IPv6-адресов. Более подробно об этом будет описано в статье по протоколу &lt;strong&gt;&lt;em&gt;Neighbor Discovery Protocol&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Multicast адреса определяют не одно устройство, а группу устройств - multicast группу, при этом в данной группе может состоять как множество устройств, так и одно. Multicast адреса не могут выступать в качестве адреса источника в пакете. В IPv6 не существует как такового broadcast адреса, вместо него есть multicast группа &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;All nodes&quot;&lt;/code&gt;, которая по сути имеет то же предназначение, что и broadcast в IPv4.&lt;/p&gt;
+
+&lt;p&gt;В IPv6 multicast адреса имеют различное назначение: передача информации о протоколе маршрутизации, обнаружение соседних устройств, разрешение IPv6-адресов. Более подробно об этом будет описано в статье по протоколу &lt;strong&gt;&lt;em&gt;Neighbor Discovery Protocol&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;figure class=&quot; &quot;&gt;
   
@@ -134,6 +136,8 @@
 &lt;/figcaption&gt;
   
 &lt;/figure&gt;
+
+&lt;p&gt;Как видно из рисунка выше, первые 8 бит всегда установлены в &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;, следующие 4 бита отвечают за флаги. Первые три бита из поля &lt;strong&gt;Flags&lt;/strong&gt; установлены в &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt; и в настоящее время не используются. Четвёртый бит из поля &lt;strong&gt;Flags&lt;/strong&gt; - флаг &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;transient&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;Флаг &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;T - transient&lt;/code&gt; имеет два возможных значения:&lt;/p&gt;
 &lt;ul&gt;
@@ -153,37 +157,158 @@
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
+      &lt;td&gt;&lt;em&gt;Reserved&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;ff00&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Зарезервировано&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
       &lt;td&gt;&lt;em&gt;Interface-Local&lt;/em&gt;&lt;/td&gt;
       &lt;td&gt;&lt;strong&gt;ff01&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Interface-Local диапазон не позволяет multicast пакетам проходить через интерфейс. Данный диапазон аналогичен адресу unicast loopback, поскольку multicast пакеты содержатся внутри одного устройства.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;em&gt;Link-Local&lt;/em&gt;&lt;/td&gt;
       &lt;td&gt;&lt;strong&gt;ff02&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Link-Local диапазон содержит multicast трафик для локальной интерфейсной связи.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;em&gt;Admin-Local&lt;/em&gt;&lt;/td&gt;
       &lt;td&gt;&lt;strong&gt;ff04&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Admin-Local диапазон является маршрутизируемым и считается наименьшей административным диапазоном. Граница диапазона действия не имеет определенных ограничений, но обычно трафик ограничен одним отделом или этажом в здании.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;em&gt;Site-Local&lt;/em&gt;&lt;/td&gt;
       &lt;td&gt;&lt;strong&gt;ff05&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Site-Local диапазон является также маршрутизируемым и считается большим, чем admin-Local диапазон. Граница обычно ограничивается зданием или регионом.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;em&gt;Organization-Local&lt;/em&gt;&lt;/td&gt;
       &lt;td&gt;&lt;strong&gt;ff08&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Organization-Local диапазон является также маршрутизируемым и должен располагаться в одной организации.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;em&gt;Global&lt;/em&gt;&lt;/td&gt;
       &lt;td&gt;&lt;strong&gt;ff0е&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Global диапазон не имеет никаких ограничений на достижимость.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;p&gt;Поле &lt;strong&gt;Group ID&lt;/strong&gt; определяет индивидуальную multicast группу. На данное поле отводится 112 бит, 80 из которых в настоящее время не используются и установлены в 0.&lt;/p&gt;
+
+&lt;p&gt;Наиболее широко известные и используемые адреса представлены в таблице ниже&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Адрес&lt;/th&gt;
+      &lt;th&gt;Описание&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;ff02::1&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;All nodes адрес&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;ff02::2&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;All-routers адрес&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;ff02::5&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Aдрес OSPFv3 all routers&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;ff02::6&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Aдрес OSPFv3 all DR&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;ff02::8&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;IS-IS&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;ff02::9&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;RIPng&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;ff02::a&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;EIGRP&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;ff02::d&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;PIM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;ff02::1:2&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Адрес всех DHCPv6 relay агентов и серверов&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;ff05::1:3&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Адрес всех DHCPv6 серверов&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;ff02::1:ffxx:xxxx&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Адрес запрашиваемого узла, используется для обнаруженя соседних узлов для разрешения адресов (&lt;em&gt;последние 24 бита &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[xx:xxxx]&lt;/code&gt; адреса сопоставляются с последними 24 битами unicast адреса IPv6&lt;/em&gt;)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Более полный список можно увидеть, перейдя по &lt;a href=&quot;https://www.iana.org/assignments/ipv6-multicast-addresses/ipv6-multicast-addresses.xhtml&quot;&gt;ссылке&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Каждое устройство автоматически присоединяется к двум multicast группам: &lt;strong&gt;all nodes&lt;/strong&gt; - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ff02::1&lt;/code&gt; и &lt;strong&gt;solicited-node&lt;/strong&gt; - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ff02::1:ffxx:xxxx&lt;/code&gt;. Группа &lt;em&gt;all nodes&lt;/em&gt; используется для связи со всеми
+интерфейсами на локальном канале, а группа &lt;em&gt;solicited-node&lt;/em&gt; требуется для разрешения адресов на уровне канала. Маршрутизаторы также присоединяются к третьей multicast группе &lt;strong&gt;all-routers&lt;/strong&gt; - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ff02::2&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Для того чтобы посмотреть в какой группе состоит тот или иной интерфейс необходимо выполнить команду &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;show ipv6 interface &amp;lt;тип интерфейса номер интерфейса&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Cisco IOS&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;gp&quot;&gt;Cisco_CSR1000v#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;show ipv6 interface gigabitEthernet 1
+&lt;span class=&quot;go&quot;&gt;GigabitEthernet1 is up, line protocol is up
+  IPv6 is enabled, link-local address is FE80::1 
+  No Virtual link-local address(es):
+  Global unicast address(es):
+    2001:ABCD::1, subnet is 2001:ABCD::/64 
+  Joined group address(es):
+    FF02::1
+    FF02::2
+    FF02::1:FF00:1
+  MTU is 1500 bytes
+---часть информации пропущена---&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Cisco IOS XR&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;gp&quot;&gt;RP/0/0/CPU0:Cisco_XRv#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;show ipv6 interface gigabitEthernet 0/0/0/0
+&lt;span class=&quot;go&quot;&gt;Sat Oct 23 16:45:56.754 UTC
+GigabitEthernet0/0/0/0 is Up, ipv6 protocol is Up, Vrfid is default (0x60000000)
+  IPv6 is enabled, link-local address is fe80::2 
+  Global unicast address(es):
+    2001:abcd::2, subnet is 2001:abcd::/64 
+  Joined group address(es): ff02::1:ff00:2 ff02::2 ff02::1
+  MTU is 1514 (1500 is available to IPv6)
+  ---часть информации пропущена---&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;strong&gt;P.S.&lt;/strong&gt; &lt;em&gt;вся информация представленная здесь используется исключительно в образовательных целях. Все совпадения с реальными объектами, адресами, именами и т.д. случайна и не несёт цели получить от этого выгоду или причинить кому-либо вред.&lt;/em&gt;&lt;/p&gt;</content><author><name>Ivan Denisenko</name></author><category term="networks" /><category term="protocols" /><category term="ipv6" /><summary type="html">Протокол IPv6 пришел на замену протоколу IPv4 и хотя в настоящее время IPv4 всё еще везде используется, придет время и протокол IPv6 вытеснит своего предшественника полностью.</summary></entry><entry><title type="html">Структура протокола UDP</title><link href="https://iteducate.github.io/networks/udp_prot/" rel="alternate" type="text/html" title="Структура протокола UDP" /><published>2021-10-10T09:00:00+03:00</published><updated>2021-10-10T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/udp_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/udp_prot/">&lt;p&gt;User Datagram Protocol или UDP описан в &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc768.html&quot;&gt;RFC 768&lt;/a&gt; предоставляет услуги доставки пакетов без подключения с максимальными усилиями. Главное преимущество протокола UDP - отсутствие траты времени на установку соединения с удаленным узлом. Приложения, использующие UDP вместо TCP, понимают это основное преимущество в производительности и поэтому используют именно UDP.&lt;/p&gt;
 

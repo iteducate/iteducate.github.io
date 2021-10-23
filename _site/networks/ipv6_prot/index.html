@@ -332,7 +332,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          3 minute read
+          6 minute read
         
       </span>
     
@@ -473,7 +473,9 @@
 
 <h3 id="multicast">Multicast</h3>
 
-<p>Multicast адреса определяют не одно устройство, а группу устройств - multicast группу. Multicast адреса не могут выступать в качестве адреса источника в пакете. В IPv6 multicast адреса имеют различное назначение: передача информации о протоколе маршрутизации, обнаружение соседних устройств, разрешение IPv6-адресов. Более подробно об этом будет описано в статье по протоколу <strong><em>Neighbor Discovery Protocol</em></strong></p>
+<p>Multicast адреса определяют не одно устройство, а группу устройств - multicast группу, при этом в данной группе может состоять как множество устройств, так и одно. Multicast адреса не могут выступать в качестве адреса источника в пакете. В IPv6 не существует как такового broadcast адреса, вместо него есть multicast группа <code class="language-plaintext highlighter-rouge">"All nodes"</code>, которая по сути имеет то же предназначение, что и broadcast в IPv4.</p>
+
+<p>В IPv6 multicast адреса имеют различное назначение: передача информации о протоколе маршрутизации, обнаружение соседних устройств, разрешение IPv6-адресов. Более подробно об этом будет описано в статье по протоколу <strong><em>Neighbor Discovery Protocol</em></strong></p>
 
 <figure class=" ">
   
@@ -488,6 +490,8 @@
 </figcaption>
   
 </figure>
+
+<p>Как видно из рисунка выше, первые 8 бит всегда установлены в <code class="language-plaintext highlighter-rouge">1</code>, следующие 4 бита отвечают за флаги. Первые три бита из поля <strong>Flags</strong> установлены в <code class="language-plaintext highlighter-rouge">0</code> и в настоящее время не используются. Четвёртый бит из поля <strong>Flags</strong> - флаг <code class="language-plaintext highlighter-rouge">transient</code>.</p>
 
 <p>Флаг <code class="language-plaintext highlighter-rouge">T - transient</code> имеет два возможных значения:</p>
 <ul>
@@ -507,37 +511,158 @@
   </thead>
   <tbody>
     <tr>
+      <td><em>Reserved</em></td>
+      <td><strong>ff00</strong></td>
+      <td>Зарезервировано</td>
+    </tr>
+    <tr>
       <td><em>Interface-Local</em></td>
       <td><strong>ff01</strong></td>
-      <td> </td>
+      <td>Interface-Local диапазон не позволяет multicast пакетам проходить через интерфейс. Данный диапазон аналогичен адресу unicast loopback, поскольку multicast пакеты содержатся внутри одного устройства.</td>
     </tr>
     <tr>
       <td><em>Link-Local</em></td>
       <td><strong>ff02</strong></td>
-      <td> </td>
+      <td>Link-Local диапазон содержит multicast трафик для локальной интерфейсной связи.</td>
     </tr>
     <tr>
       <td><em>Admin-Local</em></td>
       <td><strong>ff04</strong></td>
-      <td> </td>
+      <td>Admin-Local диапазон является маршрутизируемым и считается наименьшей административным диапазоном. Граница диапазона действия не имеет определенных ограничений, но обычно трафик ограничен одним отделом или этажом в здании.</td>
     </tr>
     <tr>
       <td><em>Site-Local</em></td>
       <td><strong>ff05</strong></td>
-      <td> </td>
+      <td>Site-Local диапазон является также маршрутизируемым и считается большим, чем admin-Local диапазон. Граница обычно ограничивается зданием или регионом.</td>
     </tr>
     <tr>
       <td><em>Organization-Local</em></td>
       <td><strong>ff08</strong></td>
-      <td> </td>
+      <td>Organization-Local диапазон является также маршрутизируемым и должен располагаться в одной организации.</td>
     </tr>
     <tr>
       <td><em>Global</em></td>
       <td><strong>ff0е</strong></td>
-      <td> </td>
+      <td>Global диапазон не имеет никаких ограничений на достижимость.</td>
     </tr>
   </tbody>
 </table>
+
+<p>Поле <strong>Group ID</strong> определяет индивидуальную multicast группу. На данное поле отводится 112 бит, 80 из которых в настоящее время не используются и установлены в 0.</p>
+
+<p>Наиболее широко известные и используемые адреса представлены в таблице ниже</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Адрес</th>
+      <th>Описание</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ff02::1</strong></td>
+      <td>All nodes адрес</td>
+    </tr>
+    <tr>
+      <td><strong>ff02::2</strong></td>
+      <td>All-routers адрес</td>
+    </tr>
+    <tr>
+      <td><strong>ff02::5</strong></td>
+      <td>Aдрес OSPFv3 all routers</td>
+    </tr>
+    <tr>
+      <td><strong>ff02::6</strong></td>
+      <td>Aдрес OSPFv3 all DR</td>
+    </tr>
+    <tr>
+      <td><strong>ff02::8</strong></td>
+      <td>IS-IS</td>
+    </tr>
+    <tr>
+      <td><strong>ff02::9</strong></td>
+      <td>RIPng</td>
+    </tr>
+    <tr>
+      <td><strong>ff02::a</strong></td>
+      <td>EIGRP</td>
+    </tr>
+    <tr>
+      <td><strong>ff02::d</strong></td>
+      <td>PIM</td>
+    </tr>
+    <tr>
+      <td><strong>ff02::1:2</strong></td>
+      <td>Адрес всех DHCPv6 relay агентов и серверов</td>
+    </tr>
+    <tr>
+      <td><strong>ff05::1:3</strong></td>
+      <td>Адрес всех DHCPv6 серверов</td>
+    </tr>
+    <tr>
+      <td><strong>ff02::1:ffxx:xxxx</strong></td>
+      <td>Адрес запрашиваемого узла, используется для обнаруженя соседних узлов для разрешения адресов (<em>последние 24 бита <code class="language-plaintext highlighter-rouge">[xx:xxxx]</code> адреса сопоставляются с последними 24 битами unicast адреса IPv6</em>)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Более полный список можно увидеть, перейдя по <a href="https://www.iana.org/assignments/ipv6-multicast-addresses/ipv6-multicast-addresses.xhtml">ссылке</a></p>
+
+<p>Каждое устройство автоматически присоединяется к двум multicast группам: <strong>all nodes</strong> - <code class="language-plaintext highlighter-rouge">ff02::1</code> и <strong>solicited-node</strong> - <code class="language-plaintext highlighter-rouge">ff02::1:ffxx:xxxx</code>. Группа <em>all nodes</em> используется для связи со всеми
+интерфейсами на локальном канале, а группа <em>solicited-node</em> требуется для разрешения адресов на уровне канала. Маршрутизаторы также присоединяются к третьей multicast группе <strong>all-routers</strong> - <code class="language-plaintext highlighter-rouge">ff02::2</code>.</p>
+
+<p>Для того чтобы посмотреть в какой группе состоит тот или иной интерфейс необходимо выполнить команду <code class="language-plaintext highlighter-rouge">show ipv6 interface &lt;тип интерфейса номер интерфейса&gt;</code></p>
+
+<p><strong>Cisco IOS</strong></p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="code"><pre><span class="gp">Cisco_CSR1000v#</span><span class="w"> </span>show ipv6 interface gigabitEthernet 1
+<span class="go">GigabitEthernet1 is up, line protocol is up
+  IPv6 is enabled, link-local address is FE80::1 
+  No Virtual link-local address(es):
+  Global unicast address(es):
+    2001:ABCD::1, subnet is 2001:ABCD::/64 
+  Joined group address(es):
+    FF02::1
+    FF02::2
+    FF02::1:FF00:1
+  MTU is 1500 bytes
+---часть информации пропущена---</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p><strong>Cisco IOS XR</strong></p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="gp">RP/0/0/CPU0:Cisco_XRv#</span><span class="w"> </span>show ipv6 interface gigabitEthernet 0/0/0/0
+<span class="go">Sat Oct 23 16:45:56.754 UTC
+GigabitEthernet0/0/0/0 is Up, ipv6 protocol is Up, Vrfid is default (0x60000000)
+  IPv6 is enabled, link-local address is fe80::2 
+  Global unicast address(es):
+    2001:abcd::2, subnet is 2001:abcd::/64 
+  Joined group address(es): ff02::1:ff00:2 ff02::2 ff02::1
+  MTU is 1514 (1500 is available to IPv6)
+  ---часть информации пропущена---</span>
+</pre></td></tr></tbody></table></code></pre></figure>
 
 <p><strong>P.S.</strong> <em>вся информация представленная здесь используется исключительно в образовательных целях. Все совпадения с реальными объектами, адресами, именами и т.д. случайна и не несёт цели получить от этого выгоду или причинить кому-либо вред.</em></p>
 
