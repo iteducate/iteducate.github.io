@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-10-19T00:49:51+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Структура протокола IPv6</title><link href="https://iteducate.github.io/networks/ipv6_prot/" rel="alternate" type="text/html" title="Структура протокола IPv6" /><published>2021-10-14T09:00:00+03:00</published><updated>2021-10-14T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/ipv6_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/ipv6_prot/">&lt;p&gt;Протокол IPv6 пришел на замену протоколу IPv4 и хотя в настоящее время IPv4 всё еще везде используется, придет время и протокол IPv6 вытеснит своего предшественника полностью.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-10-22T21:09:44+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Структура протокола IPv6</title><link href="https://iteducate.github.io/networks/ipv6_prot/" rel="alternate" type="text/html" title="Структура протокола IPv6" /><published>2021-10-14T09:00:00+03:00</published><updated>2021-10-14T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/ipv6_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/ipv6_prot/">&lt;p&gt;Протокол IPv6 пришел на замену протоколу IPv4 и хотя в настоящее время IPv4 всё еще везде используется, придет время и протокол IPv6 вытеснит своего предшественника полностью.&lt;/p&gt;
 
 &lt;p&gt;Первое, что стоит упомянуть когда рассматривают протокол IPv6 - это измененная структура адреса и количество возможных адресов. Если в IPv4 используется &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2^32&lt;/code&gt; адресов, то в новой версии это число достигает невероятных значений &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2^128&lt;/code&gt;. Структура адреса выглядит следующим образом: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2001:1536:a0b8:3491:c800:00ef:fe74:0c00&lt;/code&gt; - 8 хекстетов, разделенных символом &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:&lt;/code&gt;&lt;/p&gt;
 
@@ -31,7 +31,7 @@
     
   
   
-    &lt;figcaption&gt;&lt;strong&gt;Global scope&lt;/strong&gt;
+    &lt;figcaption&gt;&lt;strong&gt;Global address structure&lt;/strong&gt;
 &lt;/figcaption&gt;
   
 &lt;/figure&gt;
@@ -54,7 +54,7 @@
     
   
   
-    &lt;figcaption&gt;&lt;strong&gt;Unique local scope&lt;/strong&gt;
+    &lt;figcaption&gt;&lt;strong&gt;Unique local address structure&lt;/strong&gt;
 &lt;/figcaption&gt;
   
 &lt;/figure&gt;
@@ -72,7 +72,7 @@
     
   
   
-    &lt;figcaption&gt;&lt;strong&gt;Link local scope&lt;/strong&gt;
+    &lt;figcaption&gt;&lt;strong&gt;Link local address structure&lt;/strong&gt;
 &lt;/figcaption&gt;
   
 &lt;/figure&gt;
@@ -118,6 +118,73 @@
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;multicast&quot;&gt;Multicast&lt;/h3&gt;
+
+&lt;p&gt;Multicast адреса определяют не одно устройство, а группу устройств - multicast группу. Multicast адреса не могут выступать в качестве адреса источника в пакете. В IPv6 multicast адреса имеют различное назначение: передача информации о протоколе маршрутизации, обнаружение соседних устройств, разрешение IPv6-адресов. Более подробно об этом будет описано в статье по протоколу &lt;strong&gt;&lt;em&gt;Neighbor Discovery Protocol&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ipv6/multicast.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ipv6/multicast.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Multicast address structure&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Флаг &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;T - transient&lt;/code&gt; имеет два возможных значения:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;0&lt;/strong&gt; - постоянный адрес, который широко известен и присваивается IANA&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;1&lt;/strong&gt; - временный адрес, используется для целей тестирования&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Поле &lt;strong&gt;Scope&lt;/strong&gt; используется для того, чтобы маршрутизатор мог определить является ли multicast адрес маршрутизируемым. Все диапазоны таких адресов описаны в &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc4291.html&quot;&gt;RFC 4291&lt;/a&gt;. Краткая выдержка представлена в таблице ниже.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Типы диапазонов&lt;/th&gt;
+      &lt;th&gt;IPv6 префикс&lt;/th&gt;
+      &lt;th&gt;Описание&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;em&gt;Interface-Local&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;ff01&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;em&gt;Link-Local&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;ff02&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;em&gt;Admin-Local&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;ff04&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;em&gt;Site-Local&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;ff05&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;em&gt;Organization-Local&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;ff08&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;em&gt;Global&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;ff0е&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
 &lt;p&gt;&lt;strong&gt;P.S.&lt;/strong&gt; &lt;em&gt;вся информация представленная здесь используется исключительно в образовательных целях. Все совпадения с реальными объектами, адресами, именами и т.д. случайна и не несёт цели получить от этого выгоду или причинить кому-либо вред.&lt;/em&gt;&lt;/p&gt;</content><author><name>Ivan Denisenko</name></author><category term="networks" /><category term="protocols" /><category term="ipv6" /><summary type="html">Протокол IPv6 пришел на замену протоколу IPv4 и хотя в настоящее время IPv4 всё еще везде используется, придет время и протокол IPv6 вытеснит своего предшественника полностью.</summary></entry><entry><title type="html">Структура протокола UDP</title><link href="https://iteducate.github.io/networks/udp_prot/" rel="alternate" type="text/html" title="Структура протокола UDP" /><published>2021-10-10T09:00:00+03:00</published><updated>2021-10-10T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/udp_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/udp_prot/">&lt;p&gt;User Datagram Protocol или UDP описан в &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc768.html&quot;&gt;RFC 768&lt;/a&gt; предоставляет услуги доставки пакетов без подключения с максимальными усилиями. Главное преимущество протокола UDP - отсутствие траты времени на установку соединения с удаленным узлом. Приложения, использующие UDP вместо TCP, понимают это основное преимущество в производительности и поэтому используют именно UDP.&lt;/p&gt;
 
 &lt;p&gt;Второе преимущество протокола UDP - размер заголовка, он намного меньше, чем у протокола TCP. Ниже представлена структура заголовка&lt;/p&gt;

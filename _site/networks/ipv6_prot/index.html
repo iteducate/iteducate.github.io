@@ -332,7 +332,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          2 minute read
+          3 minute read
         
       </span>
     
@@ -385,7 +385,7 @@
     
   
   
-    <figcaption><strong>Global scope</strong>
+    <figcaption><strong>Global address structure</strong>
 </figcaption>
   
 </figure>
@@ -408,7 +408,7 @@
     
   
   
-    <figcaption><strong>Unique local scope</strong>
+    <figcaption><strong>Unique local address structure</strong>
 </figcaption>
   
 </figure>
@@ -426,7 +426,7 @@
     
   
   
-    <figcaption><strong>Link local scope</strong>
+    <figcaption><strong>Link local address structure</strong>
 </figcaption>
   
 </figure>
@@ -472,6 +472,73 @@
 </pre></td></tr></tbody></table></code></pre></figure>
 
 <h3 id="multicast">Multicast</h3>
+
+<p>Multicast адреса определяют не одно устройство, а группу устройств - multicast группу. Multicast адреса не могут выступать в качестве адреса источника в пакете. В IPv6 multicast адреса имеют различное назначение: передача информации о протоколе маршрутизации, обнаружение соседних устройств, разрешение IPv6-адресов. Более подробно об этом будет описано в статье по протоколу <strong><em>Neighbor Discovery Protocol</em></strong></p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ipv6/multicast.png">
+          <img src="/assets/images/ipv6/multicast.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Multicast address structure</strong>
+</figcaption>
+  
+</figure>
+
+<p>Флаг <code class="language-plaintext highlighter-rouge">T - transient</code> имеет два возможных значения:</p>
+<ul>
+  <li><strong>0</strong> - постоянный адрес, который широко известен и присваивается IANA</li>
+  <li><strong>1</strong> - временный адрес, используется для целей тестирования</li>
+</ul>
+
+<p>Поле <strong>Scope</strong> используется для того, чтобы маршрутизатор мог определить является ли multicast адрес маршрутизируемым. Все диапазоны таких адресов описаны в <a href="https://www.rfc-editor.org/rfc/rfc4291.html">RFC 4291</a>. Краткая выдержка представлена в таблице ниже.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Типы диапазонов</th>
+      <th>IPv6 префикс</th>
+      <th>Описание</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><em>Interface-Local</em></td>
+      <td><strong>ff01</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><em>Link-Local</em></td>
+      <td><strong>ff02</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><em>Admin-Local</em></td>
+      <td><strong>ff04</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><em>Site-Local</em></td>
+      <td><strong>ff05</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><em>Organization-Local</em></td>
+      <td><strong>ff08</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><em>Global</em></td>
+      <td><strong>ff0е</strong></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <p><strong>P.S.</strong> <em>вся информация представленная здесь используется исключительно в образовательных целях. Все совпадения с реальными объектами, адресами, именами и т.д. случайна и не несёт цели получить от этого выгоду или причинить кому-либо вред.</em></p>
 
         
