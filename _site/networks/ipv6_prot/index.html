@@ -332,7 +332,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          7 minute read
+          8 minute read
         
       </span>
     
@@ -347,7 +347,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Содержание</h4></header>
-              <ul class="toc__menu"><li><a href="#типы-адресов-ipv6">Типы адресов IPv6</a><ul><li><a href="#unicast">Unicast</a></li><li><a href="#anycast">Anycast</a></li><li><a href="#multicast">Multicast</a></li><li><a href="#специальные-ipv6-адреса">Специальные IPv6 адреса</a></li></ul></li><li><a href="#структура-заголовка-ipv6">Структура заголовка IPv6</a></li></ul>
+              <ul class="toc__menu"><li><a href="#типы-адресов-ipv6">Типы адресов IPv6</a><ul><li><a href="#unicast">Unicast</a></li><li><a href="#anycast">Anycast</a></li><li><a href="#multicast">Multicast</a></li><li><a href="#специальные-ipv6-адреса">Специальные IPv6 адреса</a></li></ul></li><li><a href="#структура-заголовка-ipv6">Структура заголовка IPv6</a></li><li><a href="#расширение-заголовка-ipv6">Расширение заголовка IPv6</a></li></ul>
 
             </nav>
           </aside>
@@ -793,6 +793,12 @@ GigabitEthernet0/0/0/0 is Up, ipv6 protocol is Up, Vrfid is default (0x60000000)
 
 <figure class=" ">
   
+    
+      <a href="/assets/images/ipv6/src_dst.png">
+          <img src="/assets/images/ipv6/src_dst.png" alt="" />
+      </a>
+    
+  
   
     <figcaption><strong>Source и Destination Address</strong>
 </figcaption>
@@ -800,6 +806,68 @@ GigabitEthernet0/0/0/0 is Up, ipv6 protocol is Up, Vrfid is default (0x60000000)
 </figure>
 
 <p>В данном <a href="/assets/pcap/ipv6/ipv6.pcapng">дампе</a> можно более подробно рассмотреть все поля протокола IPv6.</p>
+
+<h2 id="расширение-заголовка-ipv6">Расширение заголовка IPv6</h2>
+
+<p>Расширение заголовка IPv6 используется в случае когда необходимо добавить дополнительные функции для протокола (<em>фрагментация, аутентификация и др.</em>). В случае применения данных расширений, они добавляются в конец заголовка IPv6.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ipv6/extensions.png">
+          <img src="/assets/images/ipv6/extensions.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Extensions Header</strong>
+</figcaption>
+  
+</figure>
+
+<p>Каждое расширение заголовка, как и сам заголовок IPv6, имеет поле <em>Next Header</em>, которое определяет какой заголовок будет следовать за текущим. <a href="https://www.rfc-editor.org/rfc/rfc1883.html">RFC 1883</a> описывает формат всех основных расширений, используемых в протоколе IPv6, а также порядок следования данных расширений заголовка. Некоторые из расширений описаны в таблице ниже.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Заголовок</th>
+      <th>Значение Next Header</th>
+      <th>Значение</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><em>Hop-By-Hop Options</em></td>
+      <td><strong>0</strong></td>
+      <td>Содержит информацию, которая должна быть проверена каждый узлов на всём протяжении пути передачи данных</td>
+    </tr>
+    <tr>
+      <td><em>Fragment</em></td>
+      <td><strong>44</strong></td>
+      <td>В случае фрагментации пакета, содержит информацию, которая необходима приёмной стороне для сборки пакета воедино. Основное отличие от протокола IPv4 - это то, что фрагментация пакета производится только источником сообщения. Следовательно, источник должен использовать сообщение Path MTU Discovery для определения наименьшего MTU на пути следования пакета</td>
+    </tr>
+    <tr>
+      <td><em>Encapsulating Security Payload - ESP</em></td>
+      <td><strong>50</strong></td>
+      <td>Используется в случае если содержимое пакета шифруется</td>
+    </tr>
+    <tr>
+      <td><em>Authentication Header</em></td>
+      <td><strong>51</strong></td>
+      <td>Используется в случае когда пакет должен быть аутентифицирован между источником и назначением</td>
+    </tr>
+    <tr>
+      <td><em>TCP/IP Protocol</em></td>
+      <td>TCP = <strong>6</strong>, UDP = <strong>17</strong>, OSPF = <strong>89</strong> и т.д.</td>
+      <td>Стандартные номера протоколов</td>
+    </tr>
+    <tr>
+      <td><em>No next header</em></td>
+      <td><strong>59</strong></td>
+      <td>Следующий заголовок отсутствует</td>
+    </tr>
+  </tbody>
+</table>
 
 <p><strong>P.S.</strong> <em>вся информация представленная здесь используется исключительно в образовательных целях. Все совпадения с реальными объектами, адресами, именами и т.д. случайна и не несёт цели получить от этого выгоду или причинить кому-либо вред.</em></p>
 
