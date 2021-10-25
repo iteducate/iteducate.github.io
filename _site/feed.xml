@@ -1,4 +1,123 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-10-25T00:30:47+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Протокол IPv6</title><link href="https://iteducate.github.io/networks/ipv6_prot/" rel="alternate" type="text/html" title="Протокол IPv6" /><published>2021-10-14T09:00:00+03:00</published><updated>2021-10-14T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/ipv6_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/ipv6_prot/">&lt;p&gt;Протокол IPv6 пришел на замену протоколу IPv4 и хотя в настоящее время IPv4 всё еще везде используется, придет время и протокол IPv6 вытеснит своего предшественника полностью.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-10-25T23:02:23+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Протокол ICMP6</title><link href="https://iteducate.github.io/networks/icmp6_prot/" rel="alternate" type="text/html" title="Протокол ICMP6" /><published>2021-10-25T09:00:00+03:00</published><updated>2021-10-25T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/icmp6_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/icmp6_prot/">&lt;p&gt;Для обмена и обработки ошибок, а также информационных сообщений в процессе работы протокола IPv6 требуется специальный протокол. Как и в случае с протоколом IPv4, этим протоколом выступает &lt;em&gt;ICMP&lt;/em&gt;. Значение поля Next Header для протокола ICMP является значение &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;58&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;В &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc2463.html&quot;&gt;RFC 2463&lt;/a&gt; определён протокол ICMPv6. Заголовок протокола ICMPv6 идентичен заголовку в протоколе 4 версии.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/icmpv6/structure.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/icmpv6/structure.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Structure ICMPv6&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Основные значения полей &lt;strong&gt;“Type”&lt;/strong&gt; и &lt;strong&gt;“Code”&lt;/strong&gt; представлены в таблице ниже:&lt;/p&gt;
+
+&lt;table&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th scope=&quot;col&quot;&gt;Тип&lt;/th&gt;
+			&lt;th scope=&quot;col&quot;&gt;Код&lt;/th&gt;
+			&lt;th scope=&quot;col&quot;&gt;Сообщение&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;td colspan=&quot;1&quot; rowspan=&quot;6&quot;&gt;1&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;DESTINATION UNREACHABLE&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;0&lt;/td&gt;
+			&lt;td&gt;No route to destination&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;1&lt;/td&gt;
+			&lt;td&gt;Communication with destination Administratively prohibited&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;2&lt;/td&gt;
+			&lt;td&gt;Not a neighbor&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;3&lt;/td&gt;
+			&lt;td&gt;Address Unreachable&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;4&lt;/td&gt;
+			&lt;td&gt;Port Unreachable&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;2&lt;/td&gt;
+			&lt;td&gt;0&lt;/td&gt;
+			&lt;td&gt;PACKET TOO BIG&lt;/td&gt;
+		&lt;/tr&gt;
+    &lt;tr&gt;
+			&lt;td colspan=&quot;1&quot; rowspan=&quot;3&quot;&gt;3&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;TIME EXCEEDED&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;0&lt;/td&gt;
+			&lt;td&gt;Hop limit exceeded in transit&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;1&lt;/td&gt;
+			&lt;td&gt;Fragment reassembly time exceeded&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td colspan=&quot;1&quot; rowspan=&quot;4&quot;&gt;4&lt;/td&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;PARAMETER PROBLEM&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;0&lt;/td&gt;
+			&lt;td&gt;Erroneous header field encountered&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;1&lt;/td&gt;
+			&lt;td&gt;Unrecognized Next Header type encountered&lt;/td&gt;
+		&lt;/tr&gt;
+    &lt;tr&gt;
+			&lt;td&gt;2&lt;/td&gt;
+			&lt;td&gt;Unrecognized IPv6 option encountered&lt;/td&gt;
+		&lt;/tr&gt;
+    &lt;tr&gt;
+		&lt;td&gt;128&lt;/td&gt;
+			&lt;td&gt;0&lt;/td&gt;
+			&lt;td&gt;ECHO REQUEST&lt;/td&gt;
+		&lt;/tr&gt;
+    &lt;tr&gt;
+		&lt;td&gt;129&lt;/td&gt;
+			&lt;td&gt;0&lt;/td&gt;
+			&lt;td&gt;ECHO REPLY&lt;/td&gt;
+		&lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td&gt;130&lt;/td&gt;
+			&lt;td&gt;0&lt;/td&gt;
+			&lt;td&gt;GROUP MEMBERSHIP QUERY&lt;/td&gt;
+		&lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td&gt;131&lt;/td&gt;
+			&lt;td&gt;0&lt;/td&gt;
+			&lt;td&gt;GROUP MEMBERSHIP REPORT&lt;/td&gt;
+		&lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td&gt;132&lt;/td&gt;
+			&lt;td&gt;0&lt;/td&gt;
+			&lt;td&gt;GROUP MEMBERSHIP REDUCTION&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;В дополнение к информационным сообщениям и базовому функционалу определения ошибок, существует отдельный набор ICMPv6 сообщений, который используется протоколом IPv6 - протокол &lt;strong&gt;NDP - Neighbor Discovery Protocol&lt;/strong&gt;. Его работа будет вынесена в отдельную статью и подробно рассмотрена (&lt;em&gt;включая структуру сообщений и практические примеры&lt;/em&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;P.S.&lt;/strong&gt; &lt;em&gt;вся информация представленная здесь используется исключительно в образовательных целях. Все совпадения с реальными объектами, адресами, именами и т.д. случайна и не несёт цели получить от этого выгоду или причинить кому-либо вред.&lt;/em&gt;&lt;/p&gt;</content><author><name>Ivan Denisenko</name></author><category term="networks" /><category term="protocols" /><category term="icmp6" /><summary type="html">Для обмена и обработки ошибок, а также информационных сообщений в процессе работы протокола IPv6 требуется специальный протокол. Как и в случае с протоколом IPv4, этим протоколом выступает ICMP. Значение поля Next Header для протокола ICMP является значение 58.</summary></entry><entry><title type="html">Протокол IPv6</title><link href="https://iteducate.github.io/networks/ipv6_prot/" rel="alternate" type="text/html" title="Протокол IPv6" /><published>2021-10-14T09:00:00+03:00</published><updated>2021-10-14T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/ipv6_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/ipv6_prot/">&lt;p&gt;Протокол IPv6 пришел на замену протоколу IPv4 и хотя в настоящее время IPv4 всё еще везде используется, придет время и протокол IPv6 вытеснит своего предшественника полностью.&lt;/p&gt;
 
 &lt;p&gt;Первое, что стоит упомянуть когда рассматривают протокол IPv6 - это измененная структура адреса и количество возможных адресов. Если в IPv4 используется &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2^32&lt;/code&gt; адресов, то в новой версии это число достигает невероятных значений &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2^128&lt;/code&gt;. Структура адреса выглядит следующим образом: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2001:1536:a0b8:3491:c800:00ef:fe74:0c00&lt;/code&gt; - 8 хекстетов, разделенных символом &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:&lt;/code&gt;&lt;/p&gt;
 
@@ -2183,6 +2302,9 @@ Success rate is 66 percent (2/3), round-trip min/avg/max = 3/3/3 ms
     &lt;p&gt;&lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc1700.html&quot;&gt;RFC 1700 - Assigned Numbers&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc2463.html&quot;&gt;RFC 2463 - Internet Control Message Protocol for the Internet Protocol Version 6&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc3168.html&quot;&gt;RFC 3168 - The Addition of Explicit Congestion Notification (ECN) to IP&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;</content><author><name>Ivan Denisenko</name></author><category term="networks" /><category term="rfc" /><summary type="html">Список RFC, которые будут встречаться по ходу написания статей:</summary></entry><entry><title type="html">Необычный взгляд на редактирование текста. Часть I.</title><link href="https://iteducate.github.io/editors/vim_1/" rel="alternate" type="text/html" title="Необычный взгляд на редактирование текста. Часть I." /><published>2019-11-11T09:00:00+03:00</published><updated>2019-11-11T09:00:00+03:00</updated><id>https://iteducate.github.io/editors/vim_1</id><content type="html" xml:base="https://iteducate.github.io/editors/vim_1/">&lt;p&gt;Каждому из нас хоть раз в жизни приходилось иметь дело с обработкой текстовых документов. Дело казалось бы обыденное, открыл &lt;em&gt;“офис”&lt;/em&gt; и вперёд, но некоторые до сих пор его не любят за то, что в нём куча ненужных для них вещей, а кто-то просто откровенно ими не умеет пользоваться. :)&lt;/p&gt;
@@ -2269,68 +2391,4 @@ Success rate is 66 percent (2/3), round-trip min/avg/max = 3/3/3 ms
   &lt;p&gt;Не забывайте, что команды выполняются в &lt;strong&gt;командном режиме&lt;/strong&gt;!!!&lt;/p&gt;
 
   &lt;p&gt;Данная проблема очень популярна в интернете, так как начинающие пользователи не имеют представления как выйти из данного редактора. По этому поводу есть даже небольшая заметка в &lt;a href=&quot;https://stackoverflow.blog/2017/05/23/stack-overflow-helping-one-million-developers-exit-vim/&quot;&gt;блоге stackoverflow&lt;/a&gt;. Там отмечено, что помощью по вопросу выхода из Vim воспользовалось более 1 млн. человек!!!&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name>Ivan Denisenko</name></author><category term="editors" /><category term="vim" /><summary type="html">Каждому из нас хоть раз в жизни приходилось иметь дело с обработкой текстовых документов. Дело казалось бы обыденное, открыл “офис” и вперёд, но некоторые до сих пор его не любят за то, что в нём куча ненужных для них вещей, а кто-то просто откровенно ими не умеет пользоваться. :)</summary></entry><entry><title type="html">Исторические личности: Часть 1</title><link href="https://iteducate.github.io/%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F/bismark/" rel="alternate" type="text/html" title="Исторические личности: Часть 1" /><published>2017-10-22T13:52:00+03:00</published><updated>2017-10-22T13:52:00+03:00</updated><id>https://iteducate.github.io/%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F/bismark</id><content type="html" xml:base="https://iteducate.github.io/%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F/bismark/">&lt;figure class=&quot; &quot;&gt;
-  
-    
-      &lt;a href=&quot;/assets/images/history/bis1.jpg&quot;&gt;
-          &lt;img src=&quot;/assets/images/history/bis1.jpg&quot; alt=&quot;&quot; /&gt;
-      &lt;/a&gt;
-    
-  
-  
-    &lt;figcaption&gt;Отто фон Бисмарк
-&lt;/figcaption&gt;
-  
-&lt;/figure&gt;
-
-&lt;p&gt;&lt;strong&gt;1 апреля 2015 года исполнилось 200 лет со дня рождения князя, государственного деятеля Германии, первого канцлера Германской империи Отто Эдуарда Леопольда фон Бисмарка.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Отто Эдуард Леопольд фон Бисмарк &lt;a href=&quot;https://dic.academic.ru/dic.nsf/sie/2142&quot;&gt;родился 1 апреля 1815 года&lt;/a&gt; в семье мелкопоместных дворян в поместье Шёнгаузен в Бранденбурге. Выходец из померанского юнкерства.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.dhm.de/lemo/biografie/otto-bismarck&quot;&gt;Изучал юриспруденцию&lt;/a&gt; сначала в университете в Геттингене, затем в университете в Берлине. В 1835 году получил диплом, в 1936 году проходил стажировку в Берлинском муниципальном суде.&lt;/p&gt;
-
-&lt;p&gt;В 1837-1838 годах работал чиновником в Ахене, затем в Потсдаме.&lt;/p&gt;
-
-&lt;p&gt;В 1838 году поступил на военную службу.&lt;/p&gt;
-
-&lt;p&gt;В 1839 году после смерти матери уволился со службы и занимался управлением семейными владениями в Померании.&lt;/p&gt;
-
-&lt;p&gt;После смерти отца в 1845 году семейная собственность была разделена, и Бисмарк &lt;a href=&quot;http://www.krugosvet.ru/enc/istoriya/BISMARK_OTTO_FON.html&quot;&gt;получил поместья Шёнхаузен и Книпхоф&lt;/a&gt; в Померании.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://dic.academic.ru/dic.nsf/enc3p/73306&quot;&gt;В 1847-1848 годах&lt;/a&gt; — депутат первого и второго Соединенных ландтагов (парламент) Пруссии, во время революции 1848 года выступал за вооруженное подавление волнений.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://encyclopedia.mil.ru/encyclopedia/dictionary/details.htm?id=3403@morfDictionary&quot;&gt;Бисмарк&lt;/a&gt; стал известен благодаря своей консервативной позиции в ходе конституционной борьбы в Пруссии в 1848-1850 годах.&lt;/p&gt;
-
-&lt;p&gt;Противодействуя либералам, он способствовал созданию различных политических организаций и газет, включая “Новую прусскую газету” (Neue Preussische Zeitung, 1848). Один из организаторов прусской партии консерваторов.&lt;/p&gt;
-
-&lt;p&gt;Был депутатом нижней палаты парламента Пруссии в 1849 году и Эрфуртского парламента в 1850 году.&lt;/p&gt;
-
-&lt;p&gt;В 1851-1859 годах — представитель Пруссии в союзном сейме во Франкфурте-на-Майне.&lt;/p&gt;
-
-&lt;p&gt;С 1859 года по 1862 год Бисмарк был посланником Пруссии в России.&lt;/p&gt;
-
-&lt;p&gt;В марте — сентябре 1962 года — прусский посланник во Франции.&lt;/p&gt;
-
-&lt;p&gt;В сентябре 1862 года, во время конституционного конфликта между прусской королевской властью и либеральным большинством прусского ландтага, Бисмарк был призван королем Вильгельмом I на пост главы прусского правительства, а в октябре того же года стал министром-президентом и министром иностранных дел Пруссии. Он упорно отстаивал права короны и добился разрешения конфликта в ее пользу. В 1860-х годах осуществил военную реформу в стране, значительно усилил армию.&lt;/p&gt;
-
-&lt;p&gt;Под руководством Бисмарка было осуществлено объединение Германии путем “революции сверху” в результате трех победоносных войн Пруссии: в 1864 году совместно с Австрией против Дании, в 1866 году — против Австрии, в 1870-1871 годах — против Франции.&lt;/p&gt;
-
-&lt;p&gt;После образования Северо-Германского союза в 1867 году Бисмарк стал бундесканцлером. В провозглашенной 18 января 1871 года Германской империи он получил высший государственный пост имперского канцлера, став первым рейхсканцлером. В соответствии с конституцией 1871 года Бисмарк получил практически неограниченную власть. При этом он сохранил пост прусского премьер-министра и министра иностранных дел.&lt;/p&gt;
-
-&lt;p&gt;Бисмарк провел реформы германского права, системы управления и финансов. В 1872-1875 годах по инициативе и под давлением Бисмарка были приняты направленные против католической церкви законы о лишении духовенства права надзора за школами, о запрещении иезуитского ордена в Германии, об обязательном гражданском браке, об отмене статей конституции, предусматривавших автономию церкви и др. Эти мероприятия серьезно ограничили права католического духовенства. Попытки неподчинения вызывали репрессии.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://dic.academic.ru/dic.nsf/biograf/2686&quot;&gt;В 1878 году&lt;/a&gt; Бисмарк провел через рейхстаг “исключительный закон” против социалистов, запрещавший деятельность социал-демократических организаций. Он беспощадно преследовал всякое проявление политической оппозиции, за что был прозван “железным канцлером”.&lt;/p&gt;
-
-&lt;p&gt;В 1881-1889 годах Бисмарк провел “социальные законы” (о страховании рабочих на случай болезни и на случай увечья, о пенсиях по старости и инвалидности), заложившие основы социального страхования рабочих. Вместе с тем он требовал ужесточения антирабочей политики и в течение 1880-х годов успешно добивался продления “исключительного закона”.&lt;/p&gt;
-
-&lt;p&gt;Свою внешнюю политику Бисмарк строил, исходя из ситуации, сложившейся в 1871 году после поражения Франции во франко-прусской войне и захвата Германией Эльзаса и Лотарингии, способствовал дипломатической изоляции Французской республики и стремился предотвратить образование любой коалиции, угрожавшей гегемонии Германии. Опасаясь конфликта с Россией и желая избежать войны на два фронта, Бисмарк поддержал создание русско-австро-германского соглашения (1873) “Союз трёх императоров”, а также заключил с Россией в 1887 году “договор перестраховки”. Вместе с тем в 1879 году по его инициативе заключён договор о союзе с Австро-Венгрией, а в 1882 году — Тройственный союз (Германии, Австро-Венгрии и Италии), направленный против Франции и России и положивший начало расколу Европы на две враждебные коалиции. Германская империя стала одним из лидеров международной политики. Отказ России от возобновления “договора перестраховки” в начале 1890 года явился серьезной неудачей канцлера, как и провал его плана превращения “исключительного закона” против социалистов в постоянно действующий. В январе 1890 года рейхстаг отказался возобновить его.&lt;/p&gt;
-
-&lt;p&gt;В марте 1890 года Бисмарк был уволен в отставку с поста рейхсканцлера и прусского премьер-министра в результате противоречий с новым императором Вильгельмом II и с военным командованием по вопросам внешней и колониальной политики и по рабочему вопросу. Он получил титул герцога Лауэнбургского, но от него отказался.&lt;/p&gt;
-
-&lt;p&gt;Последние восемь лет жизни Бисмарк провел в своем имении Фридрихсруэ. В 1891 году он был избран в рейхстаг от Ганновера, но так никогда и не занял там своего места, а двумя годами позже отказался выставить свою кандидатуру для переизбрания.&lt;/p&gt;
-
-&lt;p&gt;Отто фон Бисмарк является автором книги “Мысли и воспоминания” (Gedanken und Erinnerungen).&lt;/p&gt;
-
-&lt;p&gt;Он скончался 30 июля 1898 года в Гамбурге.&lt;/p&gt;
-
-&lt;p&gt;C 1847 года Бисмарк был женат на Йоханне фон Путткамер (умерла в 1894 году). У супругов было трое детей — дочь Мари (1848-1926) и два сына — Герберт (1849-1904) и Вильгельм (1852-1901).&lt;/p&gt;</content><author><name>Ivan Denisenko</name></author><category term="история" /><category term="history" /><summary type="html">Отто фон Бисмарк</summary></entry></feed>
+&lt;/blockquote&gt;</content><author><name>Ivan Denisenko</name></author><category term="editors" /><category term="vim" /><summary type="html">Каждому из нас хоть раз в жизни приходилось иметь дело с обработкой текстовых документов. Дело казалось бы обыденное, открыл “офис” и вперёд, но некоторые до сих пор его не любят за то, что в нём куча ненужных для них вещей, а кто-то просто откровенно ими не умеет пользоваться. :)</summary></entry></feed>
