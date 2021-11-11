@@ -1,4 +1,461 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-10-25T23:02:23+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Протокол ICMP6</title><link href="https://iteducate.github.io/networks/icmp6_prot/" rel="alternate" type="text/html" title="Протокол ICMP6" /><published>2021-10-25T09:00:00+03:00</published><updated>2021-10-25T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/icmp6_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/icmp6_prot/">&lt;p&gt;Для обмена и обработки ошибок, а также информационных сообщений в процессе работы протокола IPv6 требуется специальный протокол. Как и в случае с протоколом IPv4, этим протоколом выступает &lt;em&gt;ICMP&lt;/em&gt;. Значение поля Next Header для протокола ICMP является значение &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;58&lt;/code&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-11-12T00:51:12+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Протокол NDP - Neighbor Discovery Protocol</title><link href="https://iteducate.github.io/networks/ndp_prot/" rel="alternate" type="text/html" title="Протокол NDP - Neighbor Discovery Protocol" /><published>2021-11-06T09:00:00+03:00</published><updated>2021-11-06T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/ndp_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/ndp_prot/">&lt;p&gt;Протокол Neighbor Discovery Protocol является ключевым при рассмотрении протокола IPv6. NDP - это механизм, позволяющий узлам узнавать друг о друге. Данный протокол обеспечивает следующие функции:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Router Discovery&lt;/strong&gt; - позволяет узлу обнаружить локальный маршрутизатор без помощи протокола DHCP&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Prefix Discovery&lt;/strong&gt; - позволяет узлу обнаружить префикс(&lt;em&gt;ы&lt;/em&gt;), которые заданы в канале&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Parameter discovery&lt;/strong&gt; - позволяет узлу обнаружить параметры, такие как &lt;em&gt;MTU&lt;/em&gt; и &lt;em&gt;hop limit&lt;/em&gt;, которые заданы в канале&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Address autoconfiguration&lt;/strong&gt; - позволяет узлу определить свой собственный полный адрес без помощи протокола DHCP&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Address resolution&lt;/strong&gt; - позволяет узлу обнаружить адреса канального уровня других узлов без помощи протокола ARP&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Next-hop determination&lt;/strong&gt; - позволяет узлу обнаружить адреса канального уровня next-hop узлов для сети назначения, будь то адрес назначения в локальной сети или адрес маршрутизатора для сети назначения&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Neighbor unreachability detection&lt;/strong&gt; - позволяет узлу определить когда соседнее устройство (&lt;em&gt;какой-либо хост или маршрутизатор&lt;/em&gt;) более недоступны&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Duplicate address detection&lt;/strong&gt; - позволяет узлу, который хочет использовать адрес, узнать используется ли уже данный адрес каким-либо устройством в сети&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Redirect&lt;/strong&gt; - маршртизатор может оповещать устройства о лучшем next-hop устройстве для какой-либо сети, чем сам маршрутизатор. Данный функционал также есть в протоколе ICMP для прокотола IPv4, но в IPv6 этот функционал выведен как часть функционала протокола NDP&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Сообщения NDP всегда отправляются на адреса &lt;em&gt;link-local&lt;/em&gt;, для обеспечения безопасности все данные сообщения отправляются с параметром &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hop Limit = 255&lt;/code&gt;. При получении устройством сообщения NDP со значением Hop Limit меньше 255 сообщение будет отброшено.&lt;/p&gt;
+
+&lt;h2 id=&quot;сообщения-ndp&quot;&gt;Сообщения NDP&lt;/h2&gt;
+
+&lt;p&gt;Протокол NDP определён в &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc2461.html&quot;&gt;RFC 2461&lt;/a&gt;, он использует протокол ICMPv6 для обмена сообщений, необходимых для функионирования протокола NDP. Всего используется 5 различных сообщений, каждое из которых используется для определенных целей. Эти сообщения описаны в таблице ниже, а после будут рассмотрены более подробно.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Тип сообщения&lt;/th&gt;
+      &lt;th&gt;Адрес источника&lt;/th&gt;
+      &lt;th&gt;Адрес назначения&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Router Solicitation&lt;/strong&gt; - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ICMP type 133&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Local interface адрес или &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;::&lt;/code&gt; в случае отсутствия адреса&lt;/td&gt;
+      &lt;td&gt;Multicast адрес всех маршрутизаторов - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ff02::2&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Router Advertisement&lt;/strong&gt; - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ICMP type 134&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Link-Local адрес&lt;/td&gt;
+      &lt;td&gt;Multicast адрес всех узлов - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ff02::1&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Neighbor Solicitation&lt;/strong&gt; - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ICMP type 135&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Local interface IP адрес или &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;::&lt;/code&gt; в случае отсутствия адреса&lt;/td&gt;
+      &lt;td&gt;Solicited-node multicast адрес - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ff02::1:ffxx:xxxx&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Neighbor Advertisement&lt;/strong&gt; - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ICMP type 136&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Local interface адрес&lt;/td&gt;
+      &lt;td&gt;Multicast адрес всех узлов - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ff02::1&lt;/code&gt; или в ответ на &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NS&lt;/code&gt; - unicast адрес запрашивающего узла&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Redirect&lt;/strong&gt; - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ICMP type 137&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Link-Local адрес&lt;/td&gt;
+      &lt;td&gt;Unicast адрес запрашивающего узла&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;router-solicitation&quot;&gt;Router Solicitation&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Router Solicitation&lt;/strong&gt; - сообщение, инициируемое хостом, запрашивающее у маршрутизатора сообщение Router Advertisement.&lt;/p&gt;
+
+&lt;p&gt;ICMP &lt;em&gt;type&lt;/em&gt; для данного сообщения равно &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;133&lt;/code&gt;, &lt;em&gt;code&lt;/em&gt; - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;. Источником пакета IPv6 для данного сообщения выступает либо IPv6 адрес, назначенный на конкретный интерфейс, либо если адрес не назначен, то используется специальный &lt;em&gt;unspecified&lt;/em&gt; адрес &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;::&lt;/code&gt;. Сообщения отсылаются на multicast адрес всех маршрутизаторов - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ff02::2&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Скачать дамп с пакетом Router Solicitation можно &lt;a href=&quot;/assets/pcap/ndp/ipv6_rs.pcapng&quot;&gt;здесь&lt;/a&gt;&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ndp/rs_structure.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ndp/rs_structure.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Router Solicitation structure&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Поле опции может содержать адрес канального уровня исходного интерфейса, если он известен. Однако, адрес источника канального уровня не должен быть включён, если адрес источника инкапсулированного пакета неопределён, например, когда отправитель запрашивает маршрутизатор во время автоматической настройки адреса.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ndp/rs_options.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ndp/rs_options.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Options&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;h3 id=&quot;router-advertisement&quot;&gt;Router Advertisement&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Router Advertisement&lt;/strong&gt; - сообщение, инициируемое маршрутизатором, который анонсирует своё присутствие в сети, а также некоторые параметры специфичные для канальной среды (&lt;em&gt;MTU, hop limit, prefix&lt;/em&gt;). Данные сообщения отсылаются периодически, а также в ответ на сообщение &lt;em&gt;Router Solicitation&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Сообщения отсылаются на multicast адрес всех узлов - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ff02::1&lt;/code&gt;. ICMP &lt;em&gt;type&lt;/em&gt; для данного сообщения равно &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;134&lt;/code&gt;, &lt;em&gt;code&lt;/em&gt; - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;. Источником пакета IPv6 для данного сообщения всегда выступает link-local адрес интерфейса, с которого посылается данное сообщение.&lt;/p&gt;
+
+&lt;p&gt;Скачать дамп с пакетом Router Advertisement можно &lt;a href=&quot;/assets/pcap/ndp/ipv6_ra.pcapng&quot;&gt;тут&lt;/a&gt;&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ndp/ra_structure.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ndp/ra_structure.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Router Advertisement structure&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Hop Limit&lt;/strong&gt; - 8-битное поле, указывает значение поля Hop Limit, которое узлы в данной канальной среде должны указывать в любом пакете, который они &lt;em&gt;“выпустят”&lt;/em&gt; в данный канал. Если значение не указано, то значение поля устанавливается в &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ndp/ra_hop_limit.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ndp/ra_hop_limit.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Hop Limit&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;M&lt;/strong&gt; - Managed Address Configuration flag, одно из значение поля флагов. Если значение поля равно единице, то хосту следует использовать механизм автоконфигурации адреса с отслеживанием состояния через DHCPv6 (&lt;em&gt;stateful address autoconfiguration via DHCPv6&lt;/em&gt;). Если значение установлено в ноль, то хост должен использовать механизм автоконфигурации адреса без сохранения состояния (&lt;em&gt;stateless address autoconfiguration&lt;/em&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;O&lt;/strong&gt; - Other Stateful Configuration flag. Когда установлен данный флаг, то хост должен использовать DHCPv6 для получения всей другой информации.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ndp/ra_flags.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ndp/ra_flags.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Flags&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Router Lifetime&lt;/strong&gt; - 16-битное поле, в случае если поле имеет значение, отличное от 0, то исходный маршрутизатор является маршрутизатором по умолчанию. Поле определяет время жизни маршрутизатора по умолчанию в секундах. Максимально поле может принимать значение &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2^16 секунд = 65536 секунд&lt;/code&gt;, это значение приблизительно равно 18,2 часа.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ndp/ra_lifetime.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ndp/ra_lifetime.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Router Lifetime&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Reachable Time&lt;/strong&gt; - 32-битное поле, используется функционалом Neighbor unreachability detection протокола NDP. Поле определяет время в миллисекундах в течении которого узел должен предполагать, что сосед доступен после того, как узел подтвердил доступность соседа&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ndp/ra_reach_time.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ndp/ra_reach_time.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Reachable Time&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Retransmit Timer&lt;/strong&gt; - 32-битное поле, используется функционалом Address resolution и Neighbor unreachability detection протокола NDP. Данное поле определяет минимальное время между повторно переданными сообщениями &lt;em&gt;Neighbor Solicitation&lt;/em&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ndp/ra_retr_timer.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ndp/ra_retr_timer.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Retransmit Timer&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Options&lt;/strong&gt; - поле переменной длины, содержит различные опции, среди которых:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Адрес канального уровня интерфейса с которого сообщение Router Advertisement было выпущено&lt;/li&gt;
+  &lt;li&gt;MTU канала&lt;/li&gt;
+  &lt;li&gt;Один или более префиксов, назначенных каналу. Данная информация существенна механизма автоконфигурации адреса без сохранения состояния (&lt;em&gt;stateless address autoconfiguration&lt;/em&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ndp/ra_options.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ndp/ra_options.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Options&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;h3 id=&quot;neighbor-solicitation&quot;&gt;Neighbor Solicitation&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Neighbor Solicitation&lt;/strong&gt; - сообщение, инициируемое узлом, запрашивающее у другого узла адрес канального уровня, а также для функционирования механизмов &lt;em&gt;Duplicate address detection&lt;/em&gt; и &lt;em&gt;Neighbor unreachability detection&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;ICMP &lt;em&gt;type&lt;/em&gt; для данного сообщения равно &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;135&lt;/code&gt;, &lt;em&gt;code&lt;/em&gt; - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;. Источником пакета IPv6 для данного сообщения выступает либо IPv6 адрес, назначенный на конкретный интерфейс, либо если производится проверка на дубликат адреса, то используется специальный &lt;em&gt;unspecified&lt;/em&gt; адрес &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;::&lt;/code&gt;. Сообщения отсылаются либо на solicited-node multicast адрес, который соответствует адресу назначения, либо отправляется просто на адрес назначения.&lt;/p&gt;
+
+&lt;p&gt;Скачать дамп с пакетом Neighbor Solicitation можно &lt;a href=&quot;/assets/pcap/ndp/ipv6_ns.pcapng&quot;&gt;отсюда&lt;/a&gt;&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ndp/ns_structure.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ndp/ns_structure.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Neighbor Solicitation structure&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Target Address&lt;/strong&gt; - IPv6-адрес запрашиваемой цели. Адрес цели не может быть multicast адресом.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ndp/ns_target.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ndp/ns_target.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Target Address&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Поле опций может содержать адрес канальной среды исходного интерфейса.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ndp/ns_options.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ndp/ns_options.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Options&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;h3 id=&quot;neighbor-advertisement&quot;&gt;Neighbor Advertisement&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Neighbor Advertisement&lt;/strong&gt; - сообщение, отсылаемое в ответ на сообщение &lt;em&gt;Neighbor Solicitation&lt;/em&gt;. Когда узел меняет свой адрес канального уровня, он может отправить сообщение &lt;em&gt;“незапрашиваемого”&lt;/em&gt;(&lt;em&gt;unsolicited&lt;/em&gt;) Neighbor Advertisement для оповещения об изменении адреса.&lt;/p&gt;
+
+&lt;p&gt;ICMP &lt;em&gt;type&lt;/em&gt; для данного сообщения равно &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;136&lt;/code&gt;, &lt;em&gt;code&lt;/em&gt; - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;. Источником пакета IPv6 для данного сообщения всегда выступает IPv6 адрес, назначенный на конкретный интерфейс (&lt;em&gt;или автосконфигурированный&lt;/em&gt;). Сообщения отсылаются либо на адрес источника сообщения пакета Neighbor Solicitation, либо отправляется на multicast адрес всех узлов - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ff02::1&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Скачать дамп с пакетом Neighbor Advertisement, который является ответным сообщением для пакета Neighbor Solicitation сверху, можно &lt;a href=&quot;/assets/pcap/ndp/ipv6_na.pcapng&quot;&gt;тут&lt;/a&gt;&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ndp/na_structure.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ndp/na_structure.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Neighbor Advertisement structure&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;R&lt;/strong&gt; - Router флаг. Когда установлен данный флаг, то это означает, что источник пакета маршрутизатор. Данный флаг используется в механизме &lt;em&gt;Neighbor unreachability detection&lt;/em&gt; когда маршрутизатор может измениться на конечное устройство.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;S&lt;/strong&gt; - Solicited флаг. Данный флаг устанавливается в случае, когда &lt;em&gt;Neighbor Advertisement&lt;/em&gt; отправляется в ответ на запрос &lt;em&gt;Neighbor Solicitation&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;O&lt;/strong&gt; - Override флаг. Когда выставлен данный флаг, информация из пакета &lt;em&gt;Neighbor Advertisement&lt;/em&gt; должна будет перезаписать любую информацию в кэше соседа, а также обновит закэшированный адрес канальной среды. Если флаг не установлен, то перезапись производится не будет.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ndp/na_flags.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ndp/na_flags.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Flags&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Target Address&lt;/strong&gt; - используется когда &lt;em&gt;Neighbor Advertisement&lt;/em&gt; отправляется в ответ на запрос &lt;em&gt;Neighbor Solicitation&lt;/em&gt; - значение в поле адреса назначения &lt;em&gt;Neighbor Solicitation&lt;/em&gt;. Если NA не запрашивается (то есть отправляется для объявления об изменении адреса уровня связи отправителя), целевым адресом является адрес отправителя.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ndp/na_target.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ndp/na_target.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Target Address&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Поле опции пакета Neighbor Advertisement может содержать адрес канальной среды отправителя пакета Neighbor Advertisement.&lt;/p&gt;
+
+&lt;h3 id=&quot;redirect&quot;&gt;Redirect&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Redirect&lt;/strong&gt; - такое же сообщение как и сообщение Redirect в ICMP для протокола IPv4.&lt;/p&gt;
+
+&lt;p&gt;ICMP &lt;em&gt;type&lt;/em&gt; для данного сообщения равно &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;137&lt;/code&gt;, &lt;em&gt;code&lt;/em&gt; - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;. Источником пакета IPv6 для данного сообщения всегда выступает link-local IPv6 адрес интерфейса с которого данное сообщение отсылается. Сообщения отсылаются на адрес источника пакета, который &lt;em&gt;“вызвал”&lt;/em&gt; перенаправление.&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ndp/redirect_structure.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ndp/redirect_structure.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Redirect Structure&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Target Address&lt;/strong&gt; - адрес лучшего маршрутизатора - обычно link-local адрес маршрутизатора в канале.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Destination Address&lt;/strong&gt; - IPv6 адрес назначения для которого будет перенаправление на target address.&lt;/p&gt;
+
+&lt;p&gt;Поле опций может содержать адрес канальной среды лучшего маршрутизатора.&lt;/p&gt;
+
+&lt;p&gt;Для каждого из пяти сообщений NDP поле опций содержит информацию, которая заключена в понятие &lt;strong&gt;TLV&lt;/strong&gt; - &lt;em&gt;Type, Length, Value&lt;/em&gt;. Каждый TLV состоит из 8-битного поля Type, определяющего тип информации, которое содержится в поле Value, из 8-битного поля Length, определяющего длину поля Value, а также из поля переменной длины Value.&lt;/p&gt;
+
+&lt;p&gt;В таблице ниже представлены возможные типы и значения для поля опций сообщений NDP&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Source Link-Layer Address&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;Target Link-Layer Address&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;Prefix Information&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;Redirect Header&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;MTU&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ndp/type_1.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ndp/type_1.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Type 1&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ndp/type_2.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ndp/type_2.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Type 2&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ndp/type_3.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ndp/type_3.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Type 3&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ndp/type_5.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ndp/type_5.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Type 5&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;h2 id=&quot;address-autoconfiguration&quot;&gt;Address autoconfiguration&lt;/h2&gt;
+
+&lt;h2 id=&quot;address-resolution-и-neighbor-unreachability-detection&quot;&gt;Address resolution и Neighbor unreachability detection&lt;/h2&gt;
+
+&lt;h2 id=&quot;duplicate-address-detection&quot;&gt;Duplicate address detection&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;P.S.&lt;/strong&gt; &lt;em&gt;вся информация представленная здесь используется исключительно в образовательных целях. Все совпадения с реальными объектами, адресами, именами и т.д. случайна и не несёт цели получить от этого выгоду или причинить кому-либо вред.&lt;/em&gt;&lt;/p&gt;</content><author><name>Ivan Denisenko</name></author><category term="networks" /><category term="protocols" /><category term="ndp" /><summary type="html">Протокол Neighbor Discovery Protocol является ключевым при рассмотрении протокола IPv6. NDP - это механизм, позволяющий узлам узнавать друг о друге. Данный протокол обеспечивает следующие функции:</summary></entry><entry><title type="html">Протокол ICMP6</title><link href="https://iteducate.github.io/networks/icmp6_prot/" rel="alternate" type="text/html" title="Протокол ICMP6" /><published>2021-10-25T09:00:00+03:00</published><updated>2021-10-25T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/icmp6_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/icmp6_prot/">&lt;p&gt;Для обмена и обработки ошибок, а также информационных сообщений в процессе работы протокола IPv6 требуется специальный протокол. Как и в случае с протоколом IPv4, этим протоколом выступает &lt;em&gt;ICMP&lt;/em&gt;. Значение поля Next Header для протокола ICMP является значение &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;58&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;В &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc2463.html&quot;&gt;RFC 2463&lt;/a&gt; определён протокол ICMPv6. Заголовок протокола ICMPv6 идентичен заголовку в протоколе 4 версии.&lt;/p&gt;
 
@@ -2302,93 +2759,12 @@ Success rate is 66 percent (2/3), round-trip min/avg/max = 3/3/3 ms
     &lt;p&gt;&lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc1700.html&quot;&gt;RFC 1700 - Assigned Numbers&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc2461.html&quot;&gt;RFC 2461 - Neighbor Discovery for IP Version 6&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc2463.html&quot;&gt;RFC 2463 - Internet Control Message Protocol for the Internet Protocol Version 6&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc3168.html&quot;&gt;RFC 3168 - The Addition of Explicit Congestion Notification (ECN) to IP&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Ivan Denisenko</name></author><category term="networks" /><category term="rfc" /><summary type="html">Список RFC, которые будут встречаться по ходу написания статей:</summary></entry><entry><title type="html">Необычный взгляд на редактирование текста. Часть I.</title><link href="https://iteducate.github.io/editors/vim_1/" rel="alternate" type="text/html" title="Необычный взгляд на редактирование текста. Часть I." /><published>2019-11-11T09:00:00+03:00</published><updated>2019-11-11T09:00:00+03:00</updated><id>https://iteducate.github.io/editors/vim_1</id><content type="html" xml:base="https://iteducate.github.io/editors/vim_1/">&lt;p&gt;Каждому из нас хоть раз в жизни приходилось иметь дело с обработкой текстовых документов. Дело казалось бы обыденное, открыл &lt;em&gt;“офис”&lt;/em&gt; и вперёд, но некоторые до сих пор его не любят за то, что в нём куча ненужных для них вещей, а кто-то просто откровенно ими не умеет пользоваться. :)&lt;/p&gt;
-
-&lt;p&gt;Данный набор советов не претендует на то, чтобы полностью заменить вам ваш привычный текстовый редактор. Однако здесь я покажу вам как с помощью бесплатной и самое главное мощной утилиты сделать редактирование текста максимально быстро и эффективно.&lt;/p&gt;
-
-&lt;p&gt;Первое, что необходимо вам понимать, это то, что данная утилита довольно-таки сложна для начального уровня и требует некоторого понимая работы в &lt;strong&gt;командной строке&lt;/strong&gt; (&lt;em&gt;да, исходная программа, которая называется &lt;strong&gt;*vi&lt;/strong&gt;&lt;/em&gt;, не имеет графического интерфейса&lt;em&gt;). И хотя я буду показывать все примеры в командной строке, эти же примеры можно повторить в программе *Vim&lt;/em&gt;, которая как раз имеет данный графический интерфейс и немногим облегчит вам работу.&lt;/p&gt;
-
-&lt;p&gt;Вторым пунктом я хотел бы выделить именно тот факт, что я не хочу чтобы вы уходили от того же MS Office, (&lt;em&gt;да и функционал в данной программе несколько иной&lt;/em&gt;), я лишь хочу показать то, как не имея лицензии на крупные программные продукты, а также надобности в &lt;em&gt;тяжелом&lt;/em&gt; редактировании текста, использовать действительно полезный и главное очень эффективный продукт.&lt;/p&gt;
-
-&lt;p&gt;Итак, пустимся же в “весёлое приключение” по небольшой Вселенной Vi и Vim!&lt;/p&gt;
-
-&lt;h1 id=&quot;1-это-необходимо-знать&quot;&gt;1. Это необходимо знать&lt;/h1&gt;
-
-&lt;p&gt;Прежде чем приступить к написанию советов, хотелось бы остановиться на паре моментов, которые необходимо помнить.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;Установка.&lt;/strong&gt; Скачать и установить ПО вы можете по &lt;a href=&quot;https://www.vim.org/download.php&quot; title=&quot;Download VIM&quot;&gt;&lt;strong&gt;данной ссылке&lt;/strong&gt;&lt;/a&gt;. Сложного в установке нет ничего, поэтому я верю в то, что вы справитесь. Я же буду использовать версию vi, которая есть в моем текстовом редакторе VS Code. Не пугайтесь! Всё, что я буду делать, вы сможете сделать и в Vim, установленный лично вами.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Примеры.&lt;/strong&gt; Всё, что я буду выполнять, будет сопровождаться gif-анимационным файлом, в котором будут показаны все клавиши, задействованные в данном примере. Это очень удобно, как мне кажется, и вы сможете всегда вернуться и разобрать непонятный вам материал (&lt;em&gt;хотя я очень верю, что такового не будет!&lt;/em&gt;). К сожалению, исходники самих примеров я выкладывать никуда не буду, поэтому вам придется на личных примерах разбираться как использовать ту или иную команду. Это поможет вам более тщательнее изучить весь материал и более подробно разобраться в интерфейсе и командах программы.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Слепая печать.&lt;/strong&gt; Пожалуй, это единственное условие, которое необходимо выполнить прежде чем приступить к изучению Vim. Вам действительно будет тяжело разобраться в некоторых моментах без данного навыка, так как эфффективность работы в данной программе достигается за счёт ловкости рук!&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&quot;2-совет--1-повторение---мать-учения&quot;&gt;2. Совет № 1. Повторение - мать учения&lt;/h1&gt;
-
-&lt;p&gt;В повседной работе мы не замечаем как часто выполняем одни и те же операции: &lt;em&gt;“скопировал - вставил”&lt;/em&gt;, &lt;em&gt;“скопировал - вставил”&lt;/em&gt; и так десятки, а то и сотни раз всеразличных комбинаций клавиш. Если мы сможем как-то упростить выполнение одних и тех же операций, то сэкономим большое количество времени.&lt;/p&gt;
-
-&lt;p&gt;Редактор Vim позволяет отслеживать последние выполняемые операции и затем повторять их снова и снова, пока нам это будет необходимо. Однако, прежде чем приступить к редактированию какого-либо текста, необходимо упомянуть о двух основных режимах работы редактора Vim:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;командный режим&lt;/strong&gt; - обыкновенное состояние редактора, в котором выполняются все команды, за исключение главной функции редактора - &lt;strong&gt;&lt;em&gt;редактирование текста&lt;/em&gt;&lt;/strong&gt;. И это следует понимать, потому что очень часто возникают казусы, по которым люди не понимают различия в режимах и тем самым не могут найти решение в той или иной проблеме.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;режим вставки&lt;/strong&gt; - как понятно из названия, в данном режиме происходит набор необходимого нам текста.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;При входе в программу вы попадаете в &lt;strong&gt;командный режим&lt;/strong&gt;, а при нажатии клавиши &lt;code&gt;i&lt;/code&gt; в &lt;strong&gt;режим вставки&lt;/strong&gt;. Для того чтобы вернуться обратно в командный режим необходимо нажать клавишу &lt;code&gt;Esc&lt;/code&gt;. Как видим ничего сложного нет!&lt;/p&gt;
-
-&lt;div class=&quot;notice--success&quot;&gt;
-Как узнать в каком режиме вы сейчас находитесь? Очень просто, в режиме вставки в левом нижнем углу будет надпись &lt;code&gt;--ВСТАВКА--&lt;/code&gt; или &lt;code&gt;--INSERT--&lt;/code&gt; (если у вас установлена англоязычная версия). При выходе в командный режим данная надпись исчезает.
-&lt;/div&gt;
-
-&lt;p&gt;Итак, для того чтобы повторить последнее изменение, в редакторе Vim существует команда &lt;strong&gt;&lt;em&gt;“точка”&lt;/em&gt;&lt;/strong&gt;. Данная команда одна из самых мощных и гибких в редакторе. При этом, под &lt;em&gt;“последними изменениями”&lt;/em&gt; понимается изменение как над отдельными символами, целыми строками или даже файлами!&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Краткая справка по командам.&lt;/strong&gt;&lt;/p&gt;
-
-  &lt;p&gt;Все команды выполняются в &lt;strong&gt;командном режиме&lt;/strong&gt;!&lt;/p&gt;
-
-  &lt;ul&gt;
-    &lt;li&gt;&lt;code&gt;h&lt;/code&gt; - шаг влево&lt;/li&gt;
-    &lt;li&gt;&lt;code&gt;j&lt;/code&gt; - шаг вниз&lt;/li&gt;
-    &lt;li&gt;&lt;code&gt;k&lt;/code&gt; - шаг вверх&lt;/li&gt;
-    &lt;li&gt;&lt;code&gt;l&lt;/code&gt; - шаг вправо&lt;/li&gt;
-    &lt;li&gt;&lt;code&gt;x&lt;/code&gt; - удаление символа под курсором&lt;/li&gt;
-    &lt;li&gt;&lt;code&gt;u&lt;/code&gt; - отменить последнее изменение&lt;/li&gt;
-    &lt;li&gt;&lt;code&gt;dd&lt;/code&gt; - удаление целой строки&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Текущие команды будут использоваться в нашем первом примере. Вы увидите каким образом происходит перемещение по файлу, удаление символа, строки, а также повторение этих же действий с использованием магической команды &lt;em&gt;“точка”&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;В качестве примера я возьму небольшую программу и в ней проведу все наши эксперименты.&lt;/p&gt;
-
-&lt;figure class=&quot; &quot;&gt;
-  
-    
-      &lt;a href=&quot;/assets/images/vim/dd.gif&quot;&gt;
-          &lt;img src=&quot;/assets/images/vim/dd.gif&quot; alt=&quot;&quot; /&gt;
-      &lt;/a&gt;
-    
-  
-  
-    &lt;figcaption&gt;Пример 1. Демонстрация применения команды &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;точка&lt;/code&gt;
-&lt;/figcaption&gt;
-  
-&lt;/figure&gt;
-
-&lt;p&gt;Обратите внимание на то, где расположен курсор и какие изменения происходят после выполнения определенной команды. А еще лучше, возьмите произвольный текст и поиграйтесь сами, выполняя различные команды.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Замечание!!!&lt;/strong&gt; Для того чтобы выйти из данного редактора, особенно если вы выполняете упражнения в командной строке, необходимо выполнить одну из комбинаций клавиш:&lt;/p&gt;
-  &lt;ul&gt;
-    &lt;li&gt;&lt;code&gt;:q!&lt;/code&gt; - выход из программы без сохранения&lt;/li&gt;
-    &lt;li&gt;&lt;code&gt;:wq&lt;/code&gt; - выход из программы c сохранением&lt;/li&gt;
-  &lt;/ul&gt;
-
-  &lt;p&gt;Не забывайте, что команды выполняются в &lt;strong&gt;командном режиме&lt;/strong&gt;!!!&lt;/p&gt;
-
-  &lt;p&gt;Данная проблема очень популярна в интернете, так как начинающие пользователи не имеют представления как выйти из данного редактора. По этому поводу есть даже небольшая заметка в &lt;a href=&quot;https://stackoverflow.blog/2017/05/23/stack-overflow-helping-one-million-developers-exit-vim/&quot;&gt;блоге stackoverflow&lt;/a&gt;. Там отмечено, что помощью по вопросу выхода из Vim воспользовалось более 1 млн. человек!!!&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name>Ivan Denisenko</name></author><category term="editors" /><category term="vim" /><summary type="html">Каждому из нас хоть раз в жизни приходилось иметь дело с обработкой текстовых документов. Дело казалось бы обыденное, открыл “офис” и вперёд, но некоторые до сих пор его не любят за то, что в нём куча ненужных для них вещей, а кто-то просто откровенно ими не умеет пользоваться. :)</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Ivan Denisenko</name></author><category term="networks" /><category term="rfc" /><summary type="html">Список RFC, которые будут встречаться по ходу написания статей:</summary></entry></feed>

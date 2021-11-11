@@ -1,0 +1,1177 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.22.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Протокол NDP - Neighbor Discovery Protocol - Blog Notes</title>
+<meta name="description" content="Протокол Neighbor Discovery Protocol является ключевым при рассмотрении протокола IPv6. NDP - это механизм, позволяющий узлам узнавать друг о друге. Данный протокол обеспечивает следующие функции:">
+
+
+  <meta name="author" content="Ivan Denisenko">
+  
+  <meta property="article:author" content="Ivan Denisenko">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Blog Notes">
+<meta property="og:title" content="Протокол NDP - Neighbor Discovery Protocol">
+<meta property="og:url" content="https://iteducate.github.io/networks/ndp_prot/">
+
+
+  <meta property="og:description" content="Протокол Neighbor Discovery Protocol является ключевым при рассмотрении протокола IPv6. NDP - это механизм, позволяющий узлам узнавать друг о друге. Данный протокол обеспечивает следующие функции:">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-11-06T09:00:00+03:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://iteducate.github.io/networks/ndp_prot/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Ivan Denisenko",
+      "url": "https://iteducate.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Blog Notes Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+  
+    <script src="/assets/js/mermaid/mermaid.js"></script>
+  
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/default.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Blog Notes
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/year-archive/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/bio-photo.jpg" alt="Ivan Denisenko" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Ivan Denisenko</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Crazy man</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Moscow</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:ghostmorgan13@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://iteducate.github.io" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+            <li><a href="https://www.facebook.com/DenIvanTea" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook-square" aria-hidden="true"></i><span class="label">Facebook</span></a></li>
+          
+        
+          
+            <li><a href="https://www.instagram.com/denisenko__ivan/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/ivan-denisenko-357250b8" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">Linkedin</span></a></li>
+          
+        
+          
+            <li><a href="https://www.vk.com/denisenko_ivan" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-vk" aria-hidden="true"></i><span class="label">VK</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Протокол NDP - Neighbor Discovery Protocol">
+    <meta itemprop="description" content="Протокол Neighbor Discovery Protocol является ключевым при рассмотрении протокола IPv6. NDP - это механизм, позволяющий узлам узнавать друг о друге. Данный протокол обеспечивает следующие функции:">
+    <meta itemprop="datePublished" content="2021-11-06T09:00:00+03:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Протокол NDP - Neighbor Discovery Protocol
+</h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2021-11-06T09:00:00+03:00">November 6, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          7 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Содержание</h4></header>
+              <ul class="toc__menu"><li><a href="#сообщения-ndp">Сообщения NDP</a><ul><li><a href="#router-solicitation">Router Solicitation</a></li><li><a href="#router-advertisement">Router Advertisement</a></li><li><a href="#neighbor-solicitation">Neighbor Solicitation</a></li><li><a href="#neighbor-advertisement">Neighbor Advertisement</a></li><li><a href="#redirect">Redirect</a></li></ul></li><li><a href="#address-autoconfiguration">Address autoconfiguration</a></li><li><a href="#address-resolution-и-neighbor-unreachability-detection">Address resolution и Neighbor unreachability detection</a></li><li><a href="#duplicate-address-detection">Duplicate address detection</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p>Протокол Neighbor Discovery Protocol является ключевым при рассмотрении протокола IPv6. NDP - это механизм, позволяющий узлам узнавать друг о друге. Данный протокол обеспечивает следующие функции:</p>
+
+<ul>
+  <li><strong>Router Discovery</strong> - позволяет узлу обнаружить локальный маршрутизатор без помощи протокола DHCP</li>
+  <li><strong>Prefix Discovery</strong> - позволяет узлу обнаружить префикс(<em>ы</em>), которые заданы в канале</li>
+  <li><strong>Parameter discovery</strong> - позволяет узлу обнаружить параметры, такие как <em>MTU</em> и <em>hop limit</em>, которые заданы в канале</li>
+  <li><strong>Address autoconfiguration</strong> - позволяет узлу определить свой собственный полный адрес без помощи протокола DHCP</li>
+  <li><strong>Address resolution</strong> - позволяет узлу обнаружить адреса канального уровня других узлов без помощи протокола ARP</li>
+  <li><strong>Next-hop determination</strong> - позволяет узлу обнаружить адреса канального уровня next-hop узлов для сети назначения, будь то адрес назначения в локальной сети или адрес маршрутизатора для сети назначения</li>
+  <li><strong>Neighbor unreachability detection</strong> - позволяет узлу определить когда соседнее устройство (<em>какой-либо хост или маршрутизатор</em>) более недоступны</li>
+  <li><strong>Duplicate address detection</strong> - позволяет узлу, который хочет использовать адрес, узнать используется ли уже данный адрес каким-либо устройством в сети</li>
+  <li><strong>Redirect</strong> - маршртизатор может оповещать устройства о лучшем next-hop устройстве для какой-либо сети, чем сам маршрутизатор. Данный функционал также есть в протоколе ICMP для прокотола IPv4, но в IPv6 этот функционал выведен как часть функционала протокола NDP</li>
+</ul>
+
+<p>Сообщения NDP всегда отправляются на адреса <em>link-local</em>, для обеспечения безопасности все данные сообщения отправляются с параметром <code class="language-plaintext highlighter-rouge">Hop Limit = 255</code>. При получении устройством сообщения NDP со значением Hop Limit меньше 255 сообщение будет отброшено.</p>
+
+<h2 id="сообщения-ndp">Сообщения NDP</h2>
+
+<p>Протокол NDP определён в <a href="https://www.rfc-editor.org/rfc/rfc2461.html">RFC 2461</a>, он использует протокол ICMPv6 для обмена сообщений, необходимых для функионирования протокола NDP. Всего используется 5 различных сообщений, каждое из которых используется для определенных целей. Эти сообщения описаны в таблице ниже, а после будут рассмотрены более подробно.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Тип сообщения</th>
+      <th>Адрес источника</th>
+      <th>Адрес назначения</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Router Solicitation</strong> - <code class="language-plaintext highlighter-rouge">ICMP type 133</code></td>
+      <td>Local interface адрес или <code class="language-plaintext highlighter-rouge">::</code> в случае отсутствия адреса</td>
+      <td>Multicast адрес всех маршрутизаторов - <code class="language-plaintext highlighter-rouge">ff02::2</code></td>
+    </tr>
+    <tr>
+      <td><strong>Router Advertisement</strong> - <code class="language-plaintext highlighter-rouge">ICMP type 134</code></td>
+      <td>Link-Local адрес</td>
+      <td>Multicast адрес всех узлов - <code class="language-plaintext highlighter-rouge">ff02::1</code></td>
+    </tr>
+    <tr>
+      <td><strong>Neighbor Solicitation</strong> - <code class="language-plaintext highlighter-rouge">ICMP type 135</code></td>
+      <td>Local interface IP адрес или <code class="language-plaintext highlighter-rouge">::</code> в случае отсутствия адреса</td>
+      <td>Solicited-node multicast адрес - <code class="language-plaintext highlighter-rouge">ff02::1:ffxx:xxxx</code></td>
+    </tr>
+    <tr>
+      <td><strong>Neighbor Advertisement</strong> - <code class="language-plaintext highlighter-rouge">ICMP type 136</code></td>
+      <td>Local interface адрес</td>
+      <td>Multicast адрес всех узлов - <code class="language-plaintext highlighter-rouge">ff02::1</code> или в ответ на <code class="language-plaintext highlighter-rouge">NS</code> - unicast адрес запрашивающего узла</td>
+    </tr>
+    <tr>
+      <td><strong>Redirect</strong> - <code class="language-plaintext highlighter-rouge">ICMP type 137</code></td>
+      <td>Link-Local адрес</td>
+      <td>Unicast адрес запрашивающего узла</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="router-solicitation">Router Solicitation</h3>
+
+<p><strong>Router Solicitation</strong> - сообщение, инициируемое хостом, запрашивающее у маршрутизатора сообщение Router Advertisement.</p>
+
+<p>ICMP <em>type</em> для данного сообщения равно <code class="language-plaintext highlighter-rouge">133</code>, <em>code</em> - <code class="language-plaintext highlighter-rouge">0</code>. Источником пакета IPv6 для данного сообщения выступает либо IPv6 адрес, назначенный на конкретный интерфейс, либо если адрес не назначен, то используется специальный <em>unspecified</em> адрес <code class="language-plaintext highlighter-rouge">::</code>. Сообщения отсылаются на multicast адрес всех маршрутизаторов - <code class="language-plaintext highlighter-rouge">ff02::2</code>.</p>
+
+<p>Скачать дамп с пакетом Router Solicitation можно <a href="/assets/pcap/ndp/ipv6_rs.pcapng">здесь</a></p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ndp/rs_structure.png">
+          <img src="/assets/images/ndp/rs_structure.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Router Solicitation structure</strong>
+</figcaption>
+  
+</figure>
+
+<p>Поле опции может содержать адрес канального уровня исходного интерфейса, если он известен. Однако, адрес источника канального уровня не должен быть включён, если адрес источника инкапсулированного пакета неопределён, например, когда отправитель запрашивает маршрутизатор во время автоматической настройки адреса.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ndp/rs_options.png">
+          <img src="/assets/images/ndp/rs_options.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Options</strong>
+</figcaption>
+  
+</figure>
+
+<h3 id="router-advertisement">Router Advertisement</h3>
+
+<p><strong>Router Advertisement</strong> - сообщение, инициируемое маршрутизатором, который анонсирует своё присутствие в сети, а также некоторые параметры специфичные для канальной среды (<em>MTU, hop limit, prefix</em>). Данные сообщения отсылаются периодически, а также в ответ на сообщение <em>Router Solicitation</em>.</p>
+
+<p>Сообщения отсылаются на multicast адрес всех узлов - <code class="language-plaintext highlighter-rouge">ff02::1</code>. ICMP <em>type</em> для данного сообщения равно <code class="language-plaintext highlighter-rouge">134</code>, <em>code</em> - <code class="language-plaintext highlighter-rouge">0</code>. Источником пакета IPv6 для данного сообщения всегда выступает link-local адрес интерфейса, с которого посылается данное сообщение.</p>
+
+<p>Скачать дамп с пакетом Router Advertisement можно <a href="/assets/pcap/ndp/ipv6_ra.pcapng">тут</a></p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ndp/ra_structure.png">
+          <img src="/assets/images/ndp/ra_structure.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Router Advertisement structure</strong>
+</figcaption>
+  
+</figure>
+
+<p><strong>Hop Limit</strong> - 8-битное поле, указывает значение поля Hop Limit, которое узлы в данной канальной среде должны указывать в любом пакете, который они <em>“выпустят”</em> в данный канал. Если значение не указано, то значение поля устанавливается в <code class="language-plaintext highlighter-rouge">0</code></p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ndp/ra_hop_limit.png">
+          <img src="/assets/images/ndp/ra_hop_limit.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Hop Limit</strong>
+</figcaption>
+  
+</figure>
+
+<p><strong>M</strong> - Managed Address Configuration flag, одно из значение поля флагов. Если значение поля равно единице, то хосту следует использовать механизм автоконфигурации адреса с отслеживанием состояния через DHCPv6 (<em>stateful address autoconfiguration via DHCPv6</em>). Если значение установлено в ноль, то хост должен использовать механизм автоконфигурации адреса без сохранения состояния (<em>stateless address autoconfiguration</em>).</p>
+
+<p><strong>O</strong> - Other Stateful Configuration flag. Когда установлен данный флаг, то хост должен использовать DHCPv6 для получения всей другой информации.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ndp/ra_flags.png">
+          <img src="/assets/images/ndp/ra_flags.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Flags</strong>
+</figcaption>
+  
+</figure>
+
+<p><strong>Router Lifetime</strong> - 16-битное поле, в случае если поле имеет значение, отличное от 0, то исходный маршрутизатор является маршрутизатором по умолчанию. Поле определяет время жизни маршрутизатора по умолчанию в секундах. Максимально поле может принимать значение <code class="language-plaintext highlighter-rouge">2^16 секунд = 65536 секунд</code>, это значение приблизительно равно 18,2 часа.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ndp/ra_lifetime.png">
+          <img src="/assets/images/ndp/ra_lifetime.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Router Lifetime</strong>
+</figcaption>
+  
+</figure>
+
+<p><strong>Reachable Time</strong> - 32-битное поле, используется функционалом Neighbor unreachability detection протокола NDP. Поле определяет время в миллисекундах в течении которого узел должен предполагать, что сосед доступен после того, как узел подтвердил доступность соседа</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ndp/ra_reach_time.png">
+          <img src="/assets/images/ndp/ra_reach_time.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Reachable Time</strong>
+</figcaption>
+  
+</figure>
+
+<p><strong>Retransmit Timer</strong> - 32-битное поле, используется функционалом Address resolution и Neighbor unreachability detection протокола NDP. Данное поле определяет минимальное время между повторно переданными сообщениями <em>Neighbor Solicitation</em>.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ndp/ra_retr_timer.png">
+          <img src="/assets/images/ndp/ra_retr_timer.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Retransmit Timer</strong>
+</figcaption>
+  
+</figure>
+
+<p><strong>Options</strong> - поле переменной длины, содержит различные опции, среди которых:</p>
+<ul>
+  <li>Адрес канального уровня интерфейса с которого сообщение Router Advertisement было выпущено</li>
+  <li>MTU канала</li>
+  <li>Один или более префиксов, назначенных каналу. Данная информация существенна механизма автоконфигурации адреса без сохранения состояния (<em>stateless address autoconfiguration</em>)</li>
+</ul>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ndp/ra_options.png">
+          <img src="/assets/images/ndp/ra_options.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Options</strong>
+</figcaption>
+  
+</figure>
+
+<h3 id="neighbor-solicitation">Neighbor Solicitation</h3>
+
+<p><strong>Neighbor Solicitation</strong> - сообщение, инициируемое узлом, запрашивающее у другого узла адрес канального уровня, а также для функционирования механизмов <em>Duplicate address detection</em> и <em>Neighbor unreachability detection</em>.</p>
+
+<p>ICMP <em>type</em> для данного сообщения равно <code class="language-plaintext highlighter-rouge">135</code>, <em>code</em> - <code class="language-plaintext highlighter-rouge">0</code>. Источником пакета IPv6 для данного сообщения выступает либо IPv6 адрес, назначенный на конкретный интерфейс, либо если производится проверка на дубликат адреса, то используется специальный <em>unspecified</em> адрес <code class="language-plaintext highlighter-rouge">::</code>. Сообщения отсылаются либо на solicited-node multicast адрес, который соответствует адресу назначения, либо отправляется просто на адрес назначения.</p>
+
+<p>Скачать дамп с пакетом Neighbor Solicitation можно <a href="/assets/pcap/ndp/ipv6_ns.pcapng">отсюда</a></p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ndp/ns_structure.png">
+          <img src="/assets/images/ndp/ns_structure.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Neighbor Solicitation structure</strong>
+</figcaption>
+  
+</figure>
+
+<p><strong>Target Address</strong> - IPv6-адрес запрашиваемой цели. Адрес цели не может быть multicast адресом.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ndp/ns_target.png">
+          <img src="/assets/images/ndp/ns_target.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Target Address</strong>
+</figcaption>
+  
+</figure>
+
+<p>Поле опций может содержать адрес канальной среды исходного интерфейса.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ndp/ns_options.png">
+          <img src="/assets/images/ndp/ns_options.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Options</strong>
+</figcaption>
+  
+</figure>
+
+<h3 id="neighbor-advertisement">Neighbor Advertisement</h3>
+
+<p><strong>Neighbor Advertisement</strong> - сообщение, отсылаемое в ответ на сообщение <em>Neighbor Solicitation</em>. Когда узел меняет свой адрес канального уровня, он может отправить сообщение <em>“незапрашиваемого”</em>(<em>unsolicited</em>) Neighbor Advertisement для оповещения об изменении адреса.</p>
+
+<p>ICMP <em>type</em> для данного сообщения равно <code class="language-plaintext highlighter-rouge">136</code>, <em>code</em> - <code class="language-plaintext highlighter-rouge">0</code>. Источником пакета IPv6 для данного сообщения всегда выступает IPv6 адрес, назначенный на конкретный интерфейс (<em>или автосконфигурированный</em>). Сообщения отсылаются либо на адрес источника сообщения пакета Neighbor Solicitation, либо отправляется на multicast адрес всех узлов - <code class="language-plaintext highlighter-rouge">ff02::1</code>.</p>
+
+<p>Скачать дамп с пакетом Neighbor Advertisement, который является ответным сообщением для пакета Neighbor Solicitation сверху, можно <a href="/assets/pcap/ndp/ipv6_na.pcapng">тут</a></p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ndp/na_structure.png">
+          <img src="/assets/images/ndp/na_structure.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Neighbor Advertisement structure</strong>
+</figcaption>
+  
+</figure>
+
+<p><strong>R</strong> - Router флаг. Когда установлен данный флаг, то это означает, что источник пакета маршрутизатор. Данный флаг используется в механизме <em>Neighbor unreachability detection</em> когда маршрутизатор может измениться на конечное устройство.</p>
+
+<p><strong>S</strong> - Solicited флаг. Данный флаг устанавливается в случае, когда <em>Neighbor Advertisement</em> отправляется в ответ на запрос <em>Neighbor Solicitation</em>.</p>
+
+<p><strong>O</strong> - Override флаг. Когда выставлен данный флаг, информация из пакета <em>Neighbor Advertisement</em> должна будет перезаписать любую информацию в кэше соседа, а также обновит закэшированный адрес канальной среды. Если флаг не установлен, то перезапись производится не будет.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ndp/na_flags.png">
+          <img src="/assets/images/ndp/na_flags.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Flags</strong>
+</figcaption>
+  
+</figure>
+
+<p><strong>Target Address</strong> - используется когда <em>Neighbor Advertisement</em> отправляется в ответ на запрос <em>Neighbor Solicitation</em> - значение в поле адреса назначения <em>Neighbor Solicitation</em>. Если NA не запрашивается (то есть отправляется для объявления об изменении адреса уровня связи отправителя), целевым адресом является адрес отправителя.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ndp/na_target.png">
+          <img src="/assets/images/ndp/na_target.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Target Address</strong>
+</figcaption>
+  
+</figure>
+
+<p>Поле опции пакета Neighbor Advertisement может содержать адрес канальной среды отправителя пакета Neighbor Advertisement.</p>
+
+<h3 id="redirect">Redirect</h3>
+
+<p><strong>Redirect</strong> - такое же сообщение как и сообщение Redirect в ICMP для протокола IPv4.</p>
+
+<p>ICMP <em>type</em> для данного сообщения равно <code class="language-plaintext highlighter-rouge">137</code>, <em>code</em> - <code class="language-plaintext highlighter-rouge">0</code>. Источником пакета IPv6 для данного сообщения всегда выступает link-local IPv6 адрес интерфейса с которого данное сообщение отсылается. Сообщения отсылаются на адрес источника пакета, который <em>“вызвал”</em> перенаправление.</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ndp/redirect_structure.png">
+          <img src="/assets/images/ndp/redirect_structure.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Redirect Structure</strong>
+</figcaption>
+  
+</figure>
+
+<p><strong>Target Address</strong> - адрес лучшего маршрутизатора - обычно link-local адрес маршрутизатора в канале.</p>
+
+<p><strong>Destination Address</strong> - IPv6 адрес назначения для которого будет перенаправление на target address.</p>
+
+<p>Поле опций может содержать адрес канальной среды лучшего маршрутизатора.</p>
+
+<p>Для каждого из пяти сообщений NDP поле опций содержит информацию, которая заключена в понятие <strong>TLV</strong> - <em>Type, Length, Value</em>. Каждый TLV состоит из 8-битного поля Type, определяющего тип информации, которое содержится в поле Value, из 8-битного поля Length, определяющего длину поля Value, а также из поля переменной длины Value.</p>
+
+<p>В таблице ниже представлены возможные типы и значения для поля опций сообщений NDP</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Source Link-Layer Address</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Target Link-Layer Address</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Prefix Information</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Redirect Header</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>MTU</td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ndp/type_1.png">
+          <img src="/assets/images/ndp/type_1.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Type 1</strong>
+</figcaption>
+  
+</figure>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ndp/type_2.png">
+          <img src="/assets/images/ndp/type_2.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Type 2</strong>
+</figcaption>
+  
+</figure>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ndp/type_3.png">
+          <img src="/assets/images/ndp/type_3.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Type 3</strong>
+</figcaption>
+  
+</figure>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ndp/type_5.png">
+          <img src="/assets/images/ndp/type_5.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Type 5</strong>
+</figcaption>
+  
+</figure>
+
+<h2 id="address-autoconfiguration">Address autoconfiguration</h2>
+
+<h2 id="address-resolution-и-neighbor-unreachability-detection">Address resolution и Neighbor unreachability detection</h2>
+
+<h2 id="duplicate-address-detection">Duplicate address detection</h2>
+
+<p><strong>P.S.</strong> <em>вся информация представленная здесь используется исключительно в образовательных целях. Все совпадения с реальными объектами, адресами, именами и т.д. случайна и не несёт цели получить от этого выгоду или причинить кому-либо вред.</em></p>
+
+        
+
+        <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#ndp" class="page__taxonomy-item" rel="tag">ndp</a><span class="sep">, </span>
+    
+      <a href="/tags/#protocols" class="page__taxonomy-item" rel="tag">protocols</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#networks" class="page__taxonomy-item" rel="tag">networks</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-11-06T09:00:00+03:00">November 6, 2021</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%D0%9F%D1%80%D0%BE%D1%82%D0%BE%D0%BA%D0%BE%D0%BB+NDP+-+Neighbor+Discovery+Protocol%20https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Fndp_prot%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Fndp_prot%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Fndp_prot%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+
+  <a href="https://vk.com/share.php?url=https%3A%2F%2Fiteducate.github.io%2Fnetworks%2Fndp_prot%2F" class="btn btn--vk" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on VK"><i class="fab fa-fw fa-vk" aria-hidden="true"></i><span> VK</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/networks/icmp6_prot/" class="pagination--pager" title="Протокол ICMP6
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/networks/icmp6_prot/" rel="permalink">Протокол ICMP6
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2021-10-25T09:00:00+03:00">October 25, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Для обмена и обработки ошибок, а также информационных сообщений в процессе работы протокола IPv6 требуется специальный протокол. Как и в случае с протоколом ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/networks/ipv6_prot/" rel="permalink">Протокол IPv6
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2021-10-14T09:00:00+03:00">October 14, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          8 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Протокол IPv6 пришел на замену протоколу IPv4 и хотя в настоящее время IPv4 всё еще везде используется, придет время и протокол IPv6 вытеснит своего предшест...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/networks/udp_prot/" rel="permalink">Структура протокола UDP
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2021-10-10T09:00:00+03:00">October 10, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">User Datagram Protocol или UDP описан в RFC 768 предоставляет услуги доставки пакетов без подключения с максимальными усилиями. Главное преимущество протокол...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/networks/tcp_prot/" rel="permalink">Структура протокола TCP
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2021-10-09T09:00:00+03:00">October 9, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Transmission Control Protocol или TCP описан в RFC 793, обеспечивает приложениям надежную службу, ориентированную на подключение.
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Ivan Denisenko. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://iteducate.github.io/networks/ndp_prot/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/networks/ndp_prot"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://iteducate-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>
