@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-11-12T00:51:12+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Протокол NDP - Neighbor Discovery Protocol</title><link href="https://iteducate.github.io/networks/ndp_prot/" rel="alternate" type="text/html" title="Протокол NDP - Neighbor Discovery Protocol" /><published>2021-11-06T09:00:00+03:00</published><updated>2021-11-06T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/ndp_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/ndp_prot/">&lt;p&gt;Протокол Neighbor Discovery Protocol является ключевым при рассмотрении протокола IPv6. NDP - это механизм, позволяющий узлам узнавать друг о друге. Данный протокол обеспечивает следующие функции:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-11-17T00:51:28+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Протокол NDP - Neighbor Discovery Protocol</title><link href="https://iteducate.github.io/networks/ndp_prot/" rel="alternate" type="text/html" title="Протокол NDP - Neighbor Discovery Protocol" /><published>2021-11-06T09:00:00+03:00</published><updated>2021-11-06T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/ndp_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/ndp_prot/">&lt;p&gt;Протокол Neighbor Discovery Protocol является ключевым при рассмотрении протокола IPv6. NDP - это механизм, позволяющий узлам узнавать друг о друге. Данный протокол обеспечивает следующие функции:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Router Discovery&lt;/strong&gt; - позволяет узлу обнаружить локальный маршрутизатор без помощи протокола DHCP&lt;/li&gt;
@@ -450,6 +450,40 @@
 &lt;/figure&gt;
 
 &lt;h2 id=&quot;address-autoconfiguration&quot;&gt;Address autoconfiguration&lt;/h2&gt;
+
+&lt;p&gt;Когда IPv6 хост впервые становится активным в канале, он может самостоятельно сконфигурировать себе адрес на интерфейс. Первым шагом в данной настройке является определение порции Interface ID для адреса (64 бит). В бродкаст интерфейсах применяется механизм конвертации &lt;strong&gt;&lt;em&gt;MAC-to-EUI64&lt;/em&gt;&lt;/strong&gt;. Данный механизм берет 48 бит MAC-адреса интерфейса и конвертирует их в 64 бита Interface ID, вставляя зарезервированное 16 битное значение &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0xFFFE&lt;/code&gt; в середину MAC-адреса, а также инвентируя U/L бит MAC-адреса в 1.&lt;/p&gt;
+
+&lt;p&gt;Допустим, есть MAC-адрес &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0000:A39C:D84F&lt;/code&gt;. Для преобразования данного адреса в 64 бита Interface ID вставляем &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0xFFFE&lt;/code&gt; в середину MAC-адреса - получим &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0000:A3FF:FE9C:D84F&lt;/code&gt;. А после этого инвентируем U/L бит - 7 бит. Итоговый результат: 64 бит Interface ID - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0200:A3FF:FE9C:D84F&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Оставшиеся 64 бита для префикса можно взять из зарезервированного диапазона link-local адресов &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0xFE80::/10&lt;/code&gt;. Таким образом используя префикс &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0xFE80::/64&lt;/code&gt; и полученный ранее Interface ID, можно получить итоговый IPv6-адрес - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FE80::0200:A3FF:FE9C:D84F&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Вот еще один практический пример с уже назначенным IPv6-адресом&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ndp/ipv6_mac_eui64.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ndp/ipv6_mac_eui64.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;MAC-EUI64&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;В примере выше MAC-адрес равен &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4A16:40B9:A9DD&lt;/code&gt;. Шаг первый: добавляем &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0xFFFE&lt;/code&gt; в середину адреса, получаем &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4A16:40FF:FEB9:A9DD&lt;/code&gt;. Шаг второй: инвертируем U/L бит. Значение &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4A16&lt;/code&gt; переводим в двоичный вид - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0100 1010 0001 0110&lt;/code&gt;, затем инвертируем 7 бит. Получим двоичный результат &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0100 1000 0001 0110&lt;/code&gt; - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4816&lt;/code&gt;. Шаг третий: добавляем префикс &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FE80::/64&lt;/code&gt;. Итоговый результат: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FE80::4816:40FF:FEB9:A9DD/64&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Если устройство собирается коммуницировать с устройствами в том же канале, на котором назначен данный адрес, то этого адреса будет достаточно. В случае когда требуется коммуникация за пределами канала, то необходим глобальный IPv6-адрес. Его можно получить двумя способами: &lt;em&gt;stateful&lt;/em&gt; и &lt;em&gt;stateless&lt;/em&gt; address autoconfiguration.&lt;/p&gt;
+
+&lt;h3 id=&quot;stateful-address-autoconfiguration&quot;&gt;Stateful address autoconfiguration&lt;/h3&gt;
+
+&lt;p&gt;Если хост использует механизм автоконфигурации адреса с отслеживанием состояния (&lt;em&gt;stateful&lt;/em&gt;), то он использует DHCPv6 сервер для получения необходимой информации. Хост может быть преднастроен для поиска DHCPv6 сервера либо получить сообщение &lt;em&gt;Router Advertisement&lt;/em&gt; с флагом &lt;em&gt;М&lt;/em&gt; для того чтобы использовать механизм автоконфигурации адреса с отслеживанием состояния.&lt;/p&gt;
+
+&lt;h3 id=&quot;stateless-address-autoconfiguration&quot;&gt;Stateless address autoconfiguration&lt;/h3&gt;
+
+&lt;p&gt;В случае использования механизма автоконфигурации адреса без сохранения состояния (&lt;em&gt;stateless&lt;/em&gt;). Хост может получить один или несколько префиксов из сообщений &lt;em&gt;Router Advertisement&lt;/em&gt;. Затем данные префиксы добавляются по тому же механизму, что и в случае с link-local префиксами к части Interface ID и получается итоговый global unique IPv6-адрес.&lt;/p&gt;
 
 &lt;h2 id=&quot;address-resolution-и-neighbor-unreachability-detection&quot;&gt;Address resolution и Neighbor unreachability detection&lt;/h2&gt;
 
