@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-11-17T00:51:28+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Протокол NDP - Neighbor Discovery Protocol</title><link href="https://iteducate.github.io/networks/ndp_prot/" rel="alternate" type="text/html" title="Протокол NDP - Neighbor Discovery Protocol" /><published>2021-11-06T09:00:00+03:00</published><updated>2021-11-06T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/ndp_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/ndp_prot/">&lt;p&gt;Протокол Neighbor Discovery Protocol является ключевым при рассмотрении протокола IPv6. NDP - это механизм, позволяющий узлам узнавать друг о друге. Данный протокол обеспечивает следующие функции:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://iteducate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://iteducate.github.io/" rel="alternate" type="text/html" /><updated>2021-11-19T01:24:39+03:00</updated><id>https://iteducate.github.io/feed.xml</id><title type="html">Blog Notes</title><subtitle>Personal website with .</subtitle><author><name>Ivan Denisenko</name></author><entry><title type="html">Протокол NDP - Neighbor Discovery Protocol</title><link href="https://iteducate.github.io/networks/ndp_prot/" rel="alternate" type="text/html" title="Протокол NDP - Neighbor Discovery Protocol" /><published>2021-11-06T09:00:00+03:00</published><updated>2021-11-06T09:00:00+03:00</updated><id>https://iteducate.github.io/networks/ndp_prot</id><content type="html" xml:base="https://iteducate.github.io/networks/ndp_prot/">&lt;p&gt;Протокол Neighbor Discovery Protocol является ключевым при рассмотрении протокола IPv6. NDP - это механизм, позволяющий узлам узнавать друг о друге. Данный протокол обеспечивает следующие функции:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Router Discovery&lt;/strong&gt; - позволяет узлу обнаружить локальный маршрутизатор без помощи протокола DHCP&lt;/li&gt;
@@ -484,6 +484,170 @@
 &lt;h3 id=&quot;stateless-address-autoconfiguration&quot;&gt;Stateless address autoconfiguration&lt;/h3&gt;
 
 &lt;p&gt;В случае использования механизма автоконфигурации адреса без сохранения состояния (&lt;em&gt;stateless&lt;/em&gt;). Хост может получить один или несколько префиксов из сообщений &lt;em&gt;Router Advertisement&lt;/em&gt;. Затем данные префиксы добавляются по тому же механизму, что и в случае с link-local префиксами к части Interface ID и получается итоговый global unique IPv6-адрес.&lt;/p&gt;
+
+&lt;p&gt;Рассмотрим простую схему из двух устройств&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/ndp/ipv6_scheme.png&quot;&gt;
+          &lt;img src=&quot;/assets/images/ndp/ipv6_scheme.png&quot; alt=&quot;&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;&lt;strong&gt;Схема&lt;/strong&gt;
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Ниже приведены настройки на устройстве XRv с использованием технологии &lt;strong&gt;&lt;em&gt;MAC-EUI64&lt;/em&gt;&lt;/strong&gt; и технологии &lt;strong&gt;&lt;em&gt;SLAAC&lt;/em&gt;&lt;/strong&gt; для устройства CSR 1000v.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;go&quot;&gt;------
+MAC-EUI64
+------
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;RP/0/0/CPU0:ios#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;RP/0/0/CPU0:ios#&lt;/span&gt;conf t
+&lt;span class=&quot;gp&quot;&gt;RP/0/0/CPU0:ios(config)#&lt;/span&gt;interface gi0/0/0/0
+&lt;span class=&quot;gp&quot;&gt;RP/0/0/CPU0:ios(config-if)#&lt;/span&gt;ipv6 &lt;span class=&quot;nb&quot;&gt;enable&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;RP/0/0/CPU0:ios(config-if)#&lt;/span&gt;ipv6 address 2001:db8::/64 eui-64       
+&lt;span class=&quot;gp&quot;&gt;RP/0/0/CPU0:ios(config-if)#&lt;/span&gt;no shutdown
+&lt;span class=&quot;gp&quot;&gt;RP/0/0/CPU0:ios(config-if)#&lt;/span&gt;commit
+&lt;span class=&quot;go&quot;&gt;RP/0/0/CPU0:Nov 18 21:20:00.533 : ifmgr[228]: %PKT_INFRA-LINK-3-UPDOWN : Interface GigabitEthernet0/0/0/0, changed state to Down 
+RP/0/0/CPU0:Nov 18 21:20:00.573 : ifmgr[228]: %PKT_INFRA-LINK-3-UPDOWN : Interface GigabitEthernet0/0/0/0, changed state to Up 
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;RP/0/0/CPU0:ios(config-if)#&lt;/span&gt;end
+&lt;span class=&quot;gp&quot;&gt;RP/0/0/CPU0:ios#&lt;/span&gt;show ipv6 interface brief
+&lt;span class=&quot;go&quot;&gt;MgmtEth0/0/CPU0/0      [Shutdown/Down]
+    unassigned                                    
+GigabitEthernet0/0/0/0 [Up/Up]
+    fe80::5200:ff:fe04:1                          
+    2001:db8::5200:ff:fe04:1                      
+GigabitEthernet0/0/0/1 [Shutdown/Down]
+    unassigned                                    
+GigabitEthernet0/0/0/2 [Shutdown/Down]
+    unassigned                                    
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;RP/0/0/CPU0:ios#&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;go&quot;&gt;------
+SLAAC
+------
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;Router&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;Router&amp;gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;enable&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;Router#&lt;/span&gt;conf t
+&lt;span class=&quot;go&quot;&gt;Enter configuration commands, one per line.  End with CNTL/Z.
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;Router(config)#&lt;/span&gt;ipv6 unicast-routing 
+&lt;span class=&quot;gp&quot;&gt;Router(config)#&lt;/span&gt;int gi1
+&lt;span class=&quot;gp&quot;&gt;Router(config-if)#&lt;/span&gt;ipv6 &lt;span class=&quot;nb&quot;&gt;enable&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;Router(config-if)#&lt;/span&gt;ipv6 address autoconfig default 
+&lt;span class=&quot;gp&quot;&gt;Router(config-if)#&lt;/span&gt;no shut   
+&lt;span class=&quot;gp&quot;&gt;Router(config-if)#&lt;/span&gt;end
+&lt;span class=&quot;go&quot;&gt;*Nov 18 21:23:07.073: %LINK-3-UPDOWN: Interface GigabitEthernet1, changed state to up
+*Nov 18 21:23:08.074: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1, changed state to up
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;Router#&lt;/span&gt;show ipv6 interface brief
+&lt;span class=&quot;go&quot;&gt;GigabitEthernet1       [up/up]
+    FE80::5200:FF:FE01:0
+    2001:DB8::5200:FF:FE01:0
+GigabitEthernet2       [administratively down/down]
+    unassigned
+GigabitEthernet3       [administratively down/down]
+    unassigned
+GigabitEthernet4       [administratively down/down]
+    unassigned
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;Router#&lt;/span&gt;show ipv6 route          
+&lt;span class=&quot;go&quot;&gt;IPv6 Routing Table - default - 4 entries
+Codes: C - Connected, L - Local, S - Static, U - Per-user Static route
+       B - BGP, R - RIP, H - NHRP, I1 - ISIS L1
+       I2 - ISIS L2, IA - ISIS interarea, IS - ISIS summary, D - EIGRP
+       EX - EIGRP external, ND - ND Default, NDp - ND Prefix, DCE - Destination
+       NDr - Redirect, RL - RPL, O - OSPF Intra, OI - OSPF Inter
+       OE1 - OSPF ext 1, OE2 - OSPF ext 2, ON1 - OSPF NSSA ext 1
+       ON2 - OSPF NSSA ext 2, la - LISP alt, lr - LISP site-registrations
+       ld - LISP dyn-eid, lA - LISP away, le - LISP extranet-policy
+       a - Application
+ND  ::/0 [2/0]
+     via FE80::5200:FF:FE04:1, GigabitEthernet1
+NDp 2001:DB8::/64 [2/0]
+     via GigabitEthernet1, directly connected
+L   2001:DB8::5200:FF:FE01:0/128 [0/0]
+     via GigabitEthernet1, receive
+L   FF00::/8 [0/0]
+     via Null0, receive
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;Router#&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Команда &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipv6 address autoconfig default&lt;/code&gt; позволяет автоматически получить адрес на интерфейс из сообщения &lt;em&gt;Router Advertisement&lt;/em&gt;, опция &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;default&lt;/code&gt; добавляет default route в таблицу маршрутизации.&lt;/p&gt;
+
+&lt;h3 id=&quot;stateless-dhcpv6&quot;&gt;Stateless DHCPv6&lt;/h3&gt;
 
 &lt;h2 id=&quot;address-resolution-и-neighbor-unreachability-detection&quot;&gt;Address resolution и Neighbor unreachability detection&lt;/h2&gt;
 

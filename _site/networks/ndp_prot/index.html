@@ -332,7 +332,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          8 minute read
+          10 minute read
         
       </span>
     
@@ -347,7 +347,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Содержание</h4></header>
-              <ul class="toc__menu"><li><a href="#сообщения-ndp">Сообщения NDP</a><ul><li><a href="#router-solicitation">Router Solicitation</a></li><li><a href="#router-advertisement">Router Advertisement</a></li><li><a href="#neighbor-solicitation">Neighbor Solicitation</a></li><li><a href="#neighbor-advertisement">Neighbor Advertisement</a></li><li><a href="#redirect">Redirect</a></li></ul></li><li><a href="#address-autoconfiguration">Address autoconfiguration</a><ul><li><a href="#stateful-address-autoconfiguration">Stateful address autoconfiguration</a></li><li><a href="#stateless-address-autoconfiguration">Stateless address autoconfiguration</a></li></ul></li><li><a href="#address-resolution-и-neighbor-unreachability-detection">Address resolution и Neighbor unreachability detection</a></li><li><a href="#duplicate-address-detection">Duplicate address detection</a></li></ul>
+              <ul class="toc__menu"><li><a href="#сообщения-ndp">Сообщения NDP</a><ul><li><a href="#router-solicitation">Router Solicitation</a></li><li><a href="#router-advertisement">Router Advertisement</a></li><li><a href="#neighbor-solicitation">Neighbor Solicitation</a></li><li><a href="#neighbor-advertisement">Neighbor Advertisement</a></li><li><a href="#redirect">Redirect</a></li></ul></li><li><a href="#address-autoconfiguration">Address autoconfiguration</a><ul><li><a href="#stateful-address-autoconfiguration">Stateful address autoconfiguration</a></li><li><a href="#stateless-address-autoconfiguration">Stateless address autoconfiguration</a></li><li><a href="#stateless-dhcpv6">Stateless DHCPv6</a></li></ul></li><li><a href="#address-resolution-и-neighbor-unreachability-detection">Address resolution и Neighbor unreachability detection</a></li><li><a href="#duplicate-address-detection">Duplicate address detection</a></li></ul>
 
             </nav>
           </aside>
@@ -838,6 +838,170 @@
 <h3 id="stateless-address-autoconfiguration">Stateless address autoconfiguration</h3>
 
 <p>В случае использования механизма автоконфигурации адреса без сохранения состояния (<em>stateless</em>). Хост может получить один или несколько префиксов из сообщений <em>Router Advertisement</em>. Затем данные префиксы добавляются по тому же механизму, что и в случае с link-local префиксами к части Interface ID и получается итоговый global unique IPv6-адрес.</p>
+
+<p>Рассмотрим простую схему из двух устройств</p>
+
+<figure class=" ">
+  
+    
+      <a href="/assets/images/ndp/ipv6_scheme.png">
+          <img src="/assets/images/ndp/ipv6_scheme.png" alt="" />
+      </a>
+    
+  
+  
+    <figcaption><strong>Схема</strong>
+</figcaption>
+  
+</figure>
+
+<p>Ниже приведены настройки на устройстве XRv с использованием технологии <strong><em>MAC-EUI64</em></strong> и технологии <strong><em>SLAAC</em></strong> для устройства CSR 1000v.</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre></td><td class="code"><pre><span class="go">------
+MAC-EUI64
+------
+</span><span class="gp">RP/0/0/CPU0:ios#</span><span class="w">
+</span><span class="gp">RP/0/0/CPU0:ios#</span>conf t
+<span class="gp">RP/0/0/CPU0:ios(config)#</span>interface gi0/0/0/0
+<span class="gp">RP/0/0/CPU0:ios(config-if)#</span>ipv6 <span class="nb">enable</span>
+<span class="gp">RP/0/0/CPU0:ios(config-if)#</span>ipv6 address 2001:db8::/64 eui-64       
+<span class="gp">RP/0/0/CPU0:ios(config-if)#</span>no shutdown
+<span class="gp">RP/0/0/CPU0:ios(config-if)#</span>commit
+<span class="go">RP/0/0/CPU0:Nov 18 21:20:00.533 : ifmgr[228]: %PKT_INFRA-LINK-3-UPDOWN : Interface GigabitEthernet0/0/0/0, changed state to Down 
+RP/0/0/CPU0:Nov 18 21:20:00.573 : ifmgr[228]: %PKT_INFRA-LINK-3-UPDOWN : Interface GigabitEthernet0/0/0/0, changed state to Up 
+</span><span class="gp">RP/0/0/CPU0:ios(config-if)#</span>end
+<span class="gp">RP/0/0/CPU0:ios#</span>show ipv6 interface brief
+<span class="go">MgmtEth0/0/CPU0/0      [Shutdown/Down]
+    unassigned                                    
+GigabitEthernet0/0/0/0 [Up/Up]
+    fe80::5200:ff:fe04:1                          
+    2001:db8::5200:ff:fe04:1                      
+GigabitEthernet0/0/0/1 [Shutdown/Down]
+    unassigned                                    
+GigabitEthernet0/0/0/2 [Shutdown/Down]
+    unassigned                                    
+</span><span class="gp">RP/0/0/CPU0:ios#</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+</pre></td><td class="code"><pre><span class="go">------
+SLAAC
+------
+</span><span class="gp">Router&gt;</span><span class="w">
+</span><span class="gp">Router&gt;</span><span class="nb">enable</span>
+<span class="gp">Router#</span>conf t
+<span class="go">Enter configuration commands, one per line.  End with CNTL/Z.
+</span><span class="gp">Router(config)#</span>ipv6 unicast-routing 
+<span class="gp">Router(config)#</span>int gi1
+<span class="gp">Router(config-if)#</span>ipv6 <span class="nb">enable</span>
+<span class="gp">Router(config-if)#</span>ipv6 address autoconfig default 
+<span class="gp">Router(config-if)#</span>no shut   
+<span class="gp">Router(config-if)#</span>end
+<span class="go">*Nov 18 21:23:07.073: %LINK-3-UPDOWN: Interface GigabitEthernet1, changed state to up
+*Nov 18 21:23:08.074: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1, changed state to up
+</span><span class="gp">Router#</span>show ipv6 interface brief
+<span class="go">GigabitEthernet1       [up/up]
+    FE80::5200:FF:FE01:0
+    2001:DB8::5200:FF:FE01:0
+GigabitEthernet2       [administratively down/down]
+    unassigned
+GigabitEthernet3       [administratively down/down]
+    unassigned
+GigabitEthernet4       [administratively down/down]
+    unassigned
+</span><span class="gp">Router#</span>show ipv6 route          
+<span class="go">IPv6 Routing Table - default - 4 entries
+Codes: C - Connected, L - Local, S - Static, U - Per-user Static route
+       B - BGP, R - RIP, H - NHRP, I1 - ISIS L1
+       I2 - ISIS L2, IA - ISIS interarea, IS - ISIS summary, D - EIGRP
+       EX - EIGRP external, ND - ND Default, NDp - ND Prefix, DCE - Destination
+       NDr - Redirect, RL - RPL, O - OSPF Intra, OI - OSPF Inter
+       OE1 - OSPF ext 1, OE2 - OSPF ext 2, ON1 - OSPF NSSA ext 1
+       ON2 - OSPF NSSA ext 2, la - LISP alt, lr - LISP site-registrations
+       ld - LISP dyn-eid, lA - LISP away, le - LISP extranet-policy
+       a - Application
+ND  ::/0 [2/0]
+     via FE80::5200:FF:FE04:1, GigabitEthernet1
+NDp 2001:DB8::/64 [2/0]
+     via GigabitEthernet1, directly connected
+L   2001:DB8::5200:FF:FE01:0/128 [0/0]
+     via GigabitEthernet1, receive
+L   FF00::/8 [0/0]
+     via Null0, receive
+</span><span class="gp">Router#</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Команда <code class="language-plaintext highlighter-rouge">ipv6 address autoconfig default</code> позволяет автоматически получить адрес на интерфейс из сообщения <em>Router Advertisement</em>, опция <code class="language-plaintext highlighter-rouge">default</code> добавляет default route в таблицу маршрутизации.</p>
+
+<h3 id="stateless-dhcpv6">Stateless DHCPv6</h3>
 
 <h2 id="address-resolution-и-neighbor-unreachability-detection">Address resolution и Neighbor unreachability detection</h2>
 
